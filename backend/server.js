@@ -13,6 +13,7 @@ import resumeRoutes from "./routes/resumeRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js"; // ✅ FIXED
 import quizRoutes from "./routes/quizRoutes.js";
 import newsletterRoutes from "./routes/newsletterRoutes.js";
+import path from "path";
 
 const app = express();
 
