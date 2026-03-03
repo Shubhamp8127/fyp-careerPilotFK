@@ -1,0 +1,226 @@
+/* ===== Particles Canvas ===== */
+#particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  padding: 120px 20px;
+  padding-top: 100px;
+  min-height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+
+  /* Soft gradient background */
+  background: linear-gradient(
+    180deg,
+    #F8FAFC 0%,
+    #EEF2FF 100%
+  );
+}
+
+/* ===== Heading ===== */
+.hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #0F172A; /* text-heading */
+  line-height: 1.2;
+}
+
+/* ===== Subheading ===== */
+.hero p {
+  margin-top: 20px;
+  font-size: 18px;
+  max-width: 650px;
+  color: #64748B; /* text-muted */
+}
+
+/* ===== Buttons ===== */
+.hero-buttons {
+  margin-top: 40px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Primary Button */
+.btn-primary {
+  padding: 14px 28px;
+  background: #3B82F6; /* primary-blue */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #2563EB; /* primary-blue-dark */
+  transform: translateY(-2px);
+}
+
+/* Secondary Button */
+.btn-secondary {
+  padding: 14px 28px;
+  background: transparent;
+  border: 1px solid #CBD5E1; /* divider */
+  border-radius: 8px;
+  color: #1E293B; /* text-primary */
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: #F1F5F9; /* bg-light */
+}
+
+/* ===== Stats Section ===== */
+.hero-stats {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+/* Stat Card */
+.stat-card {
+  width: 220px;
+  padding: 30px 20px;
+  background: #FFFFFF; /* bg-card */
+  border-radius: 12px;
+  border: 1px solid #E5E7EB; /* border-light */
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  transition: 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Number */
+.stat-number {
+  font-size: 36px;
+  font-weight: 700;
+  color: #3B82F6; 
+   margin-top: 40px;
+}
+
+/* Label */
+.stat-label {
+  margin-top: 8px;
+  font-size: 15px;
+  color: #64748B; /* text-muted */
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 1024px) {
+  .hero h1 {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 90px 20px 60px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+
+  .stat-card {
+    width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .stat-card {
+    width: 100%;
+  }
+
+  .stat-number {
+    font-size: 30px;
+  }
+}
+
+/* ================= DARK MODE ================= */
+
+body.dark .hero {
+  background: linear-gradient(
+    180deg,
+    #0F172A 0%,
+    #1E293B 100%
+  );
+}
+
+/* Heading */
+body.dark .hero h1 {
+  color: #F8FAFC;
+}
+
+/* Subtext */
+body.dark .hero p {
+  color: #94A3B8;
+}
+
+/* Secondary Button */
+body.dark .btn-secondary {
+  border: 1px solid #334155;
+  color: #E2E8F0;
+}
+
+body.dark .btn-secondary:hover {
+  background: #1E293B;
+}
+
+/* Stat Cards */
+body.dark .stat-card {
+  background: #1E293B;
+  border: 1px solid #334155;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Stat Number */
+body.dark .stat-number {
+  color: #60A5FA; /* info-blue */
+}
+
+/* Stat Label */
+body.dark .stat-label {
+  color: #94A3B8;
+}

@@ -1,0 +1,182 @@
+/* ================= FORGOT PAGE ================= */
+
+/* Page Background */
+.forgot-page {
+  min-height: 100vh;
+  background: #F8FAFC; /* light mode background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Container (No Box) */
+.forgot-container {
+  width: 420px;
+  text-align: center;
+  padding: 20px;
+
+  /* Remove any box styling */
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* Image */
+.forgot-img {
+  width: 350px;
+  height: auto;
+  margin-bottom: 28px;
+}
+
+/* Heading */
+.forgot-container h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #0F172A; /* light mode text */
+}
+
+/* Subtitle */
+.forgot-sub {
+  font-size: 14px;
+  color: #64748B; /* light mode muted text */
+  margin-bottom: 30px;
+}
+
+/* Form */
+form {
+  text-align: left;
+}
+
+/* Label */
+.forgot-container label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: block;
+  color: #1E293B; /* light mode text */
+}
+
+/* Input */
+.forgot-container input {
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 30px;
+  border: 1px solid #E5E7EB;
+  margin-bottom: 20px;
+  font-size: 14px;
+  background: #FFFFFF;
+  color: #1E293B;
+  outline: none;
+}
+
+.forgot-container input::placeholder {
+  color: #94A3B8;
+}
+
+.forgot-container input:focus {
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* Button */
+.forgot-container button,
+.primary-btn {
+  width: 100%;
+  padding: 12px;
+  background: #3B82F6;
+  border: none;
+  border-radius: 30px;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.forgot-container button:hover,
+.primary-btn:hover {
+  background: #2563EB;
+}
+
+/* Links */
+.back-link,
+.resend-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 22px;
+  font-size: 14px;
+  color: #64748B;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.back-link:hover,
+.resend-link:hover {
+  color: #1E293B;
+}
+
+/* ================= DARK MODE ================= */
+
+body.dark .forgot-page {
+  background-color: #0F172A; /* dark background */
+}
+
+body.dark .forgot-container {
+  /* No box in dark mode too */
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+body.dark .forgot-container h2 {
+  color: #F1F5F9;
+}
+
+body.dark .forgot-sub {
+  color: #94A3B8;
+}
+
+/* Label text */
+body.dark .forgot-container label {
+  color: #F1F5F9; /* white for dark mode */
+}
+
+body.dark .forgot-container input {
+  background: #1E293B;
+  border: 1px solid #334155;
+  color: #F1F5F9;
+}
+
+body.dark .forgot-container input::placeholder {
+  color: #64748B;
+}
+
+body.dark .forgot-container input:focus {
+  border-color: #3B82F6;
+  background-color: #0F172A;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+body.dark .forgot-container button,
+body.dark .primary-btn {
+  background-color: #2563EB;
+  color: #FFFFFF;
+}
+
+body.dark .forgot-container button:hover,
+body.dark .primary-btn:hover {
+  background-color: #1E40AF;
+}
+
+body.dark .back-link,
+body.dark .resend-link {
+  color: #94A3B8;
+}
+
+body.dark .back-link:hover,
+body.dark .resend-link:hover {
+  color: #3B82F6;
+}

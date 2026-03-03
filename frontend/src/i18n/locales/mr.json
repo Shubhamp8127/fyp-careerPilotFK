@@ -1,0 +1,392 @@
+{
+  "appName": "करिअर सल्लागार",
+  "nav": {
+    "home": "मुख्यपृष्ठ",
+    "colleges": "महाविद्यालये",
+    "pricing": "किंमत",
+    "features": "वैशिष्ट्ये",
+    "dashboard": "डॅशबोर्ड"
+  },
+  "language": {
+    "select": "भाषा"
+  },
+  "auth": {
+    "signIn": "साइन इन",
+    "signUp": "साइन अप",
+    "profile": "प्रोफाइल",
+    "logout": "लॉगआउट"
+  },
+  
+  "featuresDropdown": {
+    "careerQuiz": { "title": "करिअर क्विझ", "desc": "AI-समर्थित करिअर मूल्यांकन" },
+    "collegeFinder": { "title": "कॉलेज शोधक", "desc": "AI शिफारसींसह कॉलेज शोधा" },
+    "aiRoadmap": { "title": "AI रोडमॅप", "desc": "वैयक्तिकृत करिअर रोडमॅप तयार करा" },
+    "jobHunting": { "title": "नोकरी शोध", "desc": "AI समर्थ नोकरी जुळवणी आणि आउटरीच" },
+    "careerTree": { "title": "3D करिअर ट्री", "desc": "इंटरएक्टिव करिअर स्पष्टीकरण" },
+    "learningResources": { "title": "शिक्षण संसाधने", "desc": "क्यूरेट केलेले अभ्यास साहित्य" },
+    "subscriptionPlans": { "title": "सदस्यता योजना", "desc": "तुमची योजना पहा आणि अपग्रेड करा" }
+  },
+
+  "jobHunting": {
+    "headerTitle": "जॉब हंटिंग हब",
+    "headerSubtitle": "एआय-आधारित करिअर सहाय्यता",
+    "tabResumeAnalysis": "रिज्युमे विश्लेषण",
+    "tabJobMatches": "नोकरी जुळणी",
+    "tabOutreachDrafts": "आउटरीच ड्राफ्ट्स",
+    "uploadTitle": "तुमचा रिज्युमे अपलोड करा",
+    "uploadChooseFile": "तुमचा रिज्युमे फाइल निवडा",
+    "uploadFormatOnly": "फक्त PDF फॉर्मॅट",
+    "analyzeBtn": "AI सह रिज्युमे विश्लेषण करा",
+    "loadingText": "रिज्युमे विश्लेषण चालू आहे...",
+    "errorNoFile": "कृपया प्रथम PDF निवडा!",
+    "errorInvalidFile": "कृपया फक्त PDF फाइल अपलोड करा",
+    "resultTitle": "विश्लेषणाचे निकाल:",
+    "resultATS": "ATS स्कोर:",
+    "resultMissingSkills": "गायब कौशल्ये:",
+    "resultRecommendedRoles": "शिफारस केलेल्या भूमिका:",
+    "resultTips": "सुधारणेच्या सूचना:",
+    "resultRaw": "कच्चा AI प्रतिसाद:"
+  },
+
+  "hero": {
+  "headerLine1": "तुमचा वैयक्तिकृत करिअर &",
+  "headerLine2": "कॉलेज मार्गदर्शक",
+  "subHeader": "AI-आधारित क्विझ, 3D करिअर नकाशे आणि जवळच्या सरकारी कॉलेज सूचनांसह आपला मार्ग शोधा.",
+  "btnStartQuiz": "आपला क्विझ सुरू करा",
+  "btnLearnHow": "कसे कार्य करते ते शिका",
+  "stats1Title": "10K+",
+  "stats1Desc": "विद्यार्थ्यांचे मार्गदर्शन केले",
+  "stats2Title": "500+",
+  "stats2Desc": "करिअर मार्ग",
+  "stats3Title": "1000+",
+  "stats3Desc": "यादीबद्ध कॉलेज"
+},
+
+  "features": {
+    "title": "हमारी प्रमुख विशेषताएँ",
+    "aiGuidance": {
+      "title": "एआई-समर्थित मार्गदर्शन",
+      "description": "एआई-चालित क्विज़ के साथ व्यक्तिगत करियर और कॉलेज सुझाव प्राप्त करें।"
+    },
+    "careerMaps": {
+      "title": "3डी करियर मानचित्र",
+      "description": "इंटरैक्टिव 3D मैप्स के साथ अपने करियर पथ को देखें।"
+    },
+    "collegeInsights": {
+      "title": "कॉलेज इनसाइट्स",
+      "description": "पास के कॉलेज और विस्तृत जानकारी प्राप्त करें ताकि सही विकल्प चुन सकें।"
+    },
+    "scholarshipAlerts": {
+      "title": "छात्रवृत्ति अलर्ट",
+      "description": "नवीनतम छात्रवृत्ति और परीक्षा सूचनाओं से अपडेट रहें।"
+    },
+    "exploreButton": "सभी विशेषताएँ देखें"
+  },
+  
+  "footer": {
+    "description": "तुमच्या करिअर मार्गदर्शन आणि कॉलेज शिफारशींसाठी व्यापक प्लॅटफॉर्म, AI द्वारे समर्थित.",
+    "email": "📧 solutions@gmail.com",
+    "phone": "📞 +91 7000000000",
+    "address": "📍 123 इनोव्हेशन ड्राईव्ह, टेक सिटी",
+    "featuresTitle": "वैशिष्ट्ये",
+    "careerQuiz": "करिअर क्विझ",
+    "careerTree": "3D करिअर ट्री",
+    "collegeFinder": "कॉलेज शोधक",
+    "timeline": "टाइमलाइन ट्रॅकर",
+    "companyTitle": "कंपनी",
+    "about": "आमच्याबद्दल",
+    "team": "टीम",
+    "careers": "करिअर",
+    "contact": "संपर्क करा",
+    "supportTitle": "सहाय्यता",
+    "help": "मदत",
+    "studyMaterials": "अभ्यास साहित्य",
+    "careerGuides": "करिअर मार्गदर्शक",
+    "apiDocs": "API दस्तऐवज",
+    "legalTitle": "कायदेशीर",
+    "privacyPolicy": "गोपनीयता धोरण",
+    "terms": "सेवा अटी",
+    "cookie": "कुकी धोरण",
+    "gdpr": "GDPR",
+    "bottomText": "© 2025 CareerGuide. ❤️ विद्यार्थ्यांसाठी तयार केलेले."
+  },
+  
+  "signin": {
+    "welcomeBack": "परत स्वागत आहे",
+    "signInToContinue": "तुमची करिअर यात्रा सुरू ठेवण्यासाठी साइन इन करा",
+    "emailLabel": "ईमेल पत्ता",
+    "passwordLabel": "पासवर्ड",
+    "forgotPassword": "तुमचा पासवर्ड विसरलात?",
+    "signInButton": "साइन इन →",
+    "noAccount": "खाते नाही का?",
+    "signUpNow": "आता साइन अप करा",
+    "loginSuccess": "यशस्वीरित्या लॉगिन!",
+    "loginFailed": "लॉगिन अयशस्वी"
+  },
+  
+  "register": {
+    "createAccount": "तुमचे खाते तयार करा",
+    "signUpToContinue": "तुमची करिअर यात्रा सुरू करण्यासाठी साइन अप करा",
+    "fullName": "पूर्ण नाव",
+    "emailLabel": "ईमेल पत्ता",
+    "passwordLabel": "पासवर्ड",
+    "confirmPasswordLabel": "पासवर्ड पुष्टी करा",
+    "createAccountBtn": "खाते तयार करा →",
+    "alreadyAccount": "आधीपासून खाते आहे का?",
+    "signInNow": "साइन इन करा",
+    "passwordMismatch": "पासवर्ड जुळत नाहीत!",
+    "accountCreated": "खाते यशस्वीरित्या तयार झाले!",
+    "accountError": "खाते तयार करण्यात त्रुटी"
+  },
+  
+  "colleges": {
+    "headerTitle": "तुमचा परफेक्ट",
+    "headerSpan": "कॉलेज",
+    "headerDesc": "संपूर्ण भारतातील सर्वोत्तम अभियांत्रिकी महाविद्यालयांचा तपशीलवार माहिती आणि माहिती सह शोध घ्या",
+    "searchPlaceholder": "कॉलेज किंवा शहर शोधा...",
+    "filters": "फिल्टर्स",
+    "moreBtn": "अधिक कॉलेजेस"
+  },
+  
+  "collegeCard": {
+    "est": "स्थापना",
+    "annualFees": "वार्षिक शुल्क",
+    "cutoff": "कटऑफ",
+    "popularCourses": "लोकप्रिय कोर्सेस",
+    "more": "अधिक",
+    "viewDetails": "तपशील पहा",
+    "visit": "भेट द्या",
+    "compare": "तुलना करा"
+  },
+
+  
+  "Back": "मागे",
+  "Filters": "फिल्टर्स",
+  "Learning Resources": "शिकण्याची साधने",
+  "Curated courses, videos & practice material": "निवडलेले कोर्स, व्हिडिओ आणि सराव साहित्य",
+  "Search resources, topics...": "साधने, विषय शोधा...",
+  "All": "सर्व",
+  "Programming": "प्रोग्रामिंग",
+  "Data Science": "डेटा सायन्स",
+  "Design": "डिझाइन",
+  "Marketing": "मार्केटिंग",
+  "Finance": "फायनान्स",
+  "Management": "मॅनेजमेंट",
+  "course": "कोर्स",
+  "video": "व्हिडिओ",
+  "article": "लेख",
+  "book": "पुस्तक",
+  "practice": "सराव",
+  "Beginner": "सुरुवातीचा",
+  "Intermediate": "मध्यम",
+  "Advanced": "प्रगत",
+  "by": "द्वारे",
+  "Free": "मोफत",
+  "Paid": "पेड",
+  "Access": "उघडा",
+  "No resources found": "कोणतीही साधने सापडली नाहीत",
+  "Ready to Start Learning?": "शिकायला सुरुवात करायला तयार आहात?",
+  "Take Career Quiz": "करिअर क्विझ घ्या",
+  "Create Learning Path": "लर्निंग पाथ तयार करा",
+
+  "learningResources.completeWebDev.title": "पूर्ण वेब डेव्हलपमेंट बूटकॅम्प",
+  "learningResources.completeWebDev.description": "शून्यापासून फुल-स्टॅक वेब डेव्हलपमेंट शिका.",
+
+  "learningResources.pythonDataScience.title": "डेटा सायन्ससाठी पाइथन",
+  "learningResources.pythonDataScience.description": "पाइथन वापरून डेटा सायन्समध्ये पारंगत व्हा.",
+
+  "learningResources.mlCrash.title": "मशीन लर्निंग क्रॅश कोर्स",
+  "learningResources.mlCrash.description": "खऱ्या उदाहरणांसह ML मूलभूत गोष्टी शिका.",
+
+  "learningResources.reactPractice.title": "React सराव प्रोजेक्ट्स",
+  "learningResources.reactPractice.description": "कौशल्य सुधारण्यासाठी प्रत्यक्ष React प्रोजेक्ट्स.",
+
+  "learningResources.uiuxDesign.title": "UI/UX डिझाइन तत्त्वे",
+  "learningResources.uiuxDesign.description": "युझर-केंद्रित डिझाइनच्या मूलभूत गोष्टी शिका.",
+
+  "learningResources.figmaDesign.title": "Figma वापरून वेबसाइटसाठी डिझाइन सिस्टम",
+  "learningResources.figmaDesign.description": "Figma मध्ये स्केलेबल डिझाइन सिस्टम तयार करा.",
+
+  "learningResources.digitalMarketing.title": "डिजिटल मार्केटिंग मूलभूत गोष्टी",
+  "learningResources.digitalMarketing.description": "SEO, सोशल मीडिया आणि ऑनलाईन मार्केटिंग मूलभूत गोष्टी शिका.",
+
+  "learningResources.contentMarketing.title": "कंटेंट मार्केटिंग मार्गदर्शक",
+  "learningResources.contentMarketing.description": "कंटेंट मार्केटिंगच्या रणनीती शिका.",
+
+  "learningResources.financialPlanning.title": "तरुण गुंतवणूकदारांसाठी आर्थिक नियोजन",
+  "learningResources.financialPlanning.description": "बजेटिंग आणि बचत मूलभूत गोष्टी शिका.",
+
+  "learningResources.financialModeling.title": "बिझनेस आणि फाइनान्शियल मॉडेलिंग विशेषीकरण",
+  "learningResources.financialModeling.description": "अॅडव्हान्स फाइनान्शियल मॉडेलिंग तंत्र शिका.",
+
+  "learningResources.agileManagement.title": "अ‍ॅजाईल प्रोजेक्ट व्यवस्थापन",
+  "learningResources.agileManagement.description": "अ‍ॅजाईल आणि स्क्रम फ्रेमवर्कसाठी मार्गदर्शक.",
+
+  "learningResources.leadership.title": "नेतृत्व कौशल्ये",
+  "learningResources.leadership.description": "नेतृत्व आणि संवाद कौशल्ये सुधारण्यासाठी मार्गदर्शन.",
+
+  "learningResources.javascriptPro.title": "JavaScript Pro: प्रगत संकल्पना आणि तंत्र शिका",
+  "learningResources.javascriptPro.description": "अॅडव्हान्स JavaScript मध्ये खोलवर जाण्यासाठी मार्गदर्शन.",
+
+  "learningResources.sqlBeginners.title": "SQL for Beginners",
+  "learningResources.sqlBeginners.description": "SQL क्वेरीज आणि डेटाबेस शिका.",
+  
+
+  "Unlock Your": "तुमची क्षमता उघडा",
+  "Career Potential": "करिअर क्षमता",
+  "From personalized AI guidance to advanced career roadmaps, choose the perfect plan to accelerate your professional growth": "वैयक्तिकृत AI मार्गदर्शन आणि प्रगत करिअर रोडमॅपसह, तुमच्या व्यावसायिक विकासास गती देण्यासाठी योग्य योजना निवडा",
+  "Monthly": "महिन्याचा",
+  "Quarterly": "त्रैमासिक",
+  "Save 25%": "25% वाचवा",
+  "Most Popular": "सर्वाधिक लोकप्रिय",
+  "3 months": "3 महिने",
+  "month": "महिना",
+  "25% off": "25% सूट",
+  "Get Started": "सुरू करा",
+  "Subscribe to": "सदस्यता घ्या",
+  "payment coming soon": "पैसे लवकरच येणार आहेत",
+  "Try Free First": "सुरुवातीला मोफत प्रयत्न करा",
+  "Explore our platform with limited access to all features": "सीमित वैशिष्ट्यांसह आमचा प्लॅटफॉर्म एक्सप्लोर करा",
+  "Limited AI Career Chatbot (10 messages/day)": "मर्यादित AI करिअर चॅटबॉट (10 संदेश/दिवस)",
+  "Sample Learning Resources": "नमुना शिक्षण संसाधने",
+  "Basic Career Assessment Quiz": "मूलभूत करिअर मूल्यांकन क्विझ",
+  "Basic Dashboard": "मूलभूत डॅशबोर्ड",
+  "View College Database (Limited)": "कॉलेज डेटाबेस पाहा (मर्यादित)",
+  "Start Free Trial": "मोफत चाचणी सुरू करा",
+  "Secure Payments": "सुरक्षित देयके",
+  "Enterprise-grade security with SSL encryption": "SSL एन्क्रिप्शनसह एंटरप्राइज-ग्रेड सुरक्षा",
+  "Flexible Billing": "लवचिक बिलिंग",
+  "Cancel anytime, no hidden fees": "कधीही रद्द करा, लपलेली फी नाही",
+  "30-Day Guarantee": "30-दिवस हमी",
+  "Full refund if you're not satisfied": "जर तुम्ही समाधानी नसल्यास पूर्ण परतावा",
+  "Frequently Asked Questions": "वारंवार विचारले जाणारे प्रश्न",
+  "Can I upgrade or downgrade anytime?": "मी कधीही अपग्रेड किंवा डाउनग्रेड करू शकतो का?",
+  "Yes, you can change your plan at any time. Upgrades are immediate, and downgrades take effect at the next billing cycle.": "होय, तुम्ही कधीही तुमची योजना बदलू शकता. अपग्रेड तात्काळ लागू होतात आणि डाउनग्रेड पुढील बिलिंग चक्रात लागू होतात.",
+  "What payment methods do you accept?": "तुम्ही कोणत्या पेमेंट पद्धती स्वीकारता?",
+  "We accept all major credit cards, debit cards, and digital wallets through Stripe and Razorpay.": "आम्ही सर्व प्रमुख क्रेडिट कार्ड, डेबिट कार्ड आणि डिजिटल वॉलेट Stripe आणि Razorpay द्वारे स्वीकारतो.",
+  "Is there a free trial?": "मुफ्त चाचणी आहे का?",
+  "Yes, you can try our platform for free with limited features. No credit card required for the free tier.": "होय, तुम्ही आमचा प्लॅटफॉर्म मर्यादित वैशिष्ट्यांसह मोफत वापरू शकता. मुक्त स्तरासाठी क्रेडिट कार्ड आवश्यक नाही.",
+  "What's included in Elite Plan AI models?": "एलीट प्लान AI मॉडेलमध्ये काय समाविष्ट आहे?",
+  "Elite members get access to ChatGPT-5, Gemini Pro, and our specialized Brock AI career coach for personalized guidance.": "एलीट सदस्यांना ChatGPT-5, Gemini Pro आणि आमच्या विशेष Brock AI करिअर कोचचा प्रवेश मिळतो.",
+
+  "basic_plan": "बेसिक प्लान",
+  "basic_plan_desc": "विद्यार्थ्यांसाठी आणि प्रारंभिकांसाठी योग्य",
+  "ai_career_chatbot": "AI करिअर चॅटबॉट",
+  "basic_career_assessment": "मूलभूत करिअर मूल्यांकन",
+  "college_database_access": "कॉलेज डेटाबेस प्रवेश",
+  "email_support": "ईमेल सहाय्य",
+
+  "premium_plan": "प्रीमियम प्लान",
+  "premium_plan_desc": "व्यावसायिकांसाठी आदर्श",
+  "everything_in_basic": "बेसिकमधील सर्व",
+  "ai_roadmap_generator": "AI रोडमॅप जनरेटर",
+  "unlimited_roadmaps": "मर्यादित नाहीत रोडमॅप्स",
+  "priority_support": "प्राथमिकता सहाय्य",
+
+  "elite_plan": "एलीट प्लान",
+  "elite_plan_desc": "पॉवर यूजर्स आणि एंटरप्राइजसाठी",
+  "everything_in_premium": "प्रीमियममधील सर्व",
+  "chatgpt_gemini_pro": "ChatGPT-5 & Gemini Pro",
+  "brock_ai_assistant": "Brock AI सहाय्यक",
+  "support_247": "24/7 सहाय्य",
+
+
+  
+  "Powerful Features": "शक्तिशाली वैशिष्ट्ये",
+  "for Your Future": "तुमच्या भविष्यासाठी",
+  "Discover the tools and insights you need to make informed decisions about your career and education path.": "तुमच्या करिअर आणि शिक्षण मार्गांबाबत माहितीपूर्ण निर्णय घेण्यासाठी आवश्यक साधने आणि अंतर्दृष्टी शोधा.",
+  "3D Career Visualization": "3डी करिअर व्हिज़्युअलायझेशन",
+  "Interactive 3D maps to explore career paths and opportunities": "करिअर मार्ग आणि संधी शोधण्यासाठी इंटरएक्टिव्ह 3डी नकाशे",
+  "Smart College Recommendations": "स्मार्ट कॉलेज शिफारसी",
+  "Find the perfect colleges based on your preferences and career goals": "तुमच्या पसंती आणि करिअर उद्दिष्टांनुसार योग्य कॉलेज शोधा",
+  "Personalized Career Quiz": "वैयक्तिकृत करिअर क्विझ",
+  "AI-driven assessment to discover your strengths and ideal career paths": "AI-आधारित मूल्यांकनाने तुमच्या ताकदी आणि आदर्श करिअर मार्गांचा शोध घ्या",
+  "AI-Powered Insights": "AI-संचालित अंतर्दृष्टी",
+  "Get personalized recommendations based on your skills and interests": "तुमच्या कौशल्ये आणि आवडीनुसार वैयक्तिक शिफारसी मिळवा",
+  "Study Materials": "अभ्यास साहित्य",
+  "Access curated resources for entrance exams and skill development": "प्रवेश परीक्षा आणि कौशल्य विकासासाठी निवडक संसाधने वापरा",
+  "Goal Setting": "लक्ष्य निर्धारण",
+  "Set and track academic and career goals with smart reminders": "स्मार्ट रिमाइंडरच्या मदतीने शैक्षणिक आणि करिअर लक्ष्ये सेट आणि ट्रॅक करा",
+  "Clarity in Career Choices": "करिअर निवडींमध्ये स्पष्टता",
+  "Make confident decisions backed by AI-driven insights and data analysis": "AI-आधारित अंतर्दृष्टी आणि डेटा विश्लेषणाच्या आधारावर आत्मविश्वासाने निर्णय घ्या",
+  "Skill Development Guidance": "कौशल्य विकास मार्गदर्शन",
+  "Know exactly what skills to learn and when to learn them for maximum impact": "तुम्ही कोणती कौशल्ये शिकावी आणि कधी शिकावी हे निश्चितपणे जाणून घ्या",
+  "Improved Employability": "नोकरीसाठी सुधारित पात्रता",
+  "Prepare for the job market with targeted recommendations and resources": "लक्षित शिफारसी आणि संसाधनांसह नोकरी बाजारासाठी तयारी करा",
+  "Personalized Experience": "वैयक्तिक अनुभव",
+  "Every recommendation is tailored specifically to your unique profile": "प्रत्येक शिफारस तुमच्या अनन्य प्रोफाइलनुसार सानुकूलित आहे",
+  "Explore All Features": "सर्व वैशिष्ट्यांचा शोध घ्या",
+  "Why Choose CareerPilot?": "CareerPilot का निवडावे?",
+  "Ready to Discover Your": "तुमचा शोध घेण्यासाठी तयार आहात",
+  "Career Path": "करिअर मार्ग",
+  "Join thousands of students who've already found their direction with CareerPilot.": "हजारो विद्यार्थ्यांमध्ये सामील व्हा ज्यांनी CareerPilot सह आपला मार्ग शोधला आहे.",
+  "Get Started Free →": "मोफत प्रारंभ करा →",
+  "Explore Features": "वैशिष्ट्यांचा शोध घ्या",
+
+
+
+
+
+  "Career": "करिअर",
+  "Pilot": "पायलट",
+  "Profile": "प्रोफाइल",
+  "Logged out successfully 👋": "यशस्वीपणे लॉग आउट झाले 👋",
+  "Sign In": "साइन इन",
+  "Sign Up": "साइन अप",
+  "Sign Up Free": "मुफ्त साइन अप",
+  "Dashboard": "डॅशबोर्ड",
+  "Logout": "लॉग आउट",
+  "NAVIGATION": "नेव्हिगेशन",
+  "Home": "मुख्य पृष्ठ",
+  "Colleges": "कॉलेजेस",
+  "Pricing": "किंमत",
+  "QUICK ACCESS": "त्वरित प्रवेश",
+  "Career Quiz": "करिअर क्विझ",
+  "College Finder": "कॉलेज शोधक",
+  "AI Roadmap": "एआय रोडमॅप",
+  "Job Hunting": "नोकरी शोध",
+  "3D Career Tree": "3D करिअर ट्री",
+  "Learning Resources": "शिकण्याचे स्रोत",
+  "Subscription": "सदस्यता",
+  "APPEARANCE": "दृष्य",
+  "Dark mode": "डार्क मोड",
+  "Light mode": "लाइट मोड",
+  "ACCOUNT": "खाते",
+  "Settings": "सेटिंग्ज",
+
+
+  
+  "dashboard": {
+    "load_error": "डॅशबोर्ड लोड करण्यात अयशस्वी. कृपया खात्री करा की आपण लॉगिन केले आहात.",
+    "loading": "लोड होत आहे",
+    "view_profile": "प्रोफाइल पहा",
+    "welcome_back": "परत स्वागत आहे",
+    "continue_journey": "आपल्या करिअर डिस्कव्हरी प्रवासास सुरू ठेवा",
+    "quiz_completions": "क्विझ पूर्णता",
+    "saved_colleges": "संचित महाविद्यालये",
+    "skills_acquired": "संपादित कौशल्ये",
+    "achievements": "सिद्धी",
+    "roadmap_preview": "आपला 3D रोडमॅप पूर्वावलोकन",
+    "explore_full_roadmap": "पूर्ण रोडमॅप शोधा",
+    "generate_first_roadmap": "आपला पहिला रोडमॅप तयार करा",
+    "roadmap_description": "आपल्या शिकण्याच्या मार्गाचे दृश्य तयार करण्यासाठी आणि प्रगती ट्रॅक करण्यासाठी एआय-आधारित करिअर रोडमॅप तयार करा.",
+    "generate_button": "आपला पहिला रोडमॅप तयार करा"
+  }
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

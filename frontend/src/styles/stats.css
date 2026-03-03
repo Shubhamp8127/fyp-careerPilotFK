@@ -1,0 +1,41 @@
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  padding-bottom: 80px;
+  flex-wrap: wrap;
+}
+
+/* Card */
+.stat-box {
+  padding: 30px 40px;
+  border-radius: 14px;
+  background: #FFFFFF; /* bg-card */
+  border: 1px solid #E5E7EB; /* border-light */
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  transition: 0.3s ease;
+  cursor: pointer;
+  min-width: 200px;
+}
+
+/* Hover */
+.stat-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+/* Number */
+.stat-box h2 {
+  color: #3B82F6; /* primary-blue */
+  font-size: 36px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Label */
+.stat-box p {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 15px;
+  color: #64748B; /* text-muted */
+}

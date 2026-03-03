@@ -1,0 +1,277 @@
+/* ================= CARD ================= */
+
+.college-card {
+  background: #FFFFFF;                 /* bg-card */
+  border-radius: 18px;
+  padding: 22px;
+  border: 1px solid #E5E7EB;            /* border-light */
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  transition: all 0.3s ease;
+}
+
+.college-card:hover {
+  transform: translateY(-4px);
+  border-color: #3B82F6;               /* primary-blue */
+}
+
+/* ================= TOP ================= */
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.card-top h3 {
+  font-size: 17px;
+  line-height: 1.4;
+  color: #0F172A;                      /* text-heading */
+}
+
+.bookmark-icon,
+.heart-icon {
+  color: #64748B;                      /* text-muted */
+  cursor: pointer;
+}
+
+.bookmark-icon.filled {
+  color: #3B82F6;                      /* primary-blue */
+}
+
+/* ================= LOCATION ================= */
+
+.location {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #64748B;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ================= META ================= */
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 14px 0;
+  font-size: 13px;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  border: 1px solid #E5E7EB;
+}
+
+.badge.government {
+  background: #EFF6FF;                 /* light blue */
+  color: #2563EB;                      /* primary-blue-dark */
+}
+
+.badge.private {
+  background: #F1F5F9;                 /* bg-light */
+  color: #1E293B;                      /* text-primary */
+}
+
+.rating {
+  color: #FACC15;                      /* warning-yellow */
+}
+
+.est {
+  color: #64748B;
+}
+
+/* ================= STATS ================= */
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin: 18px 0;
+}
+
+.label {
+  font-size: 12px;
+  color: #64748B;
+}
+
+.value {
+  color: #1E293B;
+  font-weight: 600;
+}
+
+.cutoff {
+  color: #22C55E;                      /* success-green */
+  font-weight: 600;
+}
+
+/* ================= COURSES ================= */
+
+.courses {
+  margin-bottom: 18px;
+}
+
+.course-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.course-tags span {
+  background: #F1F5F9;                 /* bg-light */
+  padding: 5px 10px;
+  border-radius: 14px;
+  font-size: 12px;
+  color: #475569;
+}
+
+/* ================= ACTIONS ================= */
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.actions button {
+  background: transparent;
+  border: none;
+  color: #3B82F6;                      /* primary-blue */
+  font-size: 13px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.actions button:hover {
+  background: #EFF6FF;
+}
+
+.actions .visit {
+  background: #3B82F6;                 /* primary-blue */
+  color: #FFFFFF;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.actions .visit:hover {
+  background: #2563EB;                 /* primary-blue-dark */
+}
+
+.actions .compare {
+  color: #64748B;
+}
+
+.compare.active {
+  background: #0f172a;
+  color: white;
+}
+
+.selected-card {
+  border: 2px solid #0f172a;
+  transform: scale(1.02);
+  transition: 0.2s ease;
+}
+
+/* ================= DARK MODE CARD ================= */
+
+body.dark .college-card {
+  background: #111827;
+  border: 1px solid #1F2937;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+body.dark .college-card:hover {
+  border-color: #3B82F6;
+}
+
+/* ================= TITLE ================= */
+
+body.dark .card-top h3 {
+  color: #F1F5F9;
+}
+
+body.dark .bookmark-icon,
+body.dark .heart-icon {
+  color: #94A3B8;
+}
+
+body.dark .bookmark-icon.filled {
+  color: #3B82F6;
+}
+
+/* ================= LOCATION ================= */
+
+body.dark .location {
+  color: #94A3B8;
+}
+
+/* ================= META ================= */
+
+body.dark .badge {
+  border: 1px solid #334155;
+}
+
+/* Government badge */
+body.dark .badge.government {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60A5FA;
+}
+
+/* Private badge */
+body.dark .badge.private {
+  background: #1E293B;
+  color: #CBD5E1;
+}
+
+body.dark .est {
+  color: #94A3B8;
+}
+
+/* ================= STATS ================= */
+
+body.dark .label {
+  color: #94A3B8;
+}
+
+body.dark .value {
+  color: #F1F5F9;
+}
+
+body.dark .cutoff {
+  color: #4ADE80;
+}
+
+/* ================= COURSES ================= */
+
+body.dark .course-tags span {
+  background: #1E293B;
+  color: #CBD5E1;
+}
+
+/* ================= ACTIONS ================= */
+
+body.dark .actions button {
+  color: #60A5FA;
+}
+
+body.dark .actions button:hover {
+  background: #1E293B;
+}
+
+body.dark .actions .visit {
+  background: #2563EB;
+  color: #FFFFFF;
+}
+
+body.dark .actions .visit:hover {
+  background: #1E40AF;
+}
+
+body.dark .actions .compare {
+  color: #94A3B8;
+}

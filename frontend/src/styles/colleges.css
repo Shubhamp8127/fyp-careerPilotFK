@@ -1,0 +1,687 @@
+/* ================= PAGE ================= */
+
+.colleges-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 120px 60px 40px;
+  background: linear-gradient(180deg, #F8FAFC 0%, #EEF2FF 100%);
+  color: #1E293B;
+}
+
+/* ================= HEADER ================= */
+
+.college-header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 40px;
+}
+
+.college-header h1 {
+  font-size: 44px;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.college-header h1 span {
+  color: #3B82F6;
+}
+
+.college-header p {
+  margin-top: 12px;
+  color: #64748B;
+  font-size: 15px;
+}
+
+/* ================= SEARCH + FILTER JOINT ================= */
+
+.search-filter-wrapper {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto 35px;
+  background: #FFFFFF;
+  border-radius: 22px;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+}
+
+/* ---------- SEARCH ROW ---------- */
+
+.search-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 22px;
+  background: #F8FAFC;
+}
+
+.search-row i {
+  font-size: 20px;
+  color: #3B82F6;
+}
+
+.search-row input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #1E293B;
+  font-size: 15px;
+}
+
+.search-row input::placeholder {
+  color: #94A3B8;
+}
+
+.search-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 14px;
+  cursor: pointer;
+  background: #3B82F6;
+  border: 1px solid #2563EB;
+  color: #FFFFFF;
+  transition: all 0.25s ease;
+}
+
+.filter-btn:hover {
+  background: #2563EB;
+}
+
+/* ---------- FILTER PANEL ---------- */
+
+.filters-panel {
+  padding: 22px;
+  border-top: 1px solid #E5E7EB;
+  background: #FFFFFF;
+}
+
+/* Grid */
+.filter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.filter-grid label {
+  font-size: 13px;
+  color: #64748B;
+}
+
+.filter-grid select,
+.filter-grid input {
+  margin-top: 6px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  background: #F8FAFC;
+  border: 1px solid #E5E7EB;
+  color: #1E293B;
+  outline: none;
+}
+
+/* Footer */
+.filter-footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.results-count {
+  font-size: 14px;
+  color: #64748B;
+}
+
+.clear-btn {
+  background: none;
+  border: none;
+  color: #EF4444;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+}
+
+/* ================= GRID ================= */
+
+.college-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 22px;
+  margin-top: 20px;
+  flex: 1;
+}
+
+/* ================= BUTTON ================= */
+
+.more-colleges-btn {
+  margin: 40px auto 0;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #3B82F6;
+  color: #FFFFFF;
+  transition: all 0.3s ease;
+}
+
+.more-colleges-btn:hover {
+  background: #2563EB;
+  transform: translateY(-2px);
+}
+
+.more-btn-wrapper {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  margin: 30px 0 10px;
+}
+
+/* ================= RATING FILTER ================= */
+
+.rating-filter label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #475569;
+}
+
+.rating-value {
+  font-weight: 700;
+  color: #3B82F6;
+}
+
+.rating-slider {
+  width: 100%;
+  margin-top: 17px;
+  appearance: none;
+  height: 6px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #3B82F6, #60A5FA);
+  outline: none;
+  cursor: pointer;
+}
+
+.rating-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 3px solid #3B82F6;
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.4);
+  cursor: pointer;
+}
+
+.rating-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 3px solid #3B82F6;
+}
+
+/* ================= SELECT ================= */
+
+.select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.select-wrapper select {
+  appearance: none;
+  padding-right: 28px;
+}
+
+.select-icon {
+  position: absolute;
+  right: 8px;
+  top: 60%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #64748B;
+}
+
+.compare-bar {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0f172a;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  z-index: 1000;
+}
+
+.compare-bar button {
+  background: #22c55e;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.compare-bar button:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+
+.compare-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.compare-content {
+  background: white;
+  width: 95%;
+  max-width: 1100px;
+  border-radius: 16px;
+  padding: 30px;
+  animation: scaleIn 0.3s ease;
+}
+
+.compare-content table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.compare-content th,
+.compare-content td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.compare-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.close-btn {
+  background: #ef4444;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;        /* for icon */
+}
+
+.close-btn svg {
+  stroke: white;       /* 🔥 IMPORTANT for lucide */
+}
+
+.compare-table-wrapper {
+  overflow-x: auto;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.compare-table th {
+  background: #0f172a;
+  color: white;
+  padding: 12px;
+}
+
+.compare-table td {
+  padding: 14px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.compare-table tr:hover {
+  background: #f8fafc;
+}
+
+.winner {
+  background: #dcfce7;
+  font-weight: 600;
+  position: relative;
+}
+
+.badge {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.recommended-banner {
+  background: var(--bg-light);
+  border: 1px solid var(--border-light);
+  border-left: 6px solid var(--primary-blue);
+  padding: 16px 20px;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  animation: fadeSlide 0.4s ease;
+}
+
+.recommended-banner span {
+  font-weight: 700;
+  color: var(--primary-blue);
+}
+
+.recommended-icon {
+  background: var(--primary-blue);
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+
+/* ================= MOBILE STRUCTURE FIX ================= */
+
+@media (max-width: 768px) {
+
+  /* PAGE PADDING (Equal Left & Right Spacing) */
+  .colleges-page {
+    padding: 100px 18px 40px;
+  }
+
+  /* HEADER CENTER ALIGN */
+  .college-header {
+    margin-bottom: 30px;
+    padding: 0 4px;
+  }
+
+  .college-header h1 {
+    font-size: 30px;
+  }
+
+  .college-header p {
+    font-size: 14px;
+  }
+
+  /* SEARCH + FILTER WRAPPER FULL WIDTH */
+  .search-filter-wrapper {
+    width: 100%;
+    margin: 0 0 25px 0;
+    border-radius: 18px;
+  }
+
+  /* SEARCH ROW CLEAN ALIGN */
+  .search-row {
+    padding: 14px 16px;
+    gap: 10px;
+  }
+
+  .search-row input {
+    font-size: 14px;
+  }
+
+  /* FILTER BUTTON COMPACT */
+  .filter-btn {
+    padding: 8px 12px;
+    font-size: 13px;
+    border-radius: 12px;
+  }
+
+  /* FILTER PANEL FULL WIDTH */
+  .filters-panel {
+    padding: 16px;
+  }
+
+  /* FILTER GRID STACK */
+  .filter-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  /* RESULTS + CLEAR ALIGN */
+  .filter-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  /* COLLEGE GRID -> SINGLE COLUMN CENTERED */
+  .college-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 10px;
+  }
+
+  /* CARD FULL WIDTH & EQUAL SIDES */
+  .college-card {
+    width: 100%;
+    border-radius: 20px;
+    padding: 22px;
+  }
+
+}
+
+/* ================= DARK MODE ================= */
+
+body.dark .colleges-page {
+  background: linear-gradient(180deg, #0F172A 0%, #111827 100%);
+  color: #F1F5F9;
+}
+
+/* ================= HEADER ================= */
+
+body.dark .college-header h1 {
+  color: #F1F5F9;
+}
+
+body.dark .college-header p {
+  color: #94A3B8;
+}
+
+/* ================= SEARCH + FILTER WRAPPER ================= */
+
+body.dark .search-filter-wrapper {
+  background: #111827;
+  border: 1px solid #1F2937;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Search row */
+body.dark .search-row {
+  background: #1E293B;
+}
+
+body.dark .search-row input {
+  color: #F1F5F9;
+}
+
+body.dark .search-row input::placeholder {
+  color: #64748B;
+}
+
+/* Filter button */
+body.dark .filter-btn {
+  background: #2563EB;
+  border: 1px solid #2563EB;
+}
+
+body.dark .filter-btn:hover {
+  background: #1E40AF;
+}
+
+/* ================= FILTER PANEL ================= */
+
+body.dark .filters-panel {
+  background: #111827;
+  border-top: 1px solid #1F2937;
+}
+
+/* Labels */
+body.dark .filter-grid label {
+  color: #94A3B8;
+}
+
+/* Inputs + Selects */
+body.dark .filter-grid select,
+body.dark .filter-grid input {
+  background: #1E293B;
+  border: 1px solid #334155;
+  color: #F1F5F9;
+}
+
+body.dark .filter-grid select:focus,
+body.dark .filter-grid input:focus {
+  border: 1px solid #3B82F6;
+}
+
+/* Results count */
+body.dark .results-count {
+  color: #94A3B8;
+}
+
+/* Clear button */
+body.dark .clear-btn {
+  color: #F87171;
+}
+
+/* ================= RATING FILTER ================= */
+
+body.dark .rating-filter label {
+  color: #94A3B8;
+}
+
+body.dark .rating-value {
+  color: #60A5FA;
+}
+
+/* Slider background */
+body.dark .rating-slider {
+  background: linear-gradient(90deg, #2563EB, #3B82F6);
+}
+
+body.dark .rating-slider::-webkit-slider-thumb {
+  background: #0F172A;
+  border: 3px solid #3B82F6;
+}
+
+body.dark .rating-slider::-moz-range-thumb {
+  background: #0F172A;
+  border: 3px solid #3B82F6;
+}
+
+/* ================= SELECT ICON ================= */
+
+body.dark .select-icon {
+  color: #94A3B8;
+}
+
+/* ================= LOAD MORE BUTTON ================= */
+
+body.dark .more-colleges-btn {
+  background: #2563EB;
+}
+
+body.dark .more-colleges-btn:hover {
+  background: #1E40AF;
+}
+
+/* ================= DARK MODE - COMPARE ================= */
+
+body.dark .compare-modal {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+body.dark .compare-content {
+  background: #111827;
+  color: #F1F5F9;
+}
+
+body.dark .compare-table th {
+  background: #1E293B;
+  color: #F1F5F9;
+}
+
+body.dark .compare-table td {
+  border-bottom: 1px solid #334155;
+}
+
+body.dark .recommended-banner {
+  background: #1E293B;
+  border: 1px solid #334155;
+  border-left: 6px solid #3B82F6;
+  color: #F1F5F9;
+}
+
+body.dark .recommended-banner span {
+  color: #60A5FA;
+}
+
+body.dark .winner {
+  background: rgba(34, 197, 94, 0.15);
+}
+
+body.dark .close-btn {
+  background: #1E293B;
+  border: 1px solid #334155;
+}
+
+body.dark .close-btn svg {
+  stroke: #F1F5F9;
+}

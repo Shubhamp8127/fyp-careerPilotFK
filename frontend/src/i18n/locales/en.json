@@ -1,0 +1,397 @@
+{
+  "appName": "Career Advisor",
+  "nav": {
+    "home": "Home",
+    "colleges": "Colleges",
+    "pricing": "Pricing",
+    "features": "Features",
+    "dashboard": "Dashboard"
+  },
+  "language": {
+    "select": "Language"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "profile": "Profile",
+    "logout": "Logout"
+  },
+    
+  "featuresDropdown": {
+    "careerQuiz": {
+      "title": "Career Quiz",
+      "desc": "AI-powered career assessment"
+    },
+    "collegeFinder": {
+      "title": "College Finder",
+      "desc": "Find colleges with AI recommendations"
+    },
+    "aiRoadmap": {
+      "title": "AI Roadmap",
+      "desc": "Generate personalized career roadmaps"
+    },
+    "jobHunting": {
+      "title": "Job Hunting",
+      "desc": "AI powered job matching and outreach"
+    },
+    "careerTree": {
+      "title": "3D Career Tree",
+      "desc": "Interactive career explanation"
+    },
+    "learningResources": {
+      "title": "Learning Resources",
+      "desc": "Curated study materials"
+    },
+    "subscriptionPlans": {
+      "title": "Subscription Plans",
+      "desc": "View and upgrade your plan"
+    }
+  },
+
+
+  "jobHunting": {
+    "headerTitle": "Job Hunting Hub",
+    "headerSubtitle": "AI-powered career assistance",
+    "tabResumeAnalysis": "Resume Analysis",
+    "tabJobMatches": "Job Matches",
+    "tabOutreachDrafts": "Outreach Drafts",
+    "uploadTitle": "Upload Your Resume",
+    "uploadChooseFile": "Choose your resume file",
+    "uploadFormatOnly": "PDF format only",
+    "analyzeBtn": "Analyze Resume with AI",
+    "loadingText": "Analyzing resume...",
+    "errorNoFile": "Please select a PDF first!",
+    "errorInvalidFile": "Please upload only PDF files",
+    "resultTitle": "Analysis Result:",
+    "resultATS": "ATS Score:",
+    "resultMissingSkills": "Missing Skills:",
+    "resultRecommendedRoles": "Recommended Roles:",
+    "resultTips": "Improvement Tips:",
+    "resultRaw": "Raw AI Response:"
+  },
+
+  "hero": {
+  "headerLine1": "Your Personalized Career &",
+  "headerLine2": "College Guide",
+  "subHeader": "Discover your path with AI-powered quizzes, 3D career maps & nearby government college suggestions.",
+  "btnStartQuiz": "Start Your Quiz",
+  "btnLearnHow": "Learn How It Works",
+  "stats1Title": "10K+",
+  "stats1Desc": "Students Guided",
+  "stats2Title": "500+",
+  "stats2Desc": "Career Paths",
+  "stats3Title": "1000+",
+  "stats3Desc": "Colleges Listed"
+},
+
+  "features": {
+    "title": "Our Key Features",
+    "aiGuidance": {
+      "title": "AI-Powered Guidance",
+      "description": "Get personalized career & college suggestions with AI-driven quizzes."
+    },
+    "careerMaps": {
+      "title": "3D Career Maps",
+      "description": "Visualize your career paths with interactive 3D maps."
+    },
+    "collegeInsights": {
+      "title": "College Insights",
+      "description": "Find nearby colleges and detailed insights to choose the right fit."
+    },
+    "scholarshipAlerts": {
+      "title": "Scholarship Alerts",
+      "description": "Stay updated with the latest scholarships & exam notifications."
+    },
+    "exploreButton": "Explore All Features"
+  },
+  
+  "footer": {
+    "description": "Your comprehensive platform for career guidance and college recommendations powered by AI.",
+    "email": "📧 solutions@gmail.com",
+    "phone": "📞 +91 7000000000",
+    "address": "📍 123 Innovation Drive, Tech City",
+    "featuresTitle": "FEATURES",
+    "careerQuiz": "Career Quiz",
+    "careerTree": "3D Career Tree",
+    "collegeFinder": "College Finder",
+    "timeline": "Timeline Tracker",
+    "companyTitle": "COMPANY",
+    "about": "About",
+    "team": "Team",
+    "careers": "Careers",
+    "contact": "Contact",
+    "supportTitle": "SUPPORT",
+    "help": "Help",
+    "studyMaterials": "Study Materials",
+    "careerGuides": "Career Guides",
+    "apiDocs": "API Docs",
+    "legalTitle": "LEGAL",
+    "privacyPolicy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookie": "Cookie Policy",
+    "gdpr": "GDPR",
+    "bottomText": "© 2025 CareerGuide. Built with ❤️ for students everywhere."
+  },
+  
+  "signin": {
+    "welcomeBack": "Welcome Back",
+    "signInToContinue": "Sign in to continue your career journey",
+    "emailLabel": "Email Address",
+    "passwordLabel": "Password",
+    "forgotPassword": "Forgot your password?",
+    "signInButton": "Sign In →",
+    "noAccount": "Don’t have an account?",
+    "signUpNow": "Sign Up Now",
+    "loginSuccess": "Login successful!",
+    "loginFailed": "Login failed"
+  },
+  
+  "register": {
+    "createAccount": "Create Your Account",
+    "signUpToContinue": "Sign up to start your career journey",
+    "fullName": "Full Name",
+    "emailLabel": "Email Address",
+    "passwordLabel": "Password",
+    "confirmPasswordLabel": "Confirm Password",
+    "createAccountBtn": "Create Account →",
+    "alreadyAccount": "Already have an account?",
+    "signInNow": "Sign In",
+    "passwordMismatch": "Passwords do not match!",
+    "accountCreated": "Account created successfully!",
+    "accountError": "Error creating account"
+  },
+  
+  "colleges": {
+    "headerTitle": "Find Your Perfect",
+    "headerSpan": "College",
+    "headerDesc": "Discover top engineering colleges across India with detailed information and insights",
+    "searchPlaceholder": "Search colleges or cities...",
+    "filters": "Filters",
+    "moreBtn": "More Colleges"
+  },
+  
+  "collegeCard": {
+    "est": "Est.",
+    "annualFees": "Annual Fees",
+    "cutoff": "Cutoff",
+    "popularCourses": "Popular Courses",
+    "more": "more",
+    "viewDetails": "View Details",
+    "visit": "Visit",
+    "compare": "Compare"
+  },
+
+  "Back": "Back",
+  "Filters": "Filters",
+  "Learning Resources": "Learning Resources",
+  "Curated courses, videos & practice material": "Curated courses, videos & practice material",
+  "Search resources, topics...": "Search resources, topics...",
+  "All": "All",
+  "Programming": "Programming",
+  "Data Science": "Data Science",
+  "Design": "Design",
+  "Marketing": "Marketing",
+  "Finance": "Finance",
+  "Management": "Management",
+  "course": "course",
+  "video": "video",
+  "article": "article",
+  "book": "book",
+  "practice": "practice",
+  "Beginner": "Beginner",
+  "Intermediate": "Intermediate",
+  "Advanced": "Advanced",
+  "by": "by",
+  "Free": "Free",
+  "Paid": "Paid",
+  "Access": "Access",
+  "No resources found": "No resources found",
+  "Ready to Start Learning?": "Ready to Start Learning?",
+  "Take Career Quiz": "Take Career Quiz",
+  "Create Learning Path": "Create Learning Path",
+  
+  "learningResources.completeWebDev.title": "Complete Web Development Bootcamp",
+  "learningResources.completeWebDev.description": "Learn full-stack web development from scratch.",
+
+  "learningResources.pythonDataScience.title": "Python for Data Science",
+  "learningResources.pythonDataScience.description": "Master data science using Python.",
+
+  "learningResources.mlCrash.title": "Machine Learning Crash Course",
+  "learningResources.mlCrash.description": "Learn ML fundamentals with real examples.",
+
+  "learningResources.reactPractice.title": "React Practice Projects",
+  "learningResources.reactPractice.description": "Hands-on React projects to improve skills.",
+
+  "learningResources.uiuxDesign.title": "UI/UX Design Principles",
+  "learningResources.uiuxDesign.description": "Learn the basics of user-centered design.",
+
+  "learningResources.figmaDesign.title": "Design Systems for Websites using Figma",
+  "learningResources.figmaDesign.description": "Create scalable design systems in Figma.",
+
+  "learningResources.digitalMarketing.title": "Digital Marketing Fundamentals",
+  "learningResources.digitalMarketing.description": "SEO, social media and online marketing basics.",
+
+  "learningResources.contentMarketing.title": "Content Marketing Guide",
+  "learningResources.contentMarketing.description": "Learn content marketing strategies.",
+
+  "learningResources.financialPlanning.title": "Financial Planning for Young Investors",
+  "learningResources.financialPlanning.description": "Basics of budgeting and saving money.",
+
+  "learningResources.financialModeling.title": "Business and Financial Modeling Specialization",
+  "learningResources.financialModeling.description": "Advanced financial modeling techniques.",
+
+  "learningResources.agileManagement.title": "Agile Project Management",
+  "learningResources.agileManagement.description": "Guide to agile and scrum frameworks.",
+
+  "learningResources.leadership.title": "Leadership Skills",
+  "learningResources.leadership.description": "Improve leadership and communication skills.",
+
+  "learningResources.javascriptPro.title": "JavaScript Pro: Mastering Advanced Concepts and Techniques",
+  "learningResources.javascriptPro.description": "Deep dive into advanced JavaScript.",
+
+"learningResources.sqlBeginners.title": "SQL for Beginners",
+"learningResources.sqlBeginners.description": "Learn SQL queries and databases.",
+
+
+"Unlock Your": "Unlock Your",
+  "Career Potential": "Career Potential",
+  "From personalized AI guidance to advanced career roadmaps, choose the perfect plan to accelerate your professional growth": "From personalized AI guidance to advanced career roadmaps, choose the perfect plan to accelerate your professional growth",
+  "Monthly": "Monthly",
+  "Quarterly": "Quarterly",
+  "Save 25%": "Save 25%",
+  "Most Popular": "Most Popular",
+  "3 months": "3 months",
+  "month": "month",
+  "25% off": "25% off",
+  "Get Started": "Get Started",
+  "Subscribe to": "Subscribe to",
+  "payment coming soon": "payment coming soon",
+  "Try Free First": "Try Free First",
+  "Explore our platform with limited access to all features": "Explore our platform with limited access to all features",
+  "Limited AI Career Chatbot (10 messages/day)": "Limited AI Career Chatbot (10 messages/day)",
+  "Sample Learning Resources": "Sample Learning Resources",
+  "Basic Career Assessment Quiz": "Basic Career Assessment Quiz",
+  "Basic Dashboard": "Basic Dashboard",
+  "View College Database (Limited)": "View College Database (Limited)",
+  "Start Free Trial": "Start Free Trial",
+  "Secure Payments": "Secure Payments",
+  "Enterprise-grade security with SSL encryption": "Enterprise-grade security with SSL encryption",
+  "Flexible Billing": "Flexible Billing",
+  "Cancel anytime, no hidden fees": "Cancel anytime, no hidden fees",
+  "30-Day Guarantee": "30-Day Guarantee",
+  "Full refund if you're not satisfied": "Full refund if you're not satisfied",
+  "Frequently Asked Questions": "Frequently Asked Questions",
+  "Can I upgrade or downgrade anytime?": "Can I upgrade or downgrade anytime?",
+  "Yes, you can change your plan at any time. Upgrades are immediate, and downgrades take effect at the next billing cycle.": "Yes, you can change your plan at any time. Upgrades are immediate, and downgrades take effect at the next billing cycle.",
+  "What payment methods do you accept?": "What payment methods do you accept?",
+  "We accept all major credit cards, debit cards, and digital wallets through Stripe and Razorpay.": "We accept all major credit cards, debit cards, and digital wallets through Stripe and Razorpay.",
+  "Is there a free trial?": "Is there a free trial?",
+  "Yes, you can try our platform for free with limited features. No credit card required for the free tier.": "Yes, you can try our platform for free with limited features. No credit card required for the free tier.",
+  "What's included in Elite Plan AI models?": "What's included in Elite Plan AI models?",
+  "Elite members get access to ChatGPT-5, Gemini Pro, and our specialized Brock AI career coach for personalized guidance.": "Elite members get access to ChatGPT-5, Gemini Pro, and our specialized Brock AI career coach for personalized guidance",
+  
+  "basic_plan": "Basic Plan",
+  "basic_plan_desc": "Perfect for students and beginners",
+  "ai_career_chatbot": "AI Career Chatbot",
+  "basic_career_assessment": "Basic Career Assessment",
+  "college_database_access": "College Database Access",
+  "email_support": "Email Support",
+
+  "premium_plan": "Premium Plan",
+  "premium_plan_desc": "Ideal for professionals",
+  "everything_in_basic": "Everything in Basic",
+  "ai_roadmap_generator": "AI Roadmap Generator",
+  "unlimited_roadmaps": "Unlimited Roadmaps",
+  "priority_support": "Priority Support",
+
+  "elite_plan": "Elite Plan",
+  "elite_plan_desc": "For power users and enterprises",
+  "everything_in_premium": "Everything in Premium",
+  "chatgpt_gemini_pro": "ChatGPT-5 & Gemini Pro",
+  "brock_ai_assistant": "Brock AI Assistant",
+  "support_247": "24/7 Support",
+
+  
+  "Powerful Features": "Powerful Features",
+  "for Your Future": "for Your Future",
+  "Discover the tools and insights you need to make informed decisions about your career and education path.": "Discover the tools and insights you need to make informed decisions about your career and education path.",
+  "3D Career Visualization": "3D Career Visualization",
+  "Interactive 3D maps to explore career paths and opportunities": "Interactive 3D maps to explore career paths and opportunities",
+  "Smart College Recommendations": "Smart College Recommendations",
+  "Find the perfect colleges based on your preferences and career goals": "Find the perfect colleges based on your preferences and career goals",
+  "Personalized Career Quiz": "Personalized Career Quiz",
+  "AI-driven assessment to discover your strengths and ideal career paths": "AI-driven assessment to discover your strengths and ideal career paths",
+  "AI-Powered Insights": "AI-Powered Insights",
+  "Get personalized recommendations based on your skills and interests": "Get personalized recommendations based on your skills and interests",
+  "Study Materials": "Study Materials",
+  "Access curated resources for entrance exams and skill development": "Access curated resources for entrance exams and skill development",
+  "Goal Setting": "Goal Setting",
+  "Set and track academic and career goals with smart reminders": "Set and track academic and career goals with smart reminders",
+  "Clarity in Career Choices": "Clarity in Career Choices",
+  "Make confident decisions backed by AI-driven insights and data analysis": "Make confident decisions backed by AI-driven insights and data analysis",
+  "Skill Development Guidance": "Skill Development Guidance",
+  "Know exactly what skills to learn and when to learn them for maximum impact": "Know exactly what skills to learn and when to learn them for maximum impact",
+  "Improved Employability": "Improved Employability",
+  "Prepare for the job market with targeted recommendations and resources": "Prepare for the job market with targeted recommendations and resources",
+  "Personalized Experience": "Personalized Experience",
+  "Every recommendation is tailored specifically to your unique profile": "Every recommendation is tailored specifically to your unique profile",
+  "Explore All Features": "Explore All Features",
+  "Why Choose CareerPilot?": "Why Choose CareerPilot?",
+  "Ready to Discover Your": "Ready to Discover Your",
+  "Career Path": "Career Path",
+  "Join thousands of students who've already found their direction with CareerPilot.": "Join thousands of students who've already found their direction with CareerPilot.",
+  "Get Started Free →": "Get Started Free →",
+  "Explore Features": "Explore Features",
+
+
+  
+  "Career": "Career",
+  "Pilot": "Pilot",
+  "Profile": "Profile",
+  "Logged out successfully 👋": "Logged out successfully 👋",
+  "Sign In": "Sign In",
+  "Sign Up": "Sign Up",
+  "Sign Up Free": "Sign Up Free",
+  "Dashboard": "Dashboard",
+  "Logout": "Logout",
+  "NAVIGATION": "Navigation",
+  "Home": "Home",
+  "Colleges": "Colleges",
+  "Pricing": "Pricing",
+  "QUICK ACCESS": "Quick Access",
+  "Career Quiz": "Career Quiz",
+  "College Finder": "College Finder",
+  "AI Roadmap": "AI Roadmap",
+  "Job Hunting": "Job Hunting",
+  "3D Career Tree": "3D Career Tree",
+  "Learning Resources": "Learning Resources",
+  "Subscription": "Subscription",
+  "APPEARANCE": "Appearance",
+  "Dark mode": "Dark mode",
+  "Light mode": "Light mode",
+  "ACCOUNT": "Account",
+  "Settings": "Settings",
+
+
+
+      "load_error": "Failed to load dashboard. Make sure you are logged in.",
+      "loading": "Loading",
+      "view_profile": "View Profile",
+      "welcome_back": "Welcome back",
+      "continue_journey": "Continue your career discovery journey",
+      "quiz_completions": "Quiz Completions",
+      "saved_colleges": "Saved Colleges",
+      "skills_acquired": "Skills Acquired",
+      "achievements": "Achievements",
+      "roadmap_preview": "Your 3D Roadmap Preview",
+      "explore_full_roadmap": "Explore Full Roadmap",
+      "generate_first_roadmap": "Generate Your First Roadmap",
+      "roadmap_description": "Create an AI-powered career roadmap to visualize your learning path and track progress.",
+      "generate_button": "Generate Your First Roadmap"
+    }
+  
+
+
+
+
+ 

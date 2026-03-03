@@ -1,0 +1,86 @@
+/* ===============================
+   QUIZ LOADER (Without :root)
+================================= */
+
+.quiz-loader-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    #F8FAFC 0%,
+    #EEF2FF 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.quiz-loader-content {
+  text-align: center;
+  background: #FFFFFF; /* bg-card */
+  padding: 40px 50px;
+  border-radius: 16px;
+  border: 1px solid #E5E7EB; /* border-light */
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.quiz-spinner {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 4px solid #F1F5F9; /* bg-light */
+  border-top-color: #3B82F6; /* primary-blue */
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+.quiz-loader-content h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #0F172A; /* text-heading */
+  margin-bottom: 8px;
+}
+
+.quiz-loader-content p {
+  font-size: 14px;
+  color: #64748B; /* text-muted */
+}
+
+/* ===============================
+   QUIZ LOADER - DARK MODE
+   Activate when: body.dark
+================================= */
+
+body.dark .quiz-loader-overlay {
+  background: linear-gradient(
+    180deg,
+    #0F172A 0%,
+    #020617 100%
+  );
+}
+
+body.dark .quiz-loader-content {
+  background: #1E293B; /* dark card */
+  border: 1px solid #334155; /* subtle dark border */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+body.dark .quiz-spinner {
+  border: 4px solid #334155; /* muted dark ring */
+  border-top-color: #60A5FA; /* info-blue for glow effect */
+}
+
+body.dark .quiz-loader-content h2 {
+  color: #F8FAFC; /* light heading */
+}
+
+body.dark .quiz-loader-content p {
+  color: #94A3B8; /* text-light */
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,313 @@
+/* ===== PAGE ===== */
+.signin-page {
+  min-height: 100vh;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  background-color: #F8FAFC; /* clean light background */
+}
+
+
+
+/* ===== HERO ===== */
+.signin-hero {
+  position: relative;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 130px;
+}
+
+/* ===== SIGNIN NAVBAR ===== */
+.signin-navbar {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  background-color: #FFFFFF; /* bg-card */
+  border-bottom: 1px solid #E5E7EB; /* border-light */
+}
+
+/* Logo Text */
+.signin-navbar .logo {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0F172A; /* text-heading */
+}
+
+/* Navbar Links */
+.signin-navbar a {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1E293B; /* text-primary */
+  text-decoration: none;
+  margin-left: 24px;
+  transition: color 0.2s ease;
+}
+
+.signin-navbar a:hover {
+  color: #3B82F6; /* primary-blue */
+}
+
+.signin-navbar .nav-btn {
+  padding: 8px 16px;
+  background-color: #3B82F6; /* primary-blue */
+  color: #FFFFFF;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.signin-navbar .nav-btn:hover {
+  background-color: #2563EB; /* primary-blue-dark */
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+}
+
+
+/* ❌ FLOAT SHAPES REMOVED COMPLETELY (OPTION 1) */
+
+/* ===== CONTENT ===== */
+.signin-container {
+  text-align: center;
+  z-index: 2;
+}
+
+/* ===== LOGO ===== */
+.cp-circle {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  margin: auto;
+  margin-bottom: 18px;
+  background-color: #2563EB; /* solid SaaS blue */
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* ===== TEXT ===== */
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #0F172A;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: #64748B;
+  margin-bottom: 32px;
+}
+
+/* ===== CARD ===== */
+.signin-card {
+  width: 360px;
+  background-color: #ffffff;
+  padding: 32px;
+  border-radius: 20px;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+/* ===== INPUT ===== */
+.input-box {
+  display: flex;
+  align-items: center;
+  background-color: #F1F5F9;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 18px;
+  border: 1px solid #E5E7EB;
+  transition: all 0.2s ease;
+}
+
+.input-box svg {
+  color: #94A3B8;
+  margin-right: 10px;
+}
+
+.input-box input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  color: #0F172A;
+}
+
+/* ===== INPUT FOCUS ===== */
+.input-box:focus-within {
+  border-color: #2563EB;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* ===== EYE ICON ===== */
+.eye {
+  cursor: pointer;
+  color: #94A3B8;
+}
+
+/* ===== FORGOT ===== */
+.forgot {
+  text-align: right;
+  font-size: 13px;
+  color: #2563EB;
+  margin-bottom: 22px;
+  cursor: pointer;
+}
+
+/* ===== BUTTON ===== */
+.signin-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background-color: #2563EB;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.signin-btn:hover {
+  background-color: #1D4ED8;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+}
+
+/* ===== SIGNUP ===== */
+.signup-text {
+  margin-top: 26px;
+  font-size: 14px;
+  color: #64748B;
+}
+
+.signup-text span {
+  color: #2563EB;
+  font-weight: 500;
+  margin-left: 6px;
+  cursor: pointer;
+}
+
+/* 🔥 Hide browser password reveal icon */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-password-toggle-button {
+  display: none !important;
+}
+
+/* ================= DARK MODE SIGNIN ================= */
+
+body.dark .signin-page {
+  background-color: #0F172A;
+}
+
+body.dark .signin-navbar {
+  background-color: #0F172A;
+  border-bottom: 1px solid #1E293B;
+}
+
+body.dark .signin-navbar .logo {
+  color: #F1F5F9;
+}
+
+body.dark .signin-navbar a {
+  color: #CBD5E1;
+}
+
+body.dark .signin-navbar a:hover {
+  color: #60A5FA;
+}
+
+
+/* ===== TITLE & SUBTITLE ===== */
+
+body.dark .title {
+  color: #F1F5F9;
+}
+
+body.dark .subtitle {
+  color: #94A3B8;
+}
+
+/* ===== CARD ===== */
+
+body.dark .signin-card {
+  background-color: #111827;
+  border: 1px solid #1F2937;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== INPUT BOX ===== */
+
+body.dark .input-box {
+  background-color: #1E293B;
+  border: 1px solid #334155;
+}
+
+body.dark .input-box svg {
+  color: #64748B;
+}
+
+body.dark .input-box input {
+  color: #F1F5F9;
+}
+
+body.dark .input-box input::placeholder {
+  color: #64748B;
+}
+
+/* ===== INPUT FOCUS ===== */
+
+body.dark .input-box:focus-within {
+  border-color: #3B82F6;
+  background-color: #0F172A;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+/* ===== EYE ICON ===== */
+
+body.dark .eye {
+  color: #94A3B8;
+}
+
+/* ===== FORGOT PASSWORD ===== */
+
+body.dark .forgot {
+  color: #3B82F6;
+}
+
+/* ===== BUTTON ===== */
+
+body.dark .signin-btn {
+  background-color: #2563EB;
+}
+
+body.dark .signin-btn:hover {
+  background-color: #1E40AF;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+}
+
+/* ===== SIGNUP TEXT ===== */
+
+body.dark .signup-text {
+  color: #94A3B8;
+}
+
+body.dark .signup-text span {
+  color: #3B82F6;
+}

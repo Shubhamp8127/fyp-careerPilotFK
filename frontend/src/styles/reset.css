@@ -1,0 +1,499 @@
+/* ============================= */
+/* PAGE WRAPPER */
+/* ============================= */
+
+.reset-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;  /* important */
+  justify-content: center;
+  align-items: center;
+  background: #F8FAFC;
+  padding: 20px;
+  padding-top: 75px;
+  max-width: 420px;   /* width control */
+  margin: auto;       /* center */
+}
+
+
+/* ============================= */
+/* CARD */
+/* ============================= */
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================= */
+/* IMAGE */
+/* ============================= */
+
+.reset-img img {
+  width: 100%;
+  max-width: 250px;
+  margin-bottom: -10px;
+}
+
+
+
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+
+.reset-container h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #0F172A;
+}
+
+.reset-sub {
+  font-size: 14px;
+  color:  #64748B;
+  margin-bottom: 25px;
+}
+
+.reset-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.input-label
+
+
+/* ============================= */
+/* LABELS */
+/* ============================= */
+
+.input-label {
+  display: block;
+  text-align: left;
+  font-size: 14px;
+  margin-bottom: 6px;
+  margin-top: 12px;
+  font-weight: 500;
+  color: #1E293B;
+}
+
+/* ============================= */
+/* INPUT GROUP */
+/* ============================= */
+
+.input-group {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.input-group input,
+.simple-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #E5E7EB; /* --border-light */
+  background: #F1F5F9; /* --bg-light */
+  color: #1E293B; /* --text-primary */
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input-group input:focus,
+.simple-input:focus {
+  border-color: #3B82F6; /* --primary-blue */
+  background: #FFFFFF; /* --bg-card */
+}
+
+.input-group span {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+   color: #94A3B8;
+}
+
+/* ============================= */
+/* SIMPLE INPUT */
+/* ============================= */
+
+.simple-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  margin-bottom: 8px;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.simple-input:focus {
+  border-color: #3b82f6;
+  background: #ffffff;
+}
+
+/* Match / Not Match */
+.simple-input.match {
+  border-color: #22c55e;
+}
+
+.simple-input.not-match {
+  border-color: #ef4444;
+}
+
+/* ============================= */
+/* PROGRESS BAR */
+/* ============================= */
+
+.progress-bar {
+  height: 6px;
+  background: #E5E7EB; 
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+
+.progress-fill {
+  height: 100%;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+/* ============================= */
+/* STRENGTH TEXT */
+/* ============================= */
+
+.strength-text {
+  font-size: 13px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+/* ============================= */
+/* PASSWORD RULES */
+/* ============================= */
+
+.password-rules {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  text-align: left;
+}
+
+.password-rules li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  color: #64748B;
+  transition: 0.2s ease;
+}
+
+/* Icon style */
+.rule-icon {
+  font-size: 14px;
+  width: 18px;
+  display: inline-flex;
+  justify-content: center;
+}
+
+/* When rule is completed */
+.password-rules li.done {
+  color: #22C55E; /* Green text */
+  font-weight: 500;
+}
+
+.password-rules li.done .rule-icon {
+  color: #22c55e;
+}
+
+
+/* ============================= */
+/* ERROR / SUCCESS TEXT */
+/* ============================= */
+
+.error-text {
+  font-size: 13px;
+  color: #ef4444;
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+.success-text {
+  font-size: 13px;
+  color: #22c55e;
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+/* ============================= */
+/* BUTTON */
+/* ============================= */
+
+.reset-container button {
+  width: 100%;
+  padding: 13px;
+  border-radius: 25px;
+  border: none;
+  background: #3B82F6;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.2s ease;
+}
+
+.reset-container button:hover {
+  opacity: 0.9;
+  background: #2563EB;
+}
+
+.reset-container button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.reset-container form {
+  width: 100%;
+}
+
+
+/* ============================= */
+/* SPINNER */
+/* ============================= */
+
+.btn-spinner {
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================= */
+/* MESSAGE */
+/* ============================= */
+
+.msg {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* ============================= */
+/* BACK LINK */
+/* ============================= */
+
+.back-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-size: 14px;
+  text-decoration: none;
+  color: #3b82f6;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+  color: #2563EB;
+}
+
+.dark .reset-container {
+  background: #0f172a; /* dark navy */
+}
+
+.dark .reset-container h2 {
+  color: #f1f5f9;
+}
+
+.dark .reset-sub {
+  color: #94a3b8;
+}
+
+.dark .input-label {
+  color: #cbd5e1;
+}
+
+.dark .strength-text {
+  color: #cbd5e1;
+}
+
+.dark .msg {
+  color: #94a3b8;
+}
+
+.dark .input-group input,
+.dark .simple-input {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #f1f5f9;
+}
+
+.dark .input-group input:focus,
+.dark .simple-input:focus {
+  background: #1e293b;
+  border-color: #3B82F6; /* primary blue */
+}
+
+
+.dark .input-group span {
+  color: #94a3b8;
+}
+
+.dark .progress-bar {
+  background: #334155;
+}
+
+.dark .password-rules li {
+  color: #94a3b8;
+}
+
+.dark .password-rules li.done {
+  color: #22c55e;
+}
+
+.dark .back-link {
+  color: #f97316;
+}
+
+/* ================= SUCCESS SCREEN ================= */
+
+.success-wrapper {
+  min-height: 100vh;
+   background: linear-gradient(
+    180deg,
+    #F8FAFC 0%,
+    #EEF2FF 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.success-logo {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  font-weight: 600;
+  font-size: 18px;
+  color: #f97316; /* your orange */
+}
+
+.success-card {
+  background: #FFFFFF; /* --bg-card */
+  border: 1px solid #E5E7EB; /* --border-light */
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  border-radius: 20px;
+  padding: 40px 30px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+}
+
+.success-card img {
+  width: 120px;
+  max-width: 85%;
+  margin-bottom: 25px;
+}
+
+.success-card h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #0F172A; /* --text-heading */
+  margin-bottom: 10px;
+}
+
+.success-card p {
+  font-size: 14px;
+  color: #64748B; /* --text-muted */
+  margin-bottom: 30px;
+}
+
+/* CTA Button */
+
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 30px;
+  border: none;
+  background: #3B82F6; /* --primary-blue */
+  color: #FFFFFF;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.login-btn:hover {
+  background: #2563EB; /* --primary-blue-dark */
+}
+
+.success-footer {
+  position: absolute;
+  bottom: 15px;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* DARK MODE */
+
+.dark .success-wrapper {
+  background: #0f172a;
+}
+
+.dark .success-card {
+  background: #1E293B;
+  border: 1px solid #334155;
+  box-shadow: none;
+}
+
+.dark .success-card h2 {
+  color: #f1f5f9;
+}
+
+.dark .success-card p {
+  color: #94a3b8;
+}
+
+.dark .success-footer {
+  color: #64748b;
+}
+
+.success-card img {
+  width: 220px;
+  max-width: 80%;
+  margin-bottom: 25px;
+  animation: fadeIn 0.5s ease;
+}
+
+
+.dark .success-wrapper {
+  background: #0f172a;
+}
+
+

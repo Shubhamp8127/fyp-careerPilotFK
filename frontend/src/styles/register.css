@@ -1,0 +1,281 @@
+/* ================= PAGE ================= */
+.register-page {
+  min-height: 100vh;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  background-color: #F8FAFC;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* ================= HEADER ================= */
+.register-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.register-logo {
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background-color: #2563EB; /* same as signin */
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-header h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #0F172A;
+  margin-bottom: 6px;
+}
+
+.register-header p {
+  font-size: 14px;
+  color: #64748B;
+}
+
+/* ================= CARD ================= */
+.register-card {
+  width: 100%;
+  max-width: 400px;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+/* ================= INPUT ================= */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-icon-wrapper {
+  position: relative;
+}
+
+/* INPUT FIELD */
+.input-icon-wrapper input {
+  width: 100%;
+  height: 52px;
+
+  padding: 16px 44px 6px 72px;  /* top right bottom left */
+
+  background-color: #F1F5F9;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+
+  color: #0F172A;
+  font-size: 14px;
+
+  line-height: normal;   /* ❌ remove 52px */
+  
+  outline: none;
+  transition: 0.2s ease;
+  cursor: text;
+}
+
+/* ===== ICON COLOR SAME AS SIGNIN (FINAL FIX) ===== */
+.input-icon svg {
+  color: #94A3B8; /* default grey */
+}
+
+/* focus ke time icon blue */
+.input-icon-wrapper:focus-within .input-icon svg {
+  color: #2563EB;
+}
+
+/* Focus */
+.input-icon-wrapper input:focus {
+  background-color: #FFFFFF;
+  border-color: #2563EB;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* FLOAT LABEL */
+.input-icon-wrapper label {
+  position: absolute;
+  left: 44px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94A3B8;
+  font-size: 13px;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  background-color: transparent;
+}
+
+.input-group.filled .input-icon-wrapper label,
+.input-icon-wrapper input:focus + label {
+  transform: translateY(-140%);
+  font-size: 12px;
+  color: #2563EB;
+  background-color: #FFFFFF;
+  padding: 0 6px;
+  caret-color: #2563EB;
+}
+
+/* LEFT ICON */
+.input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+transform: translateY(-50%);
+  font-size: 18px;
+  color: #94A3B8;
+}
+
+/* RIGHT ICON (EYE) */
+.input-icon.clickable {
+  left: auto;
+  right: 14px;
+  cursor: pointer;
+  color: #94A3B8;
+}
+
+.input-icon-wrapper:focus-within .input-icon {
+  color: #2563EB;
+}
+
+/* ================= BUTTON ================= */
+.register-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background-color: #2563EB;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.register-btn:hover {
+  background-color: #1D4ED8;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+}
+
+/* ================= SIGN IN TEXT ================= */
+.signin-text {
+  margin-top: 22px;
+  font-size: 14px;
+  color: #64748B;
+}
+
+.signin-text span {
+  color: #2563EB;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 480px) {
+  .register-card {
+    padding: 24px;
+  }
+
+  .register-header h2 {
+    font-size: 22px;
+  }
+}
+
+/* ================= DARK MODE REGISTER ================= */
+
+body.dark .register-page {
+  background-color: #0F172A;
+}
+
+/* ===== HEADER ===== */
+
+body.dark .register-header h2 {
+  color: #F1F5F9;
+}
+
+body.dark .register-header p {
+  color: #94A3B8;
+}
+
+/* ===== CARD ===== */
+
+body.dark .register-card {
+  background-color: #111827;
+  border: 1px solid #1F2937;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== INPUT FIELD ===== */
+
+body.dark .input-icon-wrapper input {
+  background-color: #1E293B;
+  border: 1px solid #334155;
+  color: #F1F5F9;
+}
+
+body.dark .input-icon-wrapper input::placeholder {
+  color: #64748B;
+}
+
+/* Focus */
+body.dark .input-icon-wrapper input:focus {
+  background-color: #0F172A;
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+/* ===== LABEL ===== */
+
+body.dark .input-icon-wrapper label {
+  color: #64748B;
+}
+
+body.dark .input-group.filled label,
+body.dark .input-icon-wrapper input:focus + label {
+  background-color: #111827;
+  color: #3B82F6;
+}
+
+/* ===== ICONS ===== */
+
+body.dark .input-icon svg {
+  color: #64748B;
+}
+
+body.dark .input-icon-wrapper:focus-within .input-icon svg {
+  color: #3B82F6;
+}
+
+body.dark .input-icon.clickable {
+  color: #94A3B8;
+}
+
+/* ===== BUTTON ===== */
+
+body.dark .register-btn {
+  background-color: #2563EB;
+}
+
+body.dark .register-btn:hover {
+  background-color: #1E40AF;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+}
+
+/* ===== SIGN IN TEXT ===== */
+
+body.dark .signin-text {
+  color: #94A3B8;
+}
+
+body.dark .signin-text span {
+  color: #3B82F6;
+}
+
