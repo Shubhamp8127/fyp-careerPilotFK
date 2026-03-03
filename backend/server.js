@@ -50,14 +50,14 @@ app.use("/api", newsletterRoutes);
 // Temporarily allow cron job in development
 if (process.env.NODE_ENV === "production") {
  
-  console.log("STATIC PATH:", path.join(__dirname, "../frontend/dist"));
+  console.log("STATIC PATH:", path.join(__dirname, "../frontend/build"));
 
-  // Serve static files from the frontend/dist directory
-  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+  // Serve static files from the frontend/build directory
+  app.use(express.static(path.join(__dirname, "../frontend/build")));
 
   // For any other route, serve index.html (for React Router)
-  app.get("/*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
   });
 }
 
