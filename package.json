@@ -6,8 +6,8 @@
   "author": "",
   "type": "commonjs",
   "main": "index.js",
- "scripts": {
-    "build" : "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
+  "scripts": {
+    "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
     "start": "npm run start --prefix backend"
   },
   "dependencies": {
@@ -45,6 +45,5 @@
     "text-segmentation": "^1.0.3",
     "utrie": "^1.0.2",
     "youtube-player": "^5.5.2"
-  },
-  "devDependencies": {}
+  }
 }
