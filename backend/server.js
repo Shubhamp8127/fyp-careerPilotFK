@@ -13,6 +13,7 @@ import resumeRoutes from "./routes/resumeRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js"; // ✅ FIXED
 import quizRoutes from "./routes/quizRoutes.js";
 import newsletterRoutes from "./routes/newsletterRoutes.js";
+import generateRoadmapRoutes from "./routes/generateRoadmap.js";
 import path from "path";
 
 const app = express();
@@ -46,6 +47,7 @@ app.use("/api/resume", resumeRoutes);
 app.use("/api/dashboard", dashboardRoutes); // ✅ NOW WORKS
 app.use("/api/quiz", quizRoutes);
 app.use("/api", newsletterRoutes);
+app.use("/api/generate-roadmap", generateRoadmapRoutes);
 
 // Temporarily allow cron job in development
 if (process.env.NODE_ENV === "production") {

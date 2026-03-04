@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import "../styles/CareerRoadmap.css";
 import Footer from "../components/Footer";
+import { useNavigate } from "react-router-dom";
 
 const CareerRoadmap = () => {
   const [selected, setSelected] = useState("");
@@ -26,6 +27,9 @@ const CareerRoadmap = () => {
   const [timeline, setTimeline] = useState(6);
   const [selectedAreas, setSelectedAreas] = useState([]);
   const [learningStyle, setLearningStyle] = useState("Mixed");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const careers = [
     { name: "Full-Stack Web Developer", icon: <Code2 size={20} /> },
@@ -331,12 +335,50 @@ const CareerRoadmap = () => {
 
   <button
   className="continue-btn generate-btn"
-  disabled={selectedAreas.length === 0}
+  disabled={selectedAreas.length === 0 || loading}
   style={{
     opacity: selectedAreas.length === 0 ? 0.5 : 1,
     cursor: selectedAreas.length === 0 ? "not-allowed" : "pointer",
   }}
+  onClick={async () => {
+    // assemble payload
+    setError("");
+    const payload = {
+      careerGoal: selected || customGoal,
+      level: selectedLevel,
+      interests: selectedAreas,
+      learningStyle,
+      hoursPerWeek: hours,
+      timeline,
+    };
+
+    try {
+      setLoading(true);
+      const res = await fetch("/api/generate-roadmap/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.error || "Failed to generate roadmap");
+      }
+
+      const data = await res.json();
+      const roadmap = data?.roadmap || "";
+
+      // navigate to result page with roadmap in state
+      navigate("/ai-roadmap/result", { state: { roadmap } });
+    } catch (err) {
+      console.error(err);
+      setError(err.message || "Generation failed");
+      setLoading(false);
+    }
+  }}
 >
+  {loading ? "Generating..." : "Generate Roadmap"}
+</button>
   <Sparkles size={18} className="btn-icon-left" />
   Generate Roadmap
 </button>

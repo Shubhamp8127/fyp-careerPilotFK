@@ -32,6 +32,7 @@ import QuizHistory from "./pages/QuizHistory";
 import SimplePricingPage from "./pages/SimplePricingPage";
 import CareerTreePage from "./pages/CareerTreePage";
 import CareerRoadmap from "./pages/CareerRoadmap";
+import CareerRoadmapResult from "./pages/CareerRoadmapResult";
 
 /* 🔐 FORGOT PASSWORD PAGES (ADDED ONLY) */
 import ForgotPassword from "./pages/ForgotPassword";
@@ -170,6 +171,7 @@ function AppContent() {
         <Route path="/subscription" element={<SimplePricingPage />} />
         <Route path="/career-tree" element={<CareerTreePage />} />
         <Route path="/ai-roadmap" element={<CareerRoadmap />} />
+        <Route path="/ai-roadmap/result" element={<CareerRoadmapResult />} />
 
       </Routes>
     </>
