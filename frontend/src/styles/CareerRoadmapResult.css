@@ -1,0 +1,867 @@
+:root {
+    --roadmap-bg: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #1e293b;
+    --text-secondary: #64748b;
+    --border-light: #e2e8f0;
+
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+
+    --phase-color-1: #10b981;
+    --phase-color-2: #3b82f6;
+    --phase-color-3: #8b5cf6;
+    --phase-color-4: #f59e0b;
+}
+
+.roadmap-result-page {
+    background-color: var(--roadmap-bg);
+    min-height: 100vh;
+    padding: 100px 20px 40px;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--text-main);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+.roadmap-header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.header-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.emoji-icon {
+    font-size: 24px;
+}
+
+.header-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.badge-career {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.dot-separator {
+    color: #cbd5e1;
+}
+
+.header-right {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-outline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: 1px solid var(--border-light);
+    background: white;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--text-main);
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.btn-outline:hover {
+    background: #f1f5f9;
+}
+
+.btn-primary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: none;
+    background: var(--primary);
+    color: white;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+}
+
+/* Grid Layout */
+.roadmap-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 24px;
+}
+
+/* Main Column (Timeline & Phases) */
+.roadmap-main-col {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+/* Horizontal Timeline */
+.timeline-horizontal {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    position: relative;
+    padding: 0 20px;
+}
+
+.timeline-step-wrapper {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.timeline-step-wrapper:last-child {
+    flex: 0;
+}
+
+.timeline-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.timeline-step:hover {
+    transform: translateY(-2px);
+}
+
+.timeline-marker {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+    background: white;
+    border: 2px solid #e2e8f0;
+    color: #94a3b8;
+}
+
+.timeline-step.active .timeline-marker {
+    border-color: var(--primary);
+    color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.timeline-step.completed .timeline-marker {
+    background: var(--phase-color-1);
+    border-color: var(--phase-color-1);
+    color: white;
+}
+
+.timeline-label {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-main);
+}
+
+.timeline-duration {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.timeline-connector {
+    flex: 1;
+    height: 2px;
+    background: #e2e8f0;
+    margin: 0 10px;
+    transform: translateY(-15px);
+}
+
+.timeline-connector.active-connector {
+    background: linear-gradient(90deg, var(--phase-color-1) 0%, var(--primary) 100%);
+}
+
+/* Phases List */
+.phases-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.phase-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.phase-color-1 {
+    background-color: var(--phase-color-1);
+}
+
+.phase-color-2 {
+    background-color: var(--phase-color-2);
+}
+
+.phase-color-3 {
+    background-color: var(--phase-color-3);
+}
+
+.phase-color-4 {
+    background-color: var(--phase-color-4);
+}
+
+.phase-title-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.phase-title-group h2,
+.phase-title-group h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.phase-duration-badge {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* Active Phase Card */
+.active-phase-card {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid var(--border-light);
+}
+
+.phase-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.phase-progress-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 200px;
+}
+
+.progress-text {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--phase-color-1);
+    white-space: nowrap;
+}
+
+.progress-bar-bg {
+    flex: 1;
+    height: 6px;
+    background: #e2e8f0;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.5s ease-out;
+}
+
+/* Phase Details Grid */
+.phase-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr;
+    gap: 24px;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px dashed var(--border-light);
+}
+
+.phase-details-grid h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Topics list */
+.topics-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-left: 1px dashed #cbd5e1;
+    margin-left: 8px;
+}
+
+.topics-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0 8px 16px;
+    font-size: 14px;
+    color: var(--text-main);
+    position: relative;
+}
+
+.topics-list li .check-icon {
+    color: var(--phase-color-1);
+    position: absolute;
+    left: -10px;
+    background: white;
+}
+
+.topics-list li .uncheck-icon {
+    color: #cbd5e1;
+    position: absolute;
+    left: -10px;
+    background: white;
+}
+
+.completed-topic span {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+}
+
+/* Tools Grid */
+.tools-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tool-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: #eff6ff;
+    color: #1e3a8a;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.tool-icon-placeholder {
+    width: 16px;
+    height: 16px;
+    background: #3b82f6;
+    border-radius: 4px;
+}
+
+/* Mini Project */
+.project-card {
+    background: #fef2f2;
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid #fee2e2;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.project-card h4 {
+    margin: 0;
+    font-size: 15px;
+    color: #991b1b;
+}
+
+.project-level {
+    font-size: 12px;
+    color: var(--primary);
+    background: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    align-self: flex-start;
+    font-weight: 500;
+}
+
+/* Inactive Phase Item */
+.phase-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.phase-list-item:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.phase-status {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Sidebar styling */
+.roadmap-sidebar-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+.sidebar-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--text-main);
+}
+
+.overview-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.overview-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.overview-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-secondary);
+}
+
+.overview-list li:nth-child(1) .overview-label {
+    color: var(--primary);
+}
+
+.overview-list li:nth-child(2) .overview-label {
+    color: var(--phase-color-1);
+}
+
+.overview-list li:nth-child(3) .overview-label {
+    color: var(--phase-color-3);
+}
+
+.overview-list li:nth-child(4) .overview-label {
+    color: var(--phase-color-4);
+}
+
+.overview-value {
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+/* Skills progress in sidebar */
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.skill-name {
+    color: var(--text-main);
+}
+
+.skill-perc {
+    color: var(--text-secondary);
+}
+
+.skill-progress-bg {
+    height: 6px;
+    background: #f1f5f9;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.skill-progress-fill {
+    height: 100%;
+    border-radius: 3px;
+}
+
+.skill-progress-fill.color-0 {
+    background: var(--phase-color-1);
+}
+
+.skill-progress-fill.color-1 {
+    background: var(--phase-color-4);
+}
+
+.skill-progress-fill.color-2 {
+    background: #ef4444;
+}
+
+.skill-progress-fill.color-3 {
+    background: var(--primary);
+}
+
+/* Milestone Card */
+.milestone-card {
+    background: linear-gradient(to bottom right, #fffbeb, #fef3c7);
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid #fde68a;
+    position: relative;
+    overflow: hidden;
+}
+
+.milestone-icon {
+    background: white;
+    padding: 10px;
+    border-radius: 12px;
+    display: inline-flex;
+    margin-bottom: 16px;
+    color: var(--phase-color-4);
+    box-shadow: 0 4px 6px -1px rgba(245, 158, 11, 0.1);
+}
+
+.milestone-header {
+    font-size: 14px;
+    color: var(--phase-color-4);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.milestone-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #92400e;
+    margin-bottom: 12px;
+}
+
+.milestone-deadline {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #b45309;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 6px 12px;
+    border-radius: 6px;
+    display: inline-flex;
+}
+
+.btn-start {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-start:hover {
+    background: var(--primary-hover);
+}
+
+/* ================= DARK MODE ================= */
+
+body.dark .roadmap-result-page {
+    background-color: #0f172a;
+    color: #f8fafc;
+}
+
+body.dark .roadmap-main-col,
+body.dark .sidebar-card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+}
+
+body.dark .header-title {
+    color: #f8fafc;
+}
+
+body.dark .badge-career,
+body.dark .timeline-label,
+body.dark .phase-title-group h2,
+body.dark .phase-title-group h3,
+body.dark .phase-details-grid h3,
+body.dark .topics-list li,
+body.dark .sidebar-title,
+body.dark .overview-value,
+body.dark .skill-name {
+    color: #f8fafc;
+}
+
+body.dark .header-subtitle,
+body.dark .timeline-duration,
+body.dark .phase-duration-badge,
+body.dark .overview-label,
+body.dark .skill-perc,
+body.dark .phase-status {
+    color: #94a3b8;
+}
+
+body.dark .btn-outline {
+    background: #1e293b;
+    border-color: #334155;
+    color: #e2e8f0;
+}
+
+body.dark .btn-outline:hover {
+    background: #334155;
+}
+
+body.dark .timeline-marker {
+    background: #1e293b;
+    border-color: #334155;
+    color: #94a3b8;
+}
+
+body.dark .timeline-step.active .timeline-marker {
+    background: #1e293b;
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+body.dark .timeline-connector {
+    background: #334155;
+}
+
+body.dark .active-phase-card {
+    background: #0f172a;
+    border-color: #334155;
+}
+
+body.dark .progress-bar-bg,
+body.dark .skill-progress-bg {
+    background: #334155;
+}
+
+body.dark .phase-details-grid {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+body.dark .topics-list li .check-icon,
+body.dark .topics-list li .uncheck-icon {
+    background: #1e293b;
+}
+
+body.dark .tool-chip {
+    background: rgba(59, 130, 246, 0.15);
+    color: #93c5fd;
+}
+
+body.dark .project-card {
+    background: rgba(185, 28, 28, 0.1);
+    border-color: rgba(239, 68, 68, 0.2);
+}
+
+body.dark .project-card h4 {
+    color: #fca5a5;
+}
+
+body.dark .project-level {
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+}
+
+body.dark .phase-list-item {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+body.dark .phase-list-item:hover {
+    border-color: #64748b;
+    background: #243244;
+}
+
+body.dark .milestone-card {
+    background: linear-gradient(to bottom right, #451a03, #2e1001);
+    border-color: #78350f;
+}
+
+body.dark .milestone-icon {
+    background: #78350f;
+    color: #fde68a;
+    box-shadow: none;
+}
+
+body.dark .milestone-title {
+    color: #fde68a;
+}
+
+body.dark .milestone-deadline {
+    background: rgba(0, 0, 0, 0.2);
+    color: #fcd34d;
+}
+
+@media (max-width: 1024px) {
+    .roadmap-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .roadmap-result-page {
+        padding: 90px 16px 24px;
+    }
+
+    .header-title {
+        font-size: 24px;
+        flex-wrap: wrap;
+    }
+
+    .header-subtitle {
+        flex-wrap: wrap;
+    }
+
+    .phase-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-horizontal {
+        display: none;
+        /* Can fall back to a vertical timeline for mobile later */
+    }
+
+    .roadmap-header-section {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .header-right {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .btn-outline,
+    .btn-primary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .phase-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .phase-title-group {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .phase-duration-badge {
+        margin-left: 24px;
+        /* Align with text by accounting for the dot */
+    }
+
+    .phase-progress-wrapper {
+        width: 100%;
+    }
+
+    .roadmap-main-col,
+    .sidebar-card,
+    .milestone-card {
+        padding: 20px;
+    }
+
+    .phase-list-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .phase-status {
+        margin-left: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .roadmap-result-page {
+        padding: 85px 12px 16px;
+    }
+
+    .header-title {
+        font-size: 22px;
+    }
+
+    .overview-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .roadmap-main-col,
+    .sidebar-card,
+    .milestone-card {
+        padding: 16px;
+        border-radius: 12px;
+    }
+}

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = import.meta.env.MODE==='development' ? "http://localhost:3000" : "/";
+const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 const ACCESS_TOKEN_KEY = "accessToken";
 const LEGACY_TOKEN_KEY = "token";
 const USER_STORAGE_KEY = "user";
