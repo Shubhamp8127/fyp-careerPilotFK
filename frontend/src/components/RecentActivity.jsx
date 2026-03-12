@@ -3,7 +3,9 @@ import {
   Lightbulb,
   ClipboardCheck,
   TrendingUp,
-  Activity
+  Activity,
+  LogIn,
+  User
 } from "lucide-react";
 
 const iconMap = {
@@ -18,6 +20,14 @@ const iconMap = {
   progress: {
     icon: TrendingUp,
     color: "#34d399" // green
+  },
+  login: {
+    icon: LogIn,
+    color: "#3b82f6" // blue
+  },
+  profile_update: {
+    icon: User,
+    color: "#f59e0b" // amber
   },
   default: {
     icon: Activity,

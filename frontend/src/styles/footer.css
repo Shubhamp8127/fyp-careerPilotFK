@@ -227,7 +227,7 @@
 ========================= */
 .scroll-top-btn {
   position: fixed;
-  right: 40px;
+  left: 40px;
   bottom: 12px;
   width: 44px;
   height: 44px;
@@ -433,7 +433,7 @@ body.dark .gdpr-checkbox {
 
   /* Scroll Button */
   .scroll-top-btn {
-    right: 20px;
+    left: 20px;
     bottom: 20px;
     width: 40px;
     height: 40px;

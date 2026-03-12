@@ -6,9 +6,10 @@
   background-color: #F8FAFC;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   padding: 20px;
+  padding-top: 93px;
 }
 
 /* ================= HEADER ================= */
@@ -68,7 +69,7 @@
   width: 100%;
   height: 52px;
 
-  padding: 16px 44px 6px 72px;  /* top right bottom left */
+  padding: 14px 44px 14px 72px;  /* top right bottom left */
 
   background-color: #F1F5F9;
   border: 1px solid #E5E7EB;
@@ -76,8 +77,8 @@
 
   color: #0F172A;
   font-size: 14px;
-
-  line-height: normal;   /* ❌ remove 52px */
+  line-height: 1.2;
+  vertical-align: middle;
   
   outline: none;
   transition: 0.2s ease;

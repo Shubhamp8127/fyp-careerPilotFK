@@ -45,7 +45,15 @@
     "resultMissingSkills": "अनुपस्थित कौशल:",
     "resultRecommendedRoles": "सिफ़ारिश की गई भूमिकाएँ:",
     "resultTips": "सुधार सुझाव:",
-    "resultRaw": "कच्चा AI प्रतिक्रिया:"
+    "resultRaw": "कच्चा AI प्रतिक्रिया:",
+    "Analyzing your Resume...": "आपका रिज़्यूमे विश्लेषित किया जा रहा है...",
+"Parsing Resume...": "रिज़्यूमे को पढ़ा जा रहा है...",
+"Checking ATS Compatibility...": "ATS संगतता जांची जा रही है...",
+"Matching Skills...": "स्किल्स मिलान किए जा रहे हैं...",
+"Generating Recommendations...": "सुझाव तैयार किए जा रहे हैं...",
+"AI-powered career assistance to help you land your dream job": "आपको आपकी सपनों की नौकरी पाने में मदद करने के लिए एआई-संचालित करियर सहायता",
+"Resume": "रिज़्यूमे",
+"Analyzer": "विश्लेषक"
   },
 
   "hero": {
@@ -343,7 +351,7 @@
   "Career Quiz": "कैरियर क्विज़",
   "College Finder": "कॉलेज खोज",
   "AI Roadmap": "एआई रोडमैप",
-  "Job Hunting": "नौकरी की तलाश",
+  "Resume Analyzer": "रिज़्यूमे विश्लेषक",
   "3D Career Tree": "3डी कैरियर ट्री",
   "Learning Resources": "शिक्षण संसाधन",
   "Subscription": "सदस्यता",
@@ -352,6 +360,7 @@
   "Light mode": "लाइट मोड",
   "ACCOUNT": "खाता",
   "Settings": "सेटिंग्स",
+  "Personalized Domain Quiz": "व्यक्तिगत डोमेन क्विज़",
 
   
   "dashboard": {

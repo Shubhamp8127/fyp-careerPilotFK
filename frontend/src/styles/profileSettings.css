@@ -296,6 +296,50 @@
   background: #2563EB;
 }
 
+/* Password Rules */
+.password-rules {
+  grid-column: span 2;
+  margin-top: 16px;
+  padding: 16px;
+  background: #F1F5F9;
+  border-radius: 10px;
+  border: 1px solid #E5E7EB;
+}
+
+.password-rules h4 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1E293B;
+}
+
+.password-rules ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style: none;
+}
+
+.password-rules li {
+  font-size: 13px;
+  color: #64748B;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.password-rules li.valid {
+  color: #10B981;
+}
+
+.password-rules li.invalid {
+  color: #EF4444;
+}
+
+.password-rules li:before {
+  display: none; /* Remove the default bullet */
+}
+
 .notification-item {
   display: flex;
   justify-content: space-between;
@@ -694,6 +738,134 @@ body.dark .dropdown-item:hover {
   background: #334155;
 }
 
+/* ================= DARK MODE REMAINING ================= */
+
+/* Password rules */
+body.dark .password-rules{
+  background:#334155;
+  border:1px solid #475569;
+}
+
+body.dark .password-rules h4{
+  color:#F1F5F9;
+}
+
+body.dark .password-rules li{
+  color:#CBD5E1;
+}
+
+body.dark .password-rules li.valid{
+  color:#22C55E;
+}
+
+body.dark .password-rules li.invalid{
+  color:#EF4444;
+}
+
+/* Save button */
+body.dark .save-btn{
+  background:linear-gradient(90deg,#3B82F6,#2563EB);
+}
+
+/* Upload button */
+body.dark .upload-btn{
+  background:linear-gradient(90deg,#3B82F6,#2563EB);
+}
+
+/* Camera button */
+body.dark .camera-btn{
+  background:#3B82F6;
+}
+
+/* Avatar overlay */
+body.dark .avatar-overlay{
+  background:rgba(2,6,23,0.7);
+}
+
+/* Avatar option hover */
+body.dark .avatar-option:hover{
+  transform:scale(1.05);
+}
+
+/* Form actions button */
+body.dark .form-actions button{
+  background:linear-gradient(90deg,#3B82F6,#2563EB);
+  box-shadow:0 8px 24px rgba(0,0,0,0.4);
+}
+
+/* Language switcher text */
+body.dark .language-switcher{
+  color:#E2E8F0;
+}
+
+/* Dropdown items */
+body.dark .dropdown-item{
+  color:#E2E8F0;
+}
+
+/* Theme text */
+body.dark .theme-left{
+  color:#E2E8F0;
+}
+
+/* Form select */
+body.dark select{
+  background:#334155;
+  border:1px solid #475569;
+  color:#F1F5F9;
+}
+
+/* Scrollbar for dark mode (optional but looks good) */
+body.dark ::-webkit-scrollbar{
+  width:8px;
+}
+
+body.dark ::-webkit-scrollbar-track{
+  background:#0F172A;
+}
+
+body.dark ::-webkit-scrollbar-thumb{
+  background:#475569;
+  border-radius:10px;
+}
+
+body.dark ::-webkit-scrollbar-thumb:hover{
+  background:#64748B;
+}
+
+/* ================= DARK MODE PASSWORD FIX ================= */
+
+body.dark .form-grid input{
+  background:#334155;
+  border:1px solid #475569;
+  color:#F1F5F9;
+}
+
+body.dark .form-grid input::placeholder{
+  color:#94A3B8;
+}
+
+/* Password wrapper input */
+body.dark .password-wrapper input{
+  background:#334155;
+  border:1px solid #475569;
+  color:#F1F5F9;
+}
+
+/* Eye icon */
+body.dark .password-wrapper button{
+  color:#CBD5E1;
+}
+
+body.dark .password-wrapper button:hover{
+  color:#60A5FA;
+}
+
+/* Labels */
+body.dark .form-grid label{
+  color:#E2E8F0;
+}
+
 /* ---------------- Responsive ---------------- */
 @media (max-width: 768px) {
   .profile-content {
@@ -703,3 +875,215 @@ body.dark .dropdown-item:hover {
     grid-template-columns: 1fr;
   }
 }
+
+/* ================= FULL RESPONSIVE ================= */
+
+/* ---------- Large Tablets ---------- */
+@media (max-width: 1024px) {
+
+  .profile-page{
+    padding:0 25px;
+  }
+
+  .profile-content{
+    gap:25px;
+  }
+
+  .profile-left{
+    width:180px;
+  }
+
+  .profile-avatar{
+    width:120px;
+    height:120px;
+  }
+
+  .profile-right{
+    gap:16px;
+  }
+
+  .form-grid{
+    gap:16px 20px;
+  }
+
+  .preferences-grid{
+    gap:16px;
+  }
+
+}
+
+
+/* ---------- Tablets ---------- */
+@media (max-width: 900px){
+
+  .profile-content{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .profile-left{
+    width:100%;
+  }
+
+  .profile-right{
+    width:100%;
+  }
+
+  .profile-avatar{
+    width:120px;
+    height:120px;
+  }
+
+  .preferences-grid{
+    grid-template-columns:1fr;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .form-group.full-width{
+    grid-column:span 1;
+  }
+
+  .preferences-actions{
+    grid-column:span 1;
+  }
+
+}
+
+
+/* ---------- Mobile ---------- */
+@media (max-width: 768px){
+
+  .profile-page{
+    margin-top:100px;
+    padding:0 18px;
+  }
+
+  .profile-header-card{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:15px;
+  }
+
+  .profile-header-left{
+    gap:12px;
+  }
+
+  .profile-avatar-large{
+    width:60px;
+    height:60px;
+    font-size:24px;
+  }
+
+  .edit-profile-btn{
+    width:100%;
+  }
+
+  /* Tabs Scrollable */
+  .profile-tabs{
+    overflow-x:auto;
+    gap:8px;
+  }
+
+  .profile-tabs button{
+    flex:none;
+    padding:8px 14px;
+    font-size:13px;
+  }
+
+  .profile-main-card{
+    padding:20px;
+  }
+
+  .profile-content{
+    gap:25px;
+  }
+
+  .profile-avatar{
+    width:110px;
+    height:110px;
+  }
+
+  .upload-btn{
+    width:100%;
+  }
+
+  .profile-right{
+    grid-template-columns:1fr;
+  }
+
+  .form-group.full-width{
+    grid-column:span 1;
+  }
+
+  .save-wrapper{
+    grid-column:span 1;
+    justify-content:center;
+  }
+
+  .save-btn{
+    width:100%;
+  }
+
+  .form-actions{
+    justify-content:center;
+  }
+
+}
+
+
+/* ---------- Small Mobile ---------- */
+@media (max-width:480px){
+
+  .profile-page{
+    padding:0 14px;
+  }
+
+  .profile-main-card{
+    padding:18px;
+  }
+
+  .profile-avatar{
+    width:95px;
+    height:95px;
+  }
+
+  .profile-avatar-large{
+    width:50px;
+    height:50px;
+    font-size:20px;
+  }
+
+  .card-title{
+    font-size:16px;
+  }
+
+  .form-grid input,
+  .form-group input{
+    padding:10px;
+    font-size:13px;
+  }
+
+  .notification-item{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+  }
+
+  .theme-toggle-container{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .avatar-modal{
+    width:100%;
+  }
+
+  .avatar-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+}
+

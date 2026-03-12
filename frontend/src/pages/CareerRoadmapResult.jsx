@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { jsPDF } from "jspdf";
+import { useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import {
   Download,
@@ -11,12 +12,18 @@ import {
   Calendar,
   Zap,
   ChevronRight,
-  Trophy
+  Trophy,
+  BookOpen,
+  Wrench,
+  Rocket,
+  Target,
+  Code
 } from "lucide-react";
 import "../styles/CareerRoadmapResult.css";
 import Footer from "../components/Footer";
 
 const CareerRoadmapResult = () => {
+  const pdfRef = useRef();
   const { state } = useLocation();
   const navigate = useNavigate();
   const rawRoadmap = state?.roadmap || null;
@@ -56,15 +63,135 @@ const CareerRoadmapResult = () => {
     nextMilestone = {}
   } = roadmap;
 
+const downloadPDF = () => {
+  const doc = new jsPDF("p", "mm", "a4");
+
+  const pageHeight = 297;
+  const pageWidth = 210;
+
+  const headerHeight = 50;
+  const footerHeight = 25;
+
+  const contentTop = headerHeight + 10;
+  const contentBottom = pageHeight - footerHeight - 10;
+
+  let y = contentTop;
+
+  const headerImg = "/roadmap.jpeg";
+  const footerImg = "/footer.jpeg";
+  const watermarkImg = "/watermark.jpeg";
+
+  const addHeaderFooter = () => {
+    doc.addImage(headerImg, "JPEG", 0, 0, pageWidth, headerHeight);
+    doc.addImage(
+      footerImg,
+      "JPEG",
+      0,
+      pageHeight - footerHeight,
+      pageWidth,
+      footerHeight
+    );
+  };
+
+ const addWatermark = () => {
+  const watermarkWidth = 140;
+  const watermarkHeight = 140;
+
+  const x = (pageWidth - watermarkWidth) / 2;
+  const yPos = (pageHeight - watermarkHeight) / 2;
+
+  // watermark opacity kam karne ke liye
+  doc.saveGraphicsState();
+  doc.setGState(new doc.GState({ opacity: 0.15}));
+
+  doc.addImage(
+    watermarkImg,
+    "JPEG",
+    x,
+    yPos,
+    watermarkWidth,
+    watermarkHeight
+  );
+
+  doc.restoreGraphicsState();
+};
+
+  addHeaderFooter();
+  addWatermark();
+
+  const checkPageBreak = (spaceNeeded = 10) => {
+    if (y + spaceNeeded > contentBottom) {
+      doc.addPage();
+      addHeaderFooter();
+      addWatermark();
+      y = contentTop;
+    }
+  };
+
+  const leftMargin = 30;
+  const contentWidth = 150;
+  const lineHeight = 7;
+
+  doc.setFontSize(18);
+  doc.text("AI Career Roadmap", 25, y);
+  y += 12;
+
+  doc.setFontSize(12);
+  doc.text(`Career: ${career}`, 25, y);
+  y += 8;
+
+  doc.text(`Level: ${level}`, 25, y);
+  y += 8;
+
+  doc.text(`Timeline: ${timeline}`, 25, y);
+  y += 8;
+
+  doc.text(`Hours per Week: ${hoursPerWeek}`, 25, y);
+  y += 12;
+
+  doc.setFontSize(14);
+  doc.text("Learning Phases", 25, y);
+  y += 10;
+
+  phases.forEach((phase) => {
+    checkPageBreak(20);
+
+    doc.setFontSize(13);
+    doc.text(`Phase ${phase.phaseId}: ${phase.title}`, 25, y);
+    y += 8;
+
+    doc.setFontSize(11);
+
+    phase.topics?.forEach((topic) => {
+      const wrapped = doc.splitTextToSize(`• ${topic.name}`, contentWidth);
+
+      checkPageBreak(wrapped.length * lineHeight);
+
+      doc.text(wrapped, leftMargin, y);
+      y += wrapped.length * lineHeight;
+    });
+
+    y += 6;
+  });
+
+  doc.setFontSize(11);
+  doc.text(`Generated: ${new Date().toLocaleDateString()}`, 150, 10);
+
+  doc.save("Career_Roadmap_Report.pdf");
+};
+
+
   const activePhaseInfo = phases.find(p => p.phaseId === activePhaseId) || phases[0] || {};
 
   return (
     <>
-      <div className="roadmap-result-page">
+      <div className="roadmap-result-page" ref={pdfRef}>
         {/* Header Section */}
         <div className="roadmap-header-section">
           <div className="header-left">
-            <h1 className="header-title">Your Personalized Roadmap <span className="emoji-icon">🚀</span></h1>
+            <h1 className="header-title">
+  Your Personalized Roadmap <Rocket size={28} className="header-icon" />
+</h1>
             <div className="header-subtitle">
               <span className="badge-career"><Briefcase size={16} /> {career}</span>
               <span className="dot-separator">•</span>
@@ -74,9 +201,9 @@ const CareerRoadmapResult = () => {
             </div>
           </div>
           <div className="header-right">
-            <button className="btn-outline">
-              <Download size={16} /> Download PDF
-            </button>
+           <button className="btn-outline" onClick={downloadPDF}>
+            <Download size={16} /> Download PDF
+          </button>
             <button className="btn-primary">
               <Save size={16} /> Save Roadmap
             </button>
@@ -139,7 +266,7 @@ const CareerRoadmapResult = () => {
 
                       <div className="phase-details-grid">
                         <div className="topics-col">
-                          <h3>Topics</h3>
+                         <h3><BookOpen size={18} /> Topics</h3>
                           <ul className="topics-list">
                             {phase.topics?.map((topic, i) => (
                               <li key={i} className={topic.completed ? 'completed-topic' : ''}>
@@ -155,13 +282,13 @@ const CareerRoadmapResult = () => {
                         </div>
 
                         <div className="tools-col">
-                          <h3>✨ Tools</h3>
+                          <h3><Wrench size={18} /> Tools</h3>
                           <div className="tools-grid">
                             {phase.tools?.map((tool, i) => (
-                              <div key={i} className="tool-chip">
-                                <div className="tool-icon-placeholder"></div>
-                                {tool.name}
-                              </div>
+                              <div className="tool-chip">
+                              <Wrench size={16} />
+                              {tool.name}
+                            </div>
                             ))}
                           </div>
                         </div>
@@ -169,7 +296,7 @@ const CareerRoadmapResult = () => {
                         {phase.miniProject && (
                           <div className="project-col">
                             <h3 className="project-header">
-                              <span className="project-icon">🧩</span> Mini Project
+                              <Rocket size={18} className="project-icon" /> Mini Project
                             </h3>
                             <div className="project-card">
                               <h4>{phase.miniProject.title}</h4>
@@ -237,7 +364,7 @@ const CareerRoadmapResult = () => {
             </div>
 
             <div className="sidebar-card">
-              <h3 className="sidebar-title">Skill Progress</h3>
+              <h3 className="sidebar-title"> <Code size={18} /> Skill Progress</h3>
               <div className="skills-list">
                 {skillProgress?.map((skill, i) => (
                   <div key={i} className="skill-item">
@@ -262,7 +389,7 @@ const CareerRoadmapResult = () => {
                   <Trophy size={20} />
                 </div>
                 <div className="milestone-content">
-                  <h4 className="milestone-header">Next Milestone</h4>
+                 <h4 className="milestone-header"><Target size={16} /> Next Milestone</h4>
                   <p className="milestone-title">{nextMilestone.title}</p>
                   <p className="milestone-deadline">
                     <Calendar size={14} /> Deadline: {nextMilestone.deadline}

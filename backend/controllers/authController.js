@@ -1,4 +1,5 @@
 import User from "../models/User.js";
+import Activity from "../models/Activity.js";
 import bcrypt from "bcryptjs";
 import crypto from "crypto";
 import nodemailer from "nodemailer";
@@ -21,7 +22,7 @@ const buildUserResponse = (user) => ({
   first_name: user.first_name,
   last_name: user.last_name,
   email: user.email,
-  avatar_url: user.avatar_url || null,
+  avatar_url: user.avatar || null,
 });
 
 const issueSessionTokens = async (user, res) => {
@@ -95,6 +96,13 @@ export const login = async (req, res) => {
     }
 
     const accessToken = await issueSessionTokens(user, res);
+
+    // Create login activity
+    await Activity.create({
+      user: user._id,
+      message: "User logged in",
+      type: "login",
+    });
 
     res.json({
       message: "Login successful",
@@ -294,13 +302,7 @@ export const getProfile = async (req, res) => {
 
 export const updateProfile = async (req, res) => {
   try {
-    const { first_name, last_name } = req.body;
-
-    if (!first_name || !last_name) {
-      return res.status(400).json({
-        message: "First and last name are required",
-      });
-    }
+    const { first_name, last_name, avatar, education, password } = req.body;
 
     const user = await User.findById(req.user._id);
 
@@ -308,10 +310,40 @@ export const updateProfile = async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-    user.first_name = first_name.trim();
-    user.last_name = last_name.trim();
+    let updatedFields = [];
+
+    if (first_name !== undefined) {
+      user.first_name = first_name.trim();
+      updatedFields.push("name");
+    }
+    if (last_name !== undefined) {
+      user.last_name = last_name.trim();
+      updatedFields.push("name");
+    }
+    if (avatar !== undefined) {
+      user.avatar = avatar;
+      updatedFields.push("profile picture");
+    }
+    if (education !== undefined) {
+      user.education = education;
+      updatedFields.push("bio");
+    }
+    if (password) {
+      const hashedPassword = await bcrypt.hash(password, 10);
+      user.password = hashedPassword;
+      updatedFields.push("password");
+    }
 
     await user.save();
+
+    // Create profile update activity
+    if (updatedFields.length > 0) {
+      await Activity.create({
+        user: user._id,
+        message: " Updated Profile Information",
+        type: "profile_update",
+      });
+    }
 
     res.json({
       message: "Profile updated successfully",
@@ -392,5 +424,79 @@ export const logout = async (req, res) => {
   } finally {
     clearRefreshTokenCookie(res);
     res.json({ message: "Logged out successfully" });
+  }
+};
+
+// ================= CHANGE PASSWORD =================
+
+export const changePassword = async (req, res) => {
+  try {
+    const { currentPassword, newPassword } = req.body;
+
+    if (!currentPassword || !newPassword) {
+      return res.status(400).json({ message: "Current and new password are required" });
+    }
+
+    const user = await User.findById(req.user._id);
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Verify current password
+    const isMatch = await bcrypt.compare(currentPassword, user.password);
+    if (!isMatch) {
+      return res.status(400).json({ message: "Current password is incorrect" });
+    }
+
+    // Validate new password
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!passwordRegex.test(newPassword)) {
+      return res.status(400).json({
+        message: "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character"
+      });
+    }
+
+    // Check if new password is same as current
+    const isSame = await bcrypt.compare(newPassword, user.password);
+    if (isSame) {
+      return res.status(400).json({ message: "New password cannot be the same as current password" });
+    }
+
+    // Check password history
+    if (user.passwordHistory) {
+      for (let oldPassword of user.passwordHistory) {
+        const match = await bcrypt.compare(newPassword, oldPassword);
+        if (match) {
+          return res.status(400).json({ message: "You cannot reuse a previously used password" });
+        }
+      }
+    }
+
+    // Update password history
+    if (!user.passwordHistory) {
+      user.passwordHistory = [];
+    }
+    user.passwordHistory.push(user.password);
+    if (user.passwordHistory.length > 5) {
+      user.passwordHistory.shift();
+    }
+
+    // Hash new password
+    user.password = await bcrypt.hash(newPassword, 10);
+
+    await user.save();
+
+    // Create activity
+    await Activity.create({
+      user: user._id,
+      message: "Password changed successfully",
+      type: "password_change",
+    });
+
+    res.json({ message: "Password changed successfully" });
+  } catch (error) {
+    console.log("Change Password Error:", error);
+    res.status(500).json({ message: "Server Error" });
   }
 };

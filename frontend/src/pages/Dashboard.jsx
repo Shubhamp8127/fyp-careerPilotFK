@@ -14,24 +14,35 @@ export default function Dashboard() {
   const [error, setError] = useState("");
   const [hasNotification, setHasNotification] = useState(false);
   const [savedColleges, setSavedColleges] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const fetchData = async () => {
-    try {
-      const dashboardData = await getDashboardData();
+const fetchData = async () => {
+  try {
+    setLoading(true);
 
-      const res = await apiClient.get("/api/colleges/bookmark/count");
-      const savedData = res.data || {};
+    const dashboardData = await getDashboardData();
 
-      dashboardData.colleges = savedData.count || 0;
-      setSavedColleges(savedData.savedColleges || []);
+    const res = await apiClient.get("/api/colleges/bookmark/count");
+    const savedData = res.data || {};
 
-      setData(dashboardData);
-      setHasNotification(dashboardData.notifications > 0);
-    } catch (err) {
-      console.error(err);
-      setError(t("dashboard.load_error")); // ✅ translated error
-    }
-  };
+    dashboardData.colleges = savedData.count || 0;
+    setSavedColleges(savedData.savedColleges || []);
+
+    setData(dashboardData);
+    setHasNotification(dashboardData.notifications > 0);
+
+  } catch (err) {
+    console.error(err);
+    setError(t("dashboard.load_error"));
+  } finally {
+
+    // loader minimum 1.5 sec show karega
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+
+  }
+};
 
   useEffect(() => {
     fetchData();
@@ -47,7 +58,17 @@ export default function Dashboard() {
   }, []);
 
   if (error) return <p className="error">{error}</p>;
-  if (!data) return <p className="loading">{t("dashboard.loading")}...</p>; // translated loading
+if (loading) {
+  return (
+    <div className="dashboard-loader">
+      <div className="loader-card">
+        <div className="spinner"></div>
+        <h3>{t("Dashboard Loading")}</h3>
+        <p>Preparing your dashboard...</p>
+      </div>
+    </div>
+  );
+}
 
   return (
     <div className="dashboard-container">
@@ -73,7 +94,11 @@ export default function Dashboard() {
 
       {/* STATS */}
       <div className="stats-grid">
-        <div className="stat-card">
+        <div
+        className="stat-card"
+        onClick={() => navigate("/quiz-history")}
+        style={{ cursor: "pointer" }}
+      >
           <div className="icon blue"><GraduationCap /></div>
           <h2>{data.quizzes}</h2>
           <p>{t("Quiz Completions")}</p>
@@ -102,7 +127,7 @@ export default function Dashboard() {
       <div className="roadmap-card">
         <div className="roadmap-header">
           <h3>{t("Your 3D Roadmap Preview")}</h3>
-          <span className="link">{t("explore full roadmap")} →</span>
+          <span className="link">{t("Explore Full Roadmap")} →</span>
         </div>
 
         <div className="roadmap-content">

@@ -49,7 +49,7 @@ const JobHunting = () => {
   const [progress, setProgress] = useState(0);
 const [analysisStarted, setAnalysisStarted] = useState(false);
 const [loadingMessage, setLoadingMessage] = useState(
-  "Analyzing your Resume..."
+  t("jobHunting.analyzingResume")
 );
 
   /* ATS COUNT-UP */
@@ -108,11 +108,11 @@ const [loadingMessage, setLoadingMessage] = useState(
     setResult(null);
 
     // Fake smooth progress animation
-    const messages = [
-  "Parsing Resume...",
-  "Checking ATS Compatibility...",
-  "Matching Skills...",
-  "Generating Recommendations...",
+const messages = [
+  t("jobHunting.parsingResume"),
+  t("jobHunting.checkingATS"),
+  t("jobHunting.matchingSkills"),
+  t("jobHunting.generatingRecommendations"),
 ];
 
 let messageIndex = 0;
@@ -327,12 +327,12 @@ const handleDownloadPDF = () => {
           </div>
 
           <h1 className="jh-hero-title">
-            Job Hunting <span>Hub</span>
-          </h1>
+  {t("Resume")} <span>{t("Analyzer")}</span>
+</h1>
 
-          <p className="jh-hero-subtitle">
-            AI-powered career assistance to help you land your dream job
-          </p>
+         <p className="jh-hero-subtitle">
+  {t("jobHunting.heroSubtitle")}
+</p>
         </motion.div>
 
         {/* CARD */}
@@ -395,7 +395,7 @@ const handleDownloadPDF = () => {
             className="jh-benefits-title"
             variants={fadeUp}
           >
-            What You’ll Get
+             {t(" What You’ll Get")}
           </motion.h3>
 
           <motion.div className="jh-benefits-grid">
@@ -423,9 +423,9 @@ const handleDownloadPDF = () => {
               <div className="jh-benefit-icon info">
                 <Briefcase size={18} />
               </div>
-              <h4>Job Matching</h4>
+              <h4>ATS Compliant</h4>
               <p>
-                Get matched with relevant job openings based on your skills and experience.
+                AI checks if your resume follows ATS standards and suggests optimizations for better recruiter visibility.
               </p>
             </motion.div>
 
@@ -438,9 +438,9 @@ const handleDownloadPDF = () => {
               <div className="jh-benefit-icon warning">
                 <Upload size={18} />
               </div>
-              <h4>Interview Prep</h4>
+              <h4>Downloadable Report</h4>
               <p>
-                AI-generated practice questions tailored to your target roles.
+                Generate a detailed AI-powered resume analysis report that you can download and review anytime.
               </p>
             </motion.div>
           </motion.div>

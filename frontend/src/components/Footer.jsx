@@ -114,7 +114,7 @@ const Footer = () => {
           <a href="/career-quiz">Career Quiz</a>
           <a href="#">3D Career Tree</a>
           <Link to="/colleges">College Finder</Link>
-          <a href="#">Timeline Tracker</a>
+          <Link to="/resources">Learning Resource</Link>
         </div>
 
         <div className="footer-links">

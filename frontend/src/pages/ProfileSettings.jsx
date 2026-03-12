@@ -12,11 +12,14 @@ import {
   Globe, 
   ChevronDown,
   Sun,      // ✅ Add this
-  Moon
+  Moon,
+  Check,
+  X
 } from "lucide-react";
 import '../styles/profileSettings.css';
 import apiClient from "../services/apiClient";
 import { useTranslation } from "react-i18next";
+import toast from "react-hot-toast";
 
 
 export default function ProfileSettings({ userProfile, onUpdate }) {
@@ -53,8 +56,9 @@ const applyTheme = (theme) => {
 };
 
   const [activeSection, setActiveSection] = useState("profile");
-  const [message, setMessage] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showAvatarPicker, setShowAvatarPicker] = useState(false); // popup open/close
 
@@ -69,7 +73,7 @@ const applyTheme = (theme) => {
   const handleAvatarSelect = (url) => {
   setProfileData({ ...profileData, avatar_url: url }); // update avatar
   setShowAvatarPicker(false); // close picker
-  showMessage("Avatar selected!"); // optional toast message
+  toast.success("Avatar selected!");
 };
 
 const handleAvatarPreview = (url) => {
@@ -83,11 +87,19 @@ const handleAvatarPreview = (url) => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  const [passwordRules, setPasswordRules] = useState({
+    length: false,
+    lowercase: false,
+    uppercase: false,
+    number: false,
+    special: false,
+  });
+
   const [notifications, setNotifications] = useState({
-    email_notifications: true,
-    push_notifications: true,
-    marketing_emails: false,
-    security_alerts: true,
+    Email_Notifications: true,
+    Push_Notifications: true,
+    Marketing_Emails: false,
+    Security_Alerts: true,
   });
 
   const [preferences, setPreferences] = useState({
@@ -124,14 +136,9 @@ const currentLanguage =
 
   
 
-  const showMessage = (text, type = "success") => {
-    setMessage({ text, type });
-    setTimeout(() => setMessage(null), 4000);
-  };
-
   const handleProfileUpdate = async () => {
   if (!profileData.first_name || !profileData.last_name) {
-    showMessage("First & last name are required", "error");
+    toast.error("First & last name are required");
     return;
   }
 
@@ -143,52 +150,110 @@ const currentLanguage =
       {
         first_name: profileData.first_name,
         last_name: profileData.last_name,
-        avatar_url: profileData.avatar_url,
+        avatar: profileData.avatar_url,
       }
     );
 
-    showMessage("Profile updated successfully!");
+    toast.success("Profile updated successfully!");
 
     // 🔥 IMPORTANT — send backend updated user
     if (onUpdate) {
       onUpdate(data.user);
     }
 
+    // Update local profileData with the saved data
+    setProfileData({
+      first_name: data.user.first_name || "",
+      last_name: data.user.last_name || "",
+      email: data.user.email || "",
+      avatar_url: data.user.avatar_url || "",
+    });
+
   } catch (error) {
-    showMessage(
-      error.response?.data?.message || "Update failed",
-      "error"
-    );
+    toast.error(error.response?.data?.message || "Update failed");
   } finally {
     setLoading(false);
   }
 };
 
-  const handlePasswordChange = () => {
+  const validatePassword = (password) => {
+    const errors = [];
+    if (password.length < 8) {
+      errors.push("At least 8 characters");
+    }
+    if (!/[a-z]/.test(password)) {
+      errors.push("One lowercase letter");
+    }
+    if (!/[A-Z]/.test(password)) {
+      errors.push("One uppercase letter");
+    }
+    if (!/\d/.test(password)) {
+      errors.push("One number");
+    }
+    if (!/[@$!%*?&]/.test(password)) {
+      errors.push("One special character (@$!%*?&)");
+    }
+    return errors;
+  };
+
+  const checkPasswordRules = (password) => {
+    const rules = {
+      length: password.length >= 8,
+      lowercase: /[a-z]/.test(password),
+      uppercase: /[A-Z]/.test(password),
+      number: /\d/.test(password),
+      special: /[@$!%*?&]/.test(password),
+    };
+    setPasswordRules(rules);
+    return rules;
+  };
+
+  const handleNewPasswordChange = (e) => {
+    const password = e.target.value;
+    setNewPassword(password);
+    checkPasswordRules(password);
+  };
+
+  const handlePasswordChange = async () => {
     if (!currentPassword || !newPassword || !confirmPassword) {
-      showMessage("All password fields are required", "error");
+      toast.error("All password fields are required!");
       return;
     }
     if (newPassword !== confirmPassword) {
-      showMessage("Passwords do not match", "error");
+      toast.error("Passwords do not match!");
       return;
     }
-    if (newPassword.length < 8) {
-      showMessage("Password must be at least 8 characters", "error");
+    const allRulesPassed = Object.values(passwordRules).every(rule => rule);
+    if (!allRulesPassed) {
+      toast.error("Please meet all password requirements!");
       return;
     }
-    setLoading(true);
-    setTimeout(() => {
-      showMessage("Password updated successfully!");
+    try {
+      setLoading(true);
+      await apiClient.put("/api/auth/change-password", {
+        currentPassword,
+        newPassword,
+      });
+      toast.success("Password updated successfully! 🎉");
       setCurrentPassword("");
       setNewPassword("");
       setConfirmPassword("");
+      setPasswordRules({
+        length: false,
+        lowercase: false,
+        uppercase: false,
+        number: false,
+        special: false,
+      });
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Password update failed!");
+    } finally {
       setLoading(false);
-    }, 800);
+    }
   };
 
   const handleNotificationsUpdate = () => {
-    showMessage("Notification preferences updated!");
+    toast.success("Notification preferences updated!");
   };
 
   const handlePreferencesUpdate = async () => {
@@ -206,9 +271,9 @@ const currentLanguage =
     // Apply immediately
     applyTheme(preferences.theme); // ✅ use helper instead of manual class toggle
 
-    showMessage("Preferences updated!");
+    toast.success("Preferences updated!");
   } catch (error) {
-    showMessage(error.response?.data?.message || "Update failed", "error");
+    toast.error(error.response?.data?.message || "Update failed");
   } finally {
     setLoading(false);
   }
@@ -248,6 +313,7 @@ const fullName =
 
  return (
   <div className="profile-page">
+    
 
     {/* Top Card */}
     <div className="profile-header-card">
@@ -341,24 +407,9 @@ const fullName =
                   </div>
                   <button
                   className="save-avatar-btn"
-                  onClick={async () => {
-                    try {
-                      const { data } = await apiClient.put("/api/auth/update-profile", {
-                        first_name: profileData.first_name,
-                        last_name: profileData.last_name,
-                        avatar_url: profileData.avatar_url,
-                      });
-
-                      if (onUpdate) onUpdate(data.user);
-
-                      showMessage("Avatar updated successfully!");
-                      setShowAvatarPicker(false);
-                    } catch (error) {
-                      showMessage(
-                        error.response?.data?.message || "Avatar update failed",
-                        "error"
-                      );
-                    }
+                  onClick={() => {
+                    toast.success("Avatar selected!");
+                    setShowAvatarPicker(false);
                   }}
                 >
                   Save
@@ -440,23 +491,82 @@ const fullName =
               </div>
               <div>
                 <label>New Password</label>
-                <input
-                  type="password"
-                  value={newPassword}
-                  onChange={(e) => setNewPassword(e.target.value)}
-                />
+                <div style={{ position: "relative" }}>
+                  <input
+                    type={showNewPassword ? "text" : "password"}
+                    value={newPassword}
+                    onChange={handleNewPasswordChange}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowNewPassword(!showNewPassword)}
+                    style={{
+                      position: "absolute",
+                      right: 8,
+                      top: "50%",
+                      transform: "translateY(-50%)",
+                      background: "transparent",
+                      border: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    {showNewPassword ? <EyeOff size={14} /> : <Eye size={14} />}
+                  </button>
+                </div>
               </div>
               <div>
                 <label>Confirm Password</label>
-                <input
-                  type="password"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                />
+                <div style={{ position: "relative" }}>
+                  <input
+                    type={showConfirmPassword ? "text" : "password"}
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                    style={{
+                      position: "absolute",
+                      right: 8,
+                      top: "50%",
+                      transform: "translateY(-50%)",
+                      background: "transparent",
+                      border: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    {showConfirmPassword ? <EyeOff size={14} /> : <Eye size={14} />}
+                  </button>
+                </div>
               </div>
             </div>
+            <div className="password-rules">
+              <h4>Password Requirements:</h4>
+              <ul>
+                <li className={passwordRules.length ? "valid" : "invalid"}>
+                  {passwordRules.length ? <Check size={14} /> : <X size={14} />}
+                  At least 8 characters
+                </li>
+                <li className={passwordRules.lowercase ? "valid" : "invalid"}>
+                  {passwordRules.lowercase ? <Check size={14} /> : <X size={14} />}
+                  One lowercase letter (a-z)
+                </li>
+                <li className={passwordRules.uppercase ? "valid" : "invalid"}>
+                  {passwordRules.uppercase ? <Check size={14} /> : <X size={14} />}
+                  One uppercase letter (A-Z)
+                </li>
+                <li className={passwordRules.number ? "valid" : "invalid"}>
+                  {passwordRules.number ? <Check size={14} /> : <X size={14} />}
+                  One number (0-9)
+                </li>
+                <li className={passwordRules.special ? "valid" : "invalid"}>
+                  {passwordRules.special ? <Check size={14} /> : <X size={14} />}
+                  One special character (@$!%*?&)
+                </li>
+              </ul>
+            </div>
             <div className="form-actions">
-              <button onClick={handlePasswordChange} disabled={loading}>
+              <button type="button" onClick={handlePasswordChange} disabled={loading}>
                 <Lock size={16} /> Update Password
               </button>
             </div>

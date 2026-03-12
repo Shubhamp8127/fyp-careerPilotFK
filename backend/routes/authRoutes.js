@@ -8,6 +8,7 @@ import {
   logout,
   getProfile,
   updateProfile,
+  changePassword,
 } from "../controllers/authController.js";
 import { protect } from "../middleware/authMiddleware.js";
 
@@ -26,6 +27,7 @@ router.post("/logout", logout);
 router.get("/me", protect, getProfile);
 
 router.put("/update-profile", protect, updateProfile);
+router.put("/change-password", protect, changePassword);
 
 
 

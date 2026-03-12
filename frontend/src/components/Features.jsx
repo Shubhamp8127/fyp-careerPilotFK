@@ -21,13 +21,13 @@ const topFeatures = [
     color: "cyan",
   },
   {
-    title: "Smart College Recommendations",
+    title: "College Finder",
     desc: "Find the perfect colleges based on your preferences and career goals",
     icon: MapPin,
     color: "pink",
   },
   {
-    title: "Personalized Career Quiz",
+    title: "Personalized Domain Quiz",
     desc: "AI-driven assessment to discover your strengths and ideal career paths",
     icon: Clock,
     color: "purple",
@@ -42,13 +42,13 @@ const bottomFeatures = [
     color: "cyan",
   },
   {
-    title: "Study Materials",
+    title: "Learning Resources",
     desc: "Access curated resources for entrance exams and skill development",
     icon: BookOpen,
     color: "pink",
   },
   {
-    title: "Goal Setting",
+    title: "AI Roadmap",
     desc: "Set and track academic and career goals with smart reminders",
     icon: Target,
     color: "purple",

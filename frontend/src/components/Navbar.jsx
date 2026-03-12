@@ -113,7 +113,7 @@ const Navbar = ({ user, setUser }) => {
   return (
     <>
       {/* ================= NAVBAR ================= */}
-      <nav className={`navbar ${isAuthPage ? "navbar-black" : ""}`}>
+      <nav className="navbar">
         <div className="logo-container">
           <Menu
             size={22}
@@ -237,9 +237,9 @@ const Navbar = ({ user, setUser }) => {
               
               {/* Avatar */}
               <div className="sidebar-user-avatar">
-                {user.profileImage ? (
+                {user.avatar_url ? (
                   <img
-                    src={user.profileImage}
+                    src={user.avatar_url}
                     alt="profile"
                   />
                 ) : (
@@ -268,27 +268,29 @@ const Navbar = ({ user, setUser }) => {
         )}
 
         {/* NAVIGATION */}
-        <p className="sidebar-section">{t("NAVIGATION")}</p>
+<p className="sidebar-section navigation-title">{t("NAVIGATION")}</p>
 
-        <div
-          className={`sidebar-item ${
-            location.pathname === "/" ? "active" : ""
-          }`}
-          onClick={() => closeMenuAndNavigate("/")}
-        >
-          <Home size={18} />
-          <span>{t("Home")}</span>
-        </div>
+<div
+  className={`sidebar-item ${
+    location.pathname === "/" ? "active" : ""
+  }`}
+  onClick={() => closeMenuAndNavigate("/")}
+>
+  <Home size={18} />
+  <span>{t("Home")}</span>
+</div>
 
-        <div
-          className={`sidebar-item ${
-            location.pathname === "/dashboard" ? "active" : ""
-          }`}
-          onClick={() => closeMenuAndNavigate("/dashboard")}
-        >
-          <LayoutDashboard size={18} />
-          <span>{t("Dashboard")}</span>
-        </div>
+{user && (
+  <div
+    className={`sidebar-item ${
+      location.pathname === "/dashboard" ? "active" : ""
+    }`}
+    onClick={() => closeMenuAndNavigate("/dashboard")}
+  >
+    <LayoutDashboard size={18} />
+    <span>{t("Dashboard")}</span>
+  </div>
+)}
 
         
 
@@ -334,7 +336,7 @@ const Navbar = ({ user, setUser }) => {
               onClick={() => navigate("/job-hunting")}
             >
               <Briefcase size={18} />
-              <span>{t("Job Hunting")}</span>
+              <span>{t("Resume Analyzer")}</span>
             </div>
 
             <div
@@ -394,7 +396,7 @@ const Navbar = ({ user, setUser }) => {
 
             <div
               className="sidebar-item"
-              onClick={() => navigate("/settings")}
+              onClick={() => navigate("/profile")}
             >
               <Settings size={18} />
               <span>{t("Settings")}</span>

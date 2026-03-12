@@ -67,7 +67,16 @@
     "resultMissingSkills": "Missing Skills:",
     "resultRecommendedRoles": "Recommended Roles:",
     "resultTips": "Improvement Tips:",
-    "resultRaw": "Raw AI Response:"
+    "resultRaw": "Raw AI Response:",
+"analyzingResume": "Analyzing your Resume...",
+"parsingResume": "Parsing Resume...",
+"checkingATS": "Checking ATS Compatibility...",
+"matchingSkills": "Matching Skills...",
+"generatingRecommendations": "Generating Recommendations...",
+"heroSubtitle": "AI-powered career assistance to help you land your dream job",
+"Resume": "Resume",
+"Analyzer": "Analyzer"
+
   },
 
   "hero": {
@@ -362,7 +371,7 @@
   "Career Quiz": "Career Quiz",
   "College Finder": "College Finder",
   "AI Roadmap": "AI Roadmap",
-  "Job Hunting": "Job Hunting",
+ "Resume Analyzer": "Resume Analyzer",
   "3D Career Tree": "3D Career Tree",
   "Learning Resources": "Learning Resources",
   "Subscription": "Subscription",
@@ -371,6 +380,8 @@
   "Light mode": "Light mode",
   "ACCOUNT": "Account",
   "Settings": "Settings",
+  "Personalized Domain Quiz": "Personalized Domain Quiz",
+
 
 
 
