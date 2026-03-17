@@ -33,6 +33,8 @@ import SimplePricingPage from "./pages/SimplePricingPage";
 import CareerTreePage from "./pages/CareerTreePage";
 import CareerRoadmap from "./pages/CareerRoadmap";
 import CareerRoadmapResult from "./pages/CareerRoadmapResult";
+import PaymentPage from "./pages/PaymentPage";
+import PaymentSuccess from "./pages/PaymentSuccess";
 
 /* 🔐 FORGOT PASSWORD PAGES (ADDED ONLY) */
 import ForgotPassword from "./pages/ForgotPassword";
@@ -172,6 +174,8 @@ function AppContent() {
         <Route path="/career-tree" element={<CareerTreePage />} />
         <Route path="/ai-roadmap" element={<CareerRoadmap />} />
         <Route path="/ai-roadmap/result" element={<CareerRoadmapResult />} />
+        <Route path="/payment" element={<PaymentPage />} />
+        <Route path="/payment-success" element={<PaymentSuccess />} />
 
       </Routes>
     </>

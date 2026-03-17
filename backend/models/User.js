@@ -73,6 +73,18 @@ const UserSchema = new mongoose.Schema(
       default: "user",
     },
 
+    // ================= SUBSCRIPTION =================
+
+plan: {
+  type: String,
+  default: "Free"
+},
+
+planExpiry: {
+  type: Date,
+  default: null
+},
+
     /* ===============================
        🔖 ADDED FOR BOOKMARK SYSTEM
     ================================ */

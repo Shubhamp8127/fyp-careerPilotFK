@@ -10,6 +10,7 @@ import { Bell, GraduationCap, Bookmark, Zap, Trophy, Map } from "lucide-react";
 export default function Dashboard() {
   const navigate = useNavigate(); 
   const { t } = useTranslation(); // ✅ get translation function
+  const user = JSON.parse(localStorage.getItem("user"));
   const [data, setData] = useState(null);
   const [error, setError] = useState("");
   const [hasNotification, setHasNotification] = useState(false);
@@ -90,6 +91,9 @@ if (loading) {
           {t("Welcome back")}, <span>{data.username}</span>!
         </h1>
         <p>{t("Continue your career discovery journey")}</p>
+        <div className="user-plan">
+  ⭐ Current Plan: <strong>{user?.plan || "Free"}</strong>
+</div>
       </div>
 
       {/* STATS */}

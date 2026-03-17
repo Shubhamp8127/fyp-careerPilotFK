@@ -173,13 +173,49 @@
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
 }
 
-.tree-placeholder {
-  height: 320px;
+/* ================= REQUIRED SKILLS VISUAL ================= */
+
+.required-skills-container {
+  padding: 10px 0;
+}
+
+.skills-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1E293B;
+  margin-bottom: 24px;
+}
+
+.skills-list {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skill-name {
+  font-size: 15px;
+  color: #334155;
+  font-weight: 500;
+}
+
+.skill-bar-bg {
+  height: 10px;
   background: #F1F5F9;
-  border-radius: 12px;
+  border-radius: 6px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: #3B82F6;
+  border-radius: 6px;
 }
 
 /* ================= DETAILS SECTION ================= */
@@ -468,7 +504,15 @@ body.dark .career-visual {
   box-shadow: none;
 }
 
-body.dark .tree-placeholder {
+body.dark .skills-title {
+  color: #F8FAFC;
+}
+
+body.dark .skill-name {
+  color: #CBD5E1;
+}
+
+body.dark .skill-bar-bg {
   background: #1E293B;
 }
 
@@ -532,4 +576,3 @@ body.dark .cta-secondary {
 body.dark .cta-secondary:hover {
   background: #1E293B;
 }
-

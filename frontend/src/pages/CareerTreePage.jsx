@@ -15,20 +15,33 @@ import "../styles/careerTree.css";
 import Footer from "../components/Footer";
 
 
-/* ================= 3D PLACEHOLDER ================= */
+/* ================= REQUIRED SKILLS VISUAL ================= */
 
-function CareerTree3D({ careerPath, relatedCareers, skills }) {
+function RequiredSkillsVisual({ careerPath, skills }) {
   return (
     <motion.div
-      className="tree-placeholder"
+      className="required-skills-container"
       key={careerPath}
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.4 }}
     >
-      <h4>{careerPath} 3D View</h4>
-      <p>Skills: {skills.join(", ")}</p>
-      <p>Related: {relatedCareers.join(", ")}</p>
+      <h4 className="skills-title">Required Skills</h4>
+      <div className="skills-list">
+        {skills.map((skill, index) => (
+          <div key={index} className="skill-item">
+            <div className="skill-name">{skill.name}</div>
+            <div className="skill-bar-bg">
+              <motion.div
+                className="skill-bar-fill"
+                initial={{ width: 0 }}
+                animate={{ width: `${skill.level}%` }}
+                transition={{ duration: 1, delay: 0.2 + index * 0.1 }}
+              ></motion.div>
+            </div>
+          </div>
+        ))}
+      </div>
     </motion.div>
   );
 }
@@ -52,7 +65,14 @@ const careerDatabase = {
     averageSalary: "$85,000 - $150,000",
     growthRate: "22%",
     education: ["Computer Science", "Software Engineering", "Information Technology"],
-    skills: ["Programming", "Problem Solving", "Algorithms", "Database Management", "Version Control", "Testing"],
+    skills: [
+      { name: "Programming", level: 95 },
+      { name: "Problem Solving", level: 90 },
+      { name: "Algorithms", level: 85 },
+      { name: "Database Management", level: 80 },
+      { name: "Version Control", level: 85 },
+      { name: "Testing", level: 75 }
+    ],
     relatedCareers: ["Full Stack Developer", "Backend Developer", "Frontend Developer", "DevOps Engineer", "Mobile Developer"],
     keyActivities: ["Code Development", "System Design", "Bug Fixing", "Code Review", "Documentation", "Testing"],
     workEnvironment: "Office or Remote, collaborative team environment"
@@ -64,7 +84,14 @@ const careerDatabase = {
     averageSalary: "$95,000 - $165,000",
     growthRate: "31%",
     education: ["Data Science", "Statistics", "Computer Science", "Mathematics"],
-    skills: ["Python/R", "Statistics", "Machine Learning", "Data Visualization", "SQL", "Research"],
+    skills: [
+      { name: "Python/R", level: 95 },
+      { name: "Statistics", level: 90 },
+      { name: "Machine Learning", level: 85 },
+      { name: "Data Visualization", level: 80 },
+      { name: "SQL", level: 75 },
+      { name: "Research", level: 80 }
+    ],
     relatedCareers: ["Data Analyst", "Machine Learning Engineer", "Business Intelligence Analyst", "Research Scientist"],
     keyActivities: ["Data Analysis", "Model Building", "Research", "Visualization", "Reporting", "Experimentation"],
     workEnvironment: "Office or Remote, research-focused environment"
@@ -76,7 +103,14 @@ const careerDatabase = {
     averageSalary: "$65,000 - $120,000",
     growthRate: "19%",
     education: ["Marketing", "Communications", "Business", "Digital Media"],
-    skills: ["SEO/SEM", "Social Media", "Content Strategy", "Analytics", "Campaign Management", "Creativity"],
+    skills: [
+      { name: "SEO/SEM", level: 90 },
+      { name: "Social Media", level: 85 },
+      { name: "Content Strategy", level: 85 },
+      { name: "Analytics", level: 80 },
+      { name: "Campaign Management", level: 90 },
+      { name: "Creativity", level: 85 }
+    ],
     relatedCareers: ["Content Marketing Manager", "Social Media Manager", "SEO Specialist", "Brand Manager"],
     keyActivities: ["Campaign Planning", "Content Creation", "Analytics Review", "Strategy Development", "Team Coordination"],
     workEnvironment: "Fast-paced office environment, client interaction"
@@ -88,7 +122,14 @@ const careerDatabase = {
     averageSalary: "$70,000 - $130,000",
     growthRate: "13%",
     education: ["Design", "Psychology", "Human-Computer Interaction", "Fine Arts"],
-    skills: ["User Research", "Prototyping", "Wireframing", "Design Tools", "Empathy", "Visual Communication"],
+    skills: [
+      { name: "User Research", level: 90 },
+      { name: "Prototyping", level: 95 },
+      { name: "Wireframing", level: 90 },
+      { name: "Design Tools", level: 95 },
+      { name: "Empathy", level: 85 },
+      { name: "Visual Communication", level: 85 }
+    ],
     relatedCareers: ["UI Designer", "Product Designer", "Interaction Designer", "User Researcher"],
     keyActivities: ["User Research", "Design Creation", "Prototyping", "Testing", "Collaboration", "Iteration"],
     workEnvironment: "Creative studio or office environment, collaborative"
@@ -100,7 +141,14 @@ const careerDatabase = {
     averageSalary: "$60,000 - $110,000",
     growthRate: "5%",
     education: ["Finance", "Economics", "Accounting", "Business Administration"],
-    skills: ["Financial Modeling", "Excel", "Analysis", "Reporting", "Attention to Detail", "Communication"],
+    skills: [
+      { name: "Financial Modeling", level: 95 },
+      { name: "Excel", level: 95 },
+      { name: "Analysis", level: 90 },
+      { name: "Reporting", level: 85 },
+      { name: "Attention to Detail", level: 90 },
+      { name: "Communication", level: 80 }
+    ],
     relatedCareers: ["Investment Banker", "Portfolio Manager", "Risk Analyst", "Corporate Finance Analyst"],
     keyActivities: ["Financial Analysis", "Report Writing", "Data Interpretation", "Forecasting", "Presentations"],
     workEnvironment: "Corporate office, deadline-driven environment"
@@ -112,7 +160,14 @@ const careerDatabase = {
     averageSalary: "$90,000 - $160,000",
     growthRate: "19%",
     education: ["Business", "Engineering", "Computer Science", "MBA"],
-    skills: ["Strategic Thinking", "Leadership", "Communication", "Analytics", "Project Management", "Market Research"],
+    skills: [
+      { name: "Strategic Thinking", level: 95 },
+      { name: "Leadership", level: 85 },
+      { name: "Communication", level: 95 },
+      { name: "Analytics", level: 80 },
+      { name: "Project Management", level: 85 },
+      { name: "Market Research", level: 80 }
+    ],
     relatedCareers: ["Program Manager", "Business Analyst", "Strategy Consultant", "Marketing Manager"],
     keyActivities: ["Strategy Development", "Team Coordination", "Market Research", "Feature Planning", "Stakeholder Management"],
     workEnvironment: "Collaborative office environment, cross-functional teams"
@@ -264,9 +319,8 @@ export default function CareerTreePage() {
               <Star size={18} /> {currentCareer.name}
             </h3>
 
-            <CareerTree3D
+            <RequiredSkillsVisual
               careerPath={currentCareer.name}
-              relatedCareers={currentCareer.relatedCareers}
               skills={currentCareer.skills}
             />
           </motion.div>
@@ -327,7 +381,7 @@ export default function CareerTreePage() {
                   <div className="skills-tags">
                     {currentCareer.skills.map((skill, i) => (
                       <span key={i} className="skill-tag-new">
-                        {skill}
+                        {skill.name}
                       </span>
                     ))}
                   </div>

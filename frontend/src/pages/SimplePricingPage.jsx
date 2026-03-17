@@ -7,62 +7,22 @@ import "../styles/SimplePricingPage.css";
 import Footer from "../components/Footer";
 
 const plans = [
-  {
-    id: "basic",
-    name: "basic_plan",
-    description: "basic_plan_desc",
-    monthly: 9.99,
-    quarterly: 24.99,
-    features: [
-      "ai_career_chatbot",
-      "basic_career_assessment",
-      "college_database_access",
-      "email_support",
-    ],
-    icon: Star,
-    color: "blue",
-  },
-  {
-    id: "premium",
-    name: "premium_plan",
-    description: "premium_plan_desc",
-    monthly: 19.99,
-    quarterly: 49.99,
-    features: [
-      "everything_in_basic",
-      "ai_roadmap_generator",
-      "unlimited_roadmaps",
-      "priority_support",
-    ],
-    icon: Zap,
-    color: "purple",
-    popular: true,
-  },
-  {
-    id: "elite",
-    name: "elite_plan",
-    description: "elite_plan_desc",
-    monthly: 39.99,
-    quarterly: 99.99,
-    features: [
-      "everything_in_premium",
-      "chatgpt_gemini_pro",
-      "brock_ai_assistant",
-      "support_247",
-    ],
-    icon: Crown,
-    color: "gold",
-  },
+  { id: "basic", name: "basic_plan", description: "basic_plan_desc", monthly: 199, quarterly: 499, features: ["No PDF downloads","Limited Al tokens","Limited roadmap generation","Resume Analysis (basic score only)"], icon: Star, color: "blue" },
+  { id: "premium", name: "premium_plan", description: "premium_plan_desc", monthly: 399, quarterly: 999, features: ["Unlimited Roadmaps","Resume Analysis with Skill Gap Detection","Downloadable PDF Reports","Resume Analysis Report"], icon: Zap, color: "purple", popular: true },
+  { id: "elite", name: "elite_plan", description: "elite_plan_desc", monthly: 699, quarterly: 1699, features: ["Unlimited AI Tokens","Advanced Resume Optimization","AI Mock Interview Preparation","Download Detailed Career Reports"], icon: Crown, color: "gold" },
 ];
 
 export default function SimplePricingPage() {
   const [billingCycle, setBillingCycle] = useState("monthly");
   const navigate = useNavigate();
   const { t } = useTranslation();
+const storedCurrency = localStorage.getItem("currency"); // "USD" ya "INR"
+const currency = storedCurrency || "INR";
+const symbol = currency === "INR" ? "₹" : "$";
 
-  const handleSubscribe = (planId) => {
-    alert(`${t("Subscribe to")} ${t(planId)} – ${t("payment coming soon")}`);
-  };
+const handleSubscribe = (planId, price) => {
+  navigate("/payment", { state: { plan: planId, price, billingCycle, currency } });
+};
 
   return (
     <div className="pricing-page">
@@ -101,11 +61,13 @@ export default function SimplePricingPage() {
         <div className="pricing-grid">
           {plans.map((plan, index) => {
             const Icon = plan.icon;
-            const price = plan[billingCycle];
-            const savings =
-              billingCycle === "quarterly"
-                ? plan.monthly * 3 - plan.quarterly
-                : 0;
+const basePrice = plan[billingCycle]; // "monthly" ya "quarterly"
+const price = Number(currency === "INR" ? basePrice : basePrice * 0.012);
+
+const savings =
+  billingCycle === "quarterly"
+    ? Number(currency === "INR" ? plan.monthly * 3 - plan.quarterly : (plan.monthly * 3 - plan.quarterly) * 0.012)
+    : 0;
 
             return (
               <motion.div
@@ -127,7 +89,7 @@ export default function SimplePricingPage() {
                 <p className="plan-desc">{t(plan.description)}</p>
 
                 <div className="price-box">
-                  <span className="price">${price.toFixed(2)}</span>
+                  <span className="price">{symbol}{price.toFixed(2)}</span>
                   <span className="cycle">
                     /{billingCycle === "quarterly" ? t("3 months") : t("month")}
                   </span>
@@ -152,7 +114,7 @@ export default function SimplePricingPage() {
 
                 <button
                   className={`subscribe-btn ${plan.popular ? "primary" : ""}`}
-                  onClick={() => handleSubscribe(plan.id)}
+                  onClick={() => handleSubscribe(plan.id, price)}
                 >
                   {t("Get Started")}
                 </button>

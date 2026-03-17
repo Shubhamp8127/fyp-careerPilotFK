@@ -500,3 +500,54 @@ export const changePassword = async (req, res) => {
     res.status(500).json({ message: "Server Error" });
   }
 };
+
+// ================= UPDATE SUBSCRIPTION PLAN =================
+
+export const updatePlan = async (req, res) => {
+  try {
+
+    const { userId, plan, billingCycle } = req.body;
+
+    if (!userId || !plan) {
+      return res.status(400).json({ message: "User ID and plan required" });
+    }
+
+    let expiry = new Date();
+
+    if (billingCycle === "quarterly") {
+      expiry.setMonth(expiry.getMonth() + 3);
+    } else {
+      expiry.setMonth(expiry.getMonth() + 1);
+    }
+
+    const user = await User.findByIdAndUpdate(
+      userId,
+      {
+        plan,
+        planExpiry: expiry,
+      },
+      { new: true }
+    );
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Activity log
+    await Activity.create({
+      user: user._id,
+      message: `Subscribed to ${plan}`,
+      type: "subscription",
+    });
+
+    res.json({
+      message: "Plan activated successfully",
+      plan: user.plan,
+      expiry: user.planExpiry,
+    });
+
+  } catch (error) {
+    console.log("Update Plan Error:", error);
+    res.status(500).json({ message: "Server Error" });
+  }
+};

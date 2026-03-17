@@ -102,12 +102,12 @@ const handleAvatarPreview = (url) => {
     Security_Alerts: true,
   });
 
-  const [preferences, setPreferences] = useState({
-    theme: "dark",
-    language: "en",
-    timezone: "UTC",
-    currency: "USD",
-  });
+const [preferences, setPreferences] = useState({
+  theme: localStorage.getItem("theme") || "dark",
+  language: localStorage.getItem("language") || "en",
+  timezone: "UTC",
+  currency: localStorage.getItem("currency") || "USD",
+});
 
   // i18n for language change
 const { t, i18n } = useTranslation();
@@ -256,24 +256,23 @@ const currentLanguage =
     toast.success("Notification preferences updated!");
   };
 
-  const handlePreferencesUpdate = async () => {
+const handlePreferencesUpdate = async () => {
   try {
     setLoading(true);
 
-    // Save theme to backend
-    await apiClient.put("/api/auth/update-theme", {
-      theme: preferences.theme,
-    });
-
-    // Save locally
+    // save theme
     localStorage.setItem("theme", preferences.theme);
+    applyTheme(preferences.theme);
 
-    // Apply immediately
-    applyTheme(preferences.theme); // ✅ use helper instead of manual class toggle
+    // ✅ save currency
+    localStorage.setItem("currency", preferences.currency);
+
+    // ✅ save language
+    localStorage.setItem("language", preferences.language);
 
     toast.success("Preferences updated!");
   } catch (error) {
-    toast.error(error.response?.data?.message || "Update failed");
+    toast.error("Update failed");
   } finally {
     setLoading(false);
   }

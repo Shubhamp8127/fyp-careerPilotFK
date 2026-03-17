@@ -1,0 +1,431 @@
+/* PAGE BACKGROUND */
+
+.payment-page{
+min-height:100vh;
+background:linear-gradient(
+180deg,
+#F8FAFC 0%,
+#EEF2FF 100%
+);
+display:flex;
+flex-direction:column;
+align-items:center;
+padding:60px 20px;
+font-family:Inter, sans-serif;
+color:#0F172A;
+}
+
+/* TITLE */
+
+.payment-title{
+font-size:42px;
+font-weight:800;
+margin-bottom:40px;
+text-align:center;
+}
+
+/* GRID LAYOUT */
+
+.payment-grid{
+display:grid;
+grid-template-columns:420px 320px;
+gap:30px;
+align-items:start;
+}
+
+/* LEFT PAYMENT CARD */
+
+.payment-card{
+background:#FFFFFF;
+padding:30px;
+border-radius:16px;
+border:1px solid #E5E7EB;
+box-shadow:0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+/* PAYMENT METHOD TABS */
+
+.payment-tabs{
+display:flex;
+border:1px solid #CBD5E1;
+border-radius:10px;
+overflow:hidden;
+margin-top:15px;
+margin-bottom:20px;
+background:#F1F5F9;
+}
+
+.payment-tabs button{
+flex:1;
+padding:12px;
+border:none;
+background:#F1F5F9;
+cursor:pointer;
+font-weight:600;
+font-size:14px;
+transition:0.2s;
+}
+
+.payment-tabs button:hover{
+background:#E2E8F0;
+}
+
+.payment-tabs .active{
+background:#FFFFFF;
+color:#2563EB;
+font-weight:700;
+}
+
+/* FORM */
+
+.form{
+display:flex;
+flex-direction:column;
+gap:14px;
+}
+
+.form input,
+.form select{
+padding:12px 14px;
+border-radius:10px;
+border:1px solid #CBD5E1;
+font-size:14px;
+outline:none;
+background:#FFFFFF;
+}
+
+.form input:focus,
+.form select:focus{
+border-color:#3B82F6;
+box-shadow:0 0 0 2px rgba(59,130,246,0.15);
+}
+
+/* ROW (EXPIRY + CVV) */
+.row{
+display:flex;
+gap:10px;
+width:100%;
+}
+
+.row input{
+flex:1;
+min-width:0;
+}
+
+/* PAY BUTTON */
+
+.pay-btn{
+margin-top:22px;
+width:100%;
+padding:14px;
+background:#3B82F6;
+border:none;
+border-radius:12px;
+font-size:16px;
+font-weight:600;
+color:#FFFFFF;
+cursor:pointer;
+transition:0.2s;
+}
+
+.pay-btn:hover{
+background:#2563EB;
+box-shadow:0 8px 18px rgba(59,130,246,0.25);
+}
+
+/* RIGHT PLAN BOX */
+
+.plan-box{
+background:#FFFFFF;
+padding:25px;
+border-radius:16px;
+border:1px solid #E5E7EB;
+box-shadow:0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+/* BILLING BADGE */
+
+.badge{
+display:inline-block;
+background:#DBEAFE;
+color:#2563EB;
+padding:5px 10px;
+font-size:12px;
+font-weight:600;
+border-radius:6px;
+margin-bottom:12px;
+}
+
+/* PLAN TITLE */
+
+.plan-box h3{
+font-size:20px;
+margin-bottom:15px;
+}
+
+/* FEATURE LIST */
+
+.plan-box ul{
+list-style:none;
+padding:0;
+margin:0;
+}
+
+.plan-box li{
+font-size:14px;
+margin-bottom:10px;
+color:#1E293B;
+display:flex;
+align-items:center;
+gap:6px;
+}
+
+/* PRICE */
+
+.plan-price{
+margin-top:20px;
+font-size:32px;
+font-weight:800;
+color:#0F172A;
+}
+
+.plan-price span{
+font-size:16px;
+font-weight:500;
+color:#64748B;
+margin-left:4px;
+}
+
+.input-box{
+display:flex;
+align-items:center;
+gap:10px;
+border:1px solid #ddd;
+padding:10px;
+border-radius:8px;
+margin-bottom:12px;
+background:white;
+}
+
+.input-box input,
+.input-box select{
+border:none;
+outline:none;
+flex:1;
+font-size:14px;
+background:transparent;
+}
+
+.payment-tabs button{
+display:flex;
+align-items:center;
+gap:6px;
+}
+
+/* COUPON UI */
+
+.coupon-box{
+display:flex;
+gap:10px;
+margin-top:20px;
+background:#F1F5F9;
+padding:8px;
+border-radius:10px;
+border:1px solid #E5E7EB;
+}
+
+.coupon-input{
+flex:1;
+padding:12px;
+border-radius:10px;
+border:1px solid #CBD5E1;
+font-size:14px;
+}
+
+.coupon-btn{
+padding:12px 18px;
+background:#3B82F6;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+}
+
+.coupon-btn:hover{
+background:#2563EB;
+}
+
+.coupon-success{
+color:#16A34A;
+font-size:14px;
+margin-top:8px;
+}
+
+.coupon-error{
+color:#DC2626;
+font-size:14px;
+margin-top:8px;
+}
+
+/* PRICE BREAKDOWN */
+
+.price-breakdown{
+margin-top:20px;
+background:#F1F5F9;
+padding:16px;
+border-radius:10px;
+border:1px solid #E5E7EB;
+}
+
+.price-row{
+display:flex;
+justify-content:space-between;
+margin-bottom:8px;
+font-size:14px;
+color:#334155;
+}
+
+.discount{
+color:#22C55E;
+font-weight:600;
+}
+
+.savings-text{
+color:#22C55E;
+font-size:13px;
+font-weight:600;
+margin:6px 0;
+}
+
+.price-divider{
+height:1px;
+background:#CBD5E1;
+margin:10px 0;
+}
+
+.price-total{
+display:flex;
+justify-content:space-between;
+font-size:20px;
+font-weight:700;
+color:#0F172A;
+}
+
+.billing-text{
+font-size:13px;
+color:#64748B;
+}
+
+.secure-text{
+margin-top:10px;
+font-size:12px;
+color:#64748B;
+text-align:center;
+}
+
+/* =========================
+TABLET
+========================= */
+
+@media (max-width:1024px){
+
+.payment-grid{
+grid-template-columns:1fr;
+gap:25px;
+max-width:600px;
+width:100%;
+}
+
+.plan-box{
+order:-1;
+}
+
+.payment-title{
+font-size:34px;
+}
+
+}
+
+
+/* =========================
+MOBILE
+========================= */
+
+@media (max-width:768px){
+
+.payment-page{
+padding:40px 16px;
+}
+
+.payment-title{
+font-size:28px;
+margin-bottom:30px;
+}
+
+.payment-card{
+padding:22px;
+}
+
+.plan-box{
+padding:20px;
+}
+
+.row{
+flex-direction:column;
+gap:12px;
+}
+
+.payment-tabs button{
+font-size:13px;
+padding:10px;
+}
+
+.coupon-box{
+flex-direction:column;
+gap:8px;
+}
+
+.coupon-btn{
+width:100%;
+}
+
+}
+
+
+/* =========================
+SMALL MOBILE
+========================= */
+
+@media (max-width:480px){
+
+.payment-title{
+font-size:24px;
+}
+
+.payment-card{
+padding:18px;
+}
+
+.plan-box{
+padding:18px;
+}
+
+.price-total{
+font-size:18px;
+}
+
+.pay-btn{
+font-size:15px;
+padding:12px;
+}
+
+.plan-box h3{
+font-size:18px;
+}
+
+.plan-box li{
+font-size:13px;
+}
+
+}
