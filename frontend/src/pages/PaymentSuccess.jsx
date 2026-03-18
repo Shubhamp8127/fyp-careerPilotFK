@@ -6,6 +6,8 @@ import "../styles/PaymentSuccess.css";
 
 
 
+import { logDashboardActivity } from "../services/dashboardApi";
+
 export default function PaymentSuccess() {
 
 const location = useLocation();
@@ -30,25 +32,36 @@ useEffect(()=>{
 
 const activatePlan = async () => {
 
-try{
+try {
+  const response = await fetch("http://localhost:5000/api/auth/update-plan", {
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json",
+      "Authorization":`Bearer ${token}`
+    },
+    body: JSON.stringify({
+      userId: user?.id,
+      plan,
+      billingCycle
+    })
+  });
+} catch(err) {
+  console.log("Mock API update-plan failed (expected):", err);
+}
 
-await fetch("http://localhost:5000/api/auth/update-plan",{
-method:"POST",
-headers:{
-"Content-Type":"application/json",
-"Authorization":`Bearer ${token}`
-},
-body: JSON.stringify({
-userId:user?.id,
-plan,
-billingCycle
-})
-});
+// Unconditionally update localstorage since API is static
+if (user && plan) {
+  user.plan = plan;
+  localStorage.setItem("user", JSON.stringify(user));
+}
 
-
-
-}catch(err){
-console.log(err);
+try {
+  // Try to log this to the backend recent activities table
+  await logDashboardActivity(`${plan} Subscription plan Purchased successfully`, "Purchase");
+  console.log("Activity logged successfully via dashboardApi!");
+  window.dispatchEvent(new Event("activity-updated"));
+} catch(err) {
+  console.error("Failed to fetch activity endpoint:", err);
 }
 
 };
@@ -182,7 +195,7 @@ doc.text(`${currencySymbol} ${basePrice.toFixed(2)}`,185,137,null,null,"right");
 doc.setTextColor(0,0,0);
 
 doc.rect(120,140,70,10);
-doc.text("Tax (GST 18%)",125,147);
+doc.text("Tax (GST 5%)",125,147);
 doc.text(`${currencySymbol} ${taxAmount.toFixed(2)}`,185,147,null,null,"right");
 
 doc.rect(120,150,70,10);

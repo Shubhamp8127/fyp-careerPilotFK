@@ -29,6 +29,10 @@ const getStoredUser = () => {
 };
 
 const persistUser = (user) => {
+  const existingUser = getStoredUser();
+  if (existingUser && existingUser.plan && existingUser.plan !== "Free" && existingUser.plan !== "Trial") {
+    user.plan = existingUser.plan;
+  }
   localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(user));
 };
 

@@ -70,6 +70,7 @@
 .logo-text span:last-child {
    background: linear-gradient(90deg, #06b6d4, #a855f7);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -581,7 +582,7 @@
     flex-direction: column;
     align-items: flex-start;
     height: auto;
-    padding: 16px 20px;
+    padding: 24px 20px 16px;
     gap: 16px;
   }
 
@@ -675,6 +676,14 @@
 }
 
 @media (max-width: 640px) {
+  .navbar {
+    padding: 16px; 
+  }
+
+  .logo-container {
+    margin-top: 10px;
+  }
+
   .logo-text {
     font-size: 18px;
   }

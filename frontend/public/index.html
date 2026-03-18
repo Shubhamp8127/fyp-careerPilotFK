@@ -7,7 +7,34 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
     <script src="https://www.youtube.com/iframe_api"></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-
+    <style>
+      /* Fix Dialogflow Messenger full screen issue on mobile */
+      df-messenger {
+        --df-messenger-bot-message: #878fac;
+        --df-messenger-button-titlebar-color: #3b82f6;
+        --df-messenger-chat-background-color: #fafafa;
+        --df-messenger-font-color: white;
+        --df-messenger-send-icon: #3b82f6;
+        --df-messenger-user-message: #3b82f6;
+        z-index: 9999;
+      }
+      
+      @media screen and (max-width: 768px) {
+        /* Force max height and width so it doesn't cover the whole screen and hide the close button */
+        df-messenger {
+          position: fixed;
+          bottom: 0;
+          right: 0;
+          z-index: 99999 !important;
+        }
+        
+        /* df-messenger creates a shadow DOM, we try to restrict the host element */
+        df-messenger {
+          --df-messenger-chat-window-height: 80vh !important;
+          --df-messenger-chat-window-width: 90vw !important;
+        }
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>

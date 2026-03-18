@@ -7,7 +7,8 @@
 
 /* Weekly Progress */
 .weekly-progress-card {
-  width: 440px;
+  width: 100%;
+  max-width: 440px;
   height: 320px;
   padding: 22px;
   border-radius: 16px;
@@ -32,7 +33,7 @@
 /* Recent Activity */
 .recent-activity {
   flex: 1;
-  min-width: 320px;
+  min-width: 280px;
   height: 320px;
   padding: 22px;
   border-radius: 16px;
@@ -130,7 +131,8 @@
 
 /* Weekly Progress */
 .weekly-progress-card {
-  width: 440px;
+  width: 100%;
+  max-width: 440px;
   height: 320px;
   padding: 22px;
   border-radius: 16px;
@@ -155,7 +157,7 @@
 /* Recent Activity */
 .recent-activity {
   flex: 1;
-  min-width: 320px;
+  min-width: 280px;
   height: 320px;
   padding: 22px;
   border-radius: 16px;

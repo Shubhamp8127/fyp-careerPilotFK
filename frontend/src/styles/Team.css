@@ -143,3 +143,32 @@
 .social-links a:hover {
   color: #22d3ee;
 }
+
+/* =========================
+   MOBILE RESPONSIVENESS
+========================= */
+@media (max-width: 768px) {
+  .team-hero {
+    padding: 100px 15px 60px;
+  }
+  .team-hero h1 {
+    font-size: 38px;
+  }
+  .team-hero p {
+    font-size: 15px;
+  }
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 15px;
+  }
+  .team-card {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-hero h1 {
+    font-size: 30px;
+  }
+}

@@ -26,7 +26,7 @@ const [couponMessage,setCouponMessage] = useState("");
 const [couponSuccess,setCouponSuccess] = useState(false);
 
 const subtotal = Math.max(total - discount, 0);
-const tax = subtotal * 0.18;
+const tax = subtotal * 0.05;
 const finalPrice = subtotal + tax;
 
 const [method,setMethod] = useState("card");
@@ -391,7 +391,7 @@ You saved {symbol}{discount.toFixed(2)} with this coupon 🎉
 )}
 
 <div className="price-row">
-<span>Tax (18%)</span>
+<span>Tax (5%)</span>
 <span>{symbol}{tax.toFixed(2)}</span>
 </div>
 

@@ -81,7 +81,7 @@ if (loading) {
           {hasNotification && <span className="dot" />}
         </div>
         <button className="view-profile" onClick={() => navigate("/profile")}>
-          {t("view profile")}
+          {t("View Profile")}
         </button>
       </div>
 
@@ -91,9 +91,9 @@ if (loading) {
           {t("Welcome back")}, <span>{data.username}</span>!
         </h1>
         <p>{t("Continue your career discovery journey")}</p>
-        <div className="user-plan">
-  ⭐ Current Plan: <strong>{user?.plan || "Free"}</strong>
-</div>
+        <div className="user-plan" style={{ textTransform: 'capitalize' }}>
+  ⭐ Current Plan: <strong>{user?.plan || "Trial"}</strong>
+  </div>
       </div>
 
       {/* STATS */}

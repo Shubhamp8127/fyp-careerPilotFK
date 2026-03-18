@@ -38,3 +38,31 @@ export const getDashboard = async (req, res) => {
     res.status(500).json({ message: "Server Error" });
   }
 };
+
+export const logDashboardActivity = async (req, res) => {
+  try {
+    const user = req.user;
+    if (!user) {
+      return res.status(401).json({ message: "Not authorized" });
+    }
+
+    const { message, type } = req.body;
+    
+    if (!message) {
+      return res.status(400).json({ message: "Activity message required" });
+    }
+
+    const newActivity = new Activity({
+      user: user._id,
+      message,
+      type: type || "info",
+    });
+
+    await newActivity.save();
+
+    res.status(201).json({ success: true, activity: newActivity });
+  } catch (err) {
+    console.error("Log activity error:", err);
+    res.status(500).json({ message: "Server Error" });
+  }
+};

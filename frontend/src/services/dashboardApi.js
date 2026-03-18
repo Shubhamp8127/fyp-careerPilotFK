@@ -9,3 +9,8 @@ export async function submitQuiz(quizPayload) {
   const response = await apiClient.post("/api/quiz/submit", quizPayload);
   return response.data;
 }
+
+export async function logDashboardActivity(message, type = "info") {
+  const response = await apiClient.post("/api/dashboard/activity", { message, type });
+  return response.data;
+}

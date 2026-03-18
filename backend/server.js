@@ -14,7 +14,7 @@ import dashboardRoutes from "./routes/dashboardRoutes.js"; // ✅ FIXED
 import quizRoutes from "./routes/quizRoutes.js";
 import newsletterRoutes from "./routes/newsletterRoutes.js";
 import generateRoadmapRoutes from "./routes/generateRoadmap.js";
-import sendInvoiceRouter from "./routes/sendInvoice.js";
+
 
 import path from "path";
 
@@ -50,7 +50,7 @@ app.use("/api/dashboard", dashboardRoutes); // ✅ NOW WORKS
 app.use("/api/quiz", quizRoutes);
 app.use("/api", newsletterRoutes);
 app.use("/api/generate-roadmap", generateRoadmapRoutes);
-app.use("/api", sendInvoiceRouter);
+
 
 
 // Temporarily allow cron job in development
