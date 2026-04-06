@@ -5,6 +5,8 @@ import { useTranslation } from "react-i18next";
 import toast from "react-hot-toast";
 import apiClient, { clearSession } from "../services/apiClient";
 
+import { useTheme } from "../contexts/ThemeContext";
+
 import {
   ChevronDown,
   Settings,
@@ -30,24 +32,11 @@ const Navbar = ({ user, setUser }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const { t, i18n } = useTranslation();
+  const { darkMode, toggleDarkMode } = useTheme();
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  const [darkMode, setDarkMode] = useState(
-    localStorage.getItem("theme") === "dark"
-  );
-
-  useEffect(() => {
-    if (darkMode) {
-      document.body.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.body.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [darkMode]);
 
   const isAuthPage =
     location.pathname === "/signin" || location.pathname === "/register";
@@ -346,7 +335,7 @@ const Navbar = ({ user, setUser }) => {
               onClick={() => navigate("/career-tree")}
             >
               <GitBranch size={18} />
-              <span>{t("3D Career Tree")}</span>
+              <span>{t("Graphical Career Overview")}</span>
             </div>
 
             <div
@@ -383,7 +372,7 @@ const Navbar = ({ user, setUser }) => {
             <input
               type="checkbox"
               checked={darkMode}
-              onChange={() => setDarkMode(!darkMode)}
+              onChange={toggleDarkMode}
             />
             <span className="slider"></span>
           </label>

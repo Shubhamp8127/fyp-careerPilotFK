@@ -67,7 +67,7 @@
 .stats-grid {
   margin-top: 40px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
 
@@ -112,6 +112,7 @@
 .icon.pink { background: #EC4899; }
 .icon.purple { background: #6D28D9; }
 .icon.yellow { background: #FACC15; }
+.icon.green { background: #10B981; }
 
 /* ROADMAP */
 .roadmap-card {
@@ -211,6 +212,10 @@ display:inline-block;
 
   .dashboard-header {
     margin-bottom: 20px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .roadmap-header {
@@ -390,6 +395,125 @@ display:inline-block;
   text-align: center;
 }
 
+/* Saved Colleges Modal */
+.saved-colleges-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.saved-colleges-modal {
+  width: min(760px, 100%);
+  max-height: 90vh;
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.18);
+}
+
+.saved-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.saved-modal-header h3 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.saved-modal-header p {
+  margin: 4px 0 0;
+  color: #64748B;
+  font-size: 14px;
+}
+
+.modal-close {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #0F172A;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+}
+
+.saved-modal-body {
+  overflow-y: auto;
+  padding-right: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.saved-college-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 18px;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  background: #F8FAFC;
+}
+
+.saved-college-item h4 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+.saved-college-item p {
+  margin: 0;
+  color: #64748B;
+  font-size: 14px;
+}
+
+.remove-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 12px;
+  background: #FECACA;
+  color: #B91C1C;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.remove-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.saved-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.secondary-btn {
+  padding: 12px 22px;
+  border-radius: 14px;
+  border: 1px solid #CBD5E1;
+  background: #FFFFFF;
+  color: #0F172A;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 /* Spinner */
 
 .spinner {
@@ -417,6 +541,7 @@ display:inline-block;
   color: #6b7280;
 }
 
+
 /* Animation */
 
 @keyframes spin {
@@ -424,6 +549,8 @@ display:inline-block;
     transform: rotate(360deg);
   }
 }
+
+
 
 /* ============================= */
 /* DASHBOARD DARK MODE           */
@@ -546,4 +673,97 @@ body.dark .activity-badge.progress {
 /* Scrollbar */
 body.dark .activity-list::-webkit-scrollbar-thumb {
   background: #64748B; /* text-muted variant */
+}
+
+body.dark .dashboard-container {
+  background: linear-gradient(180deg, #0F172A 0%, #1E293B 100%);
+  color: #F8FAFC;
+}
+
+/* ACTIONS */
+body.dark .notification {
+  background: #1E293B;
+}
+
+body.dark .notification .dot {
+  background: #22C55E;
+}
+
+body.dark .view-profile {
+  background: linear-gradient(135deg, #3B82F6, #2563EB, #EC4899);
+  color: #FFFFFF;
+}
+
+/* HEADER */
+body.dark .dashboard-header h1 {
+  color: #F8FAFC;
+}
+
+body.dark .dashboard-header p {
+  color: #94A3B8;
+}
+
+/* STATS */
+body.dark .stat-card {
+  background: #1E293B;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+body.dark .stat-card h2 {
+  color: #F8FAFC;
+}
+
+body.dark .stat-card p {
+  color: #94A3B8;
+}
+
+/* ROADMAP */
+body.dark .roadmap-card {
+  background: #1E293B;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+body.dark .roadmap-content h4 {
+  color: #F8FAFC;
+}
+
+body.dark .roadmap-content p {
+  color: #94A3B8;
+}
+
+body.dark .link {
+  color: #60A5FA;
+}
+
+/* BUTTON */
+body.dark .primary-btn {
+  background: linear-gradient(135deg, #3B82F6, #EC4899);
+  color: #FFFFFF;
+}
+
+/* USER PLAN */
+body.dark .user-plan {
+  background: #111827;
+  color: #F8FAFC;
+}
+
+/* RECENT ACTIVITY */
+body.dark .recent-activity {
+  background: #1E293B;
+}
+
+body.dark .activity-item {
+  background: #111827;
+}
+
+body.dark .activity-item:hover {
+  background: #1E293B;
+}
+
+body.dark .activity-text {
+  color: #F8FAFC;
+}
+
+body.dark .activity-date {
+  color: #94A3B8;
 }

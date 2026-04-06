@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "../styles/colleges.css";
 import CollegeCard from "../components/CollegeCard";
 import Footer from "../components/Footer";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import apiClient from "../services/apiClient";
+import { markFeatureUsed } from "../services/dashboardApi";
 
 // Lucide React icons
 import { Filter, ChevronDown, X, Search } from "lucide-react";
@@ -27,7 +29,11 @@ const Colleges = () => {
   const [courseFilter, setCourseFilter] = useState("All Courses"); // ✅ Course filter
   // 🔥 Compare states
   const [compareList, setCompareList] = useState([]);
+const navigate = useNavigate();
   const [showCompare, setShowCompare] = useState(false);
+
+
+
 
   // Fetch colleges
   useEffect(() => {
@@ -43,6 +49,12 @@ const Colleges = () => {
     return () => {
       active = false;
     };
+  }, []);
+
+  useEffect(() => {
+    markFeatureUsed().catch((err) => {
+      console.error("Feature usage tracking failed:", err);
+    });
   }, []);
 
   // Helper: Map location to state
@@ -314,6 +326,7 @@ const recommendedCollege = compareList.find(
         </AnimatePresence>
       </div>
 
+
       {/* College Grid */}
       <div className="college-grid">
         <AnimatePresence>
@@ -332,6 +345,7 @@ const recommendedCollege = compareList.find(
                 college={college}
                 toggleCompare={toggleCompare}
                 compareList={compareList}
+                onViewDetails={(college) => navigate(`/college/${college.id}`)}
               />
               </motion.div>
             ))}

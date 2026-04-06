@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import apiClient from "../services/apiClient";
 
-const CollegeCard = ({ college, toggleCompare, compareList }) => {
+const CollegeCard = ({ college, toggleCompare, compareList, onViewDetails }) => {
   const { t } = useTranslation();
   const [bookmarked, setBookmarked] = useState(false);
   const isSelected = compareList?.some(c => c.id === college.id);
@@ -12,8 +12,9 @@ const CollegeCard = ({ college, toggleCompare, compareList }) => {
   // ✅ fetch bookmark status from localStorage on mount
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("savedColleges")) || [];
-    setBookmarked(saved.includes(college.id));
-  }, [college.id]);
+    const initialBookmarked = college.saved ?? saved.includes(college.id);
+    setBookmarked(initialBookmarked);
+  }, [college.id, college.saved]);
 
   // 🔖 toggle bookmark via backend API
   const toggleBookmark = async () => {
@@ -66,31 +67,31 @@ const CollegeCard = ({ college, toggleCompare, compareList }) => {
       </p>
 
       <div className="meta">
-        <span className={`badge ${college.type.toLowerCase()}`}>
-          {college.type}
+        <span className={`badge ${(college.type || "private").toLowerCase()}`}>
+          {college.type || "Private"}
         </span>
-        <span className="rating">⭐ {college.rating}</span>
-        <span className="est">{t("collegeCard.est", "Est.")} {college.est}</span>
+        <span className="rating">⭐ {college.rating || 4.0}</span>
+        <span className="est">{t("collegeCard.est", "Est.")} {college.est || "N/A"}</span>
       </div>
 
       <div className="stats">
         <div>
           <p className="label">{t("collegeCard.annualFees", "Annual Fees")}</p>
-          <p className="value">₹ {college.fees.toLocaleString()}</p>
+          <p className="value">₹ {(college.fees || 0).toLocaleString()}</p>
         </div>
         <div>
           <p className="label">{t("collegeCard.cutoff", "Cutoff")}</p>
-          <p className="cutoff">{college.cutoff}</p>
+          <p className="cutoff">{college.cutoff || "N/A"}</p>
         </div>
       </div>
 
       <div className="courses">
         <p className="label">{t("collegeCard.popularCourses", "Popular Courses")}</p>
         <div className="course-tags">
-          {college.courses.slice(0, 3).map((c, i) => (
+          {(college.courses || []).slice(0, 3).map((c, i) => (
             <span key={i}>{c}</span>
           ))}
-          {college.courses.length > 3 && (
+          {(college.courses?.length || 0) > 3 && (
             <span>
               +{college.courses.length - 3} {t("collegeCard.more", "more")}
             </span>
@@ -99,7 +100,12 @@ const CollegeCard = ({ college, toggleCompare, compareList }) => {
       </div>
 
       <div className="actions">
-        <button className="link">{t("collegeCard.viewDetails", "View Details")}</button>
+        <button 
+  className="link"
+  onClick={() => onViewDetails?.(college)}
+>
+  {t("collegeCard.viewDetails", "View Details")}
+</button>
         <a href={college.website} target="_blank" rel="noreferrer">
           <button className="visit">{t("collegeCard.visit", "Visit")} ↗</button>
         </a>

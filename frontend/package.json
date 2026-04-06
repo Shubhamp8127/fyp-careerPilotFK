@@ -14,6 +14,7 @@
     "firebase": "^10.7.1",
     "framer-motion": "^10.16.4",
     "i18next": "^23.7.6",
+    "leaflet": "^1.9.4",
     "lucide-react": "^0.344.0",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
@@ -21,9 +22,10 @@
     "react-hot-toast": "^2.4.1",
     "react-i18next": "^13.5.0",
     "react-icons": "^4.12.0",
+    "react-leaflet": "^4.2.1",
+    "react-markdown": "^8.0.7",
     "react-router-dom": "^6.22.3",
     "react-scripts": "5.0.1",
-    "react-markdown": "^8.0.7",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

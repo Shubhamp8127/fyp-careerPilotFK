@@ -9,6 +9,7 @@ import {
 import { useRef, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import apiClient from "../services/apiClient";
+import { markFeatureUsed } from "../services/dashboardApi";
 import { motion, animate } from "framer-motion";
 import Footer from "../components/Footer";
 import jsPDF from "jspdf";
@@ -54,6 +55,12 @@ const [loadingMessage, setLoadingMessage] = useState(
 
   /* ATS COUNT-UP */
   const [animatedScore, setAnimatedScore] = useState(0);
+
+  useEffect(() => {
+    markFeatureUsed().catch((err) => {
+      console.error("Feature usage tracking failed:", err);
+    });
+  }, []);
 
   useEffect(() => {
     if (!result?.atsScore) return;

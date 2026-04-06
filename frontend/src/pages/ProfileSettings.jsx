@@ -20,9 +20,13 @@ import '../styles/profileSettings.css';
 import apiClient from "../services/apiClient";
 import { useTranslation } from "react-i18next";
 import toast from "react-hot-toast";
+import { useTheme } from "../contexts/ThemeContext";
 
 
 export default function ProfileSettings({ userProfile, onUpdate }) {
+  const { t, i18n } = useTranslation();
+  const { darkMode, toggleDarkMode } = useTheme();
+
   const avatarOptions = [
   "/avatars/avatar1.png",
   "/avatars/avatar2.png",
@@ -31,29 +35,6 @@ export default function ProfileSettings({ userProfile, onUpdate }) {
   "/avatars/avatar5.png",
   "/avatars/avatar6.png"
 ];
-
-const [darkMode, setDarkMode] = useState(
-  localStorage.getItem("theme") === "dark"
-);
-
-// 🔹 Apply theme to page
-const applyTheme = (theme) => {
-  const body = document.body;
-
-  // remove previous classes
-  body.classList.remove("dark");
-
-  if(theme === "dark") {
-    body.classList.add("dark");
-    localStorage.setItem("theme", "dark");
-  } else if(theme === "light") {
-    localStorage.setItem("theme", "light");
-  } else if(theme === "system") {
-    const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    if(isDark) body.classList.add("dark");
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-  }
-};
 
   const [activeSection, setActiveSection] = useState("profile");
   const [showPassword, setShowPassword] = useState(false);
@@ -108,9 +89,6 @@ const [preferences, setPreferences] = useState({
   timezone: "UTC",
   currency: localStorage.getItem("currency") || "USD",
 });
-
-  // i18n for language change
-const { t, i18n } = useTranslation();
 
 // Language dropdown state & ref
 const [langDropdownOpen, setLangDropdownOpen] = useState(false);
@@ -260,13 +238,13 @@ const handlePreferencesUpdate = async () => {
   try {
     setLoading(true);
 
-    // save theme
-    localStorage.setItem("theme", preferences.theme);
-    applyTheme(preferences.theme);
-
-    // ✅ save currency
-    localStorage.setItem("currency", preferences.currency);
-
+      // save theme - handle system preference
+      if (preferences.theme === "system") {
+        const isSystemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        localStorage.setItem("theme", isSystemDark ? "dark" : "light");
+      } else {
+        localStorage.setItem("theme", preferences.theme);
+      }
     // ✅ save language
     localStorage.setItem("language", preferences.language);
 
@@ -289,19 +267,8 @@ const handlePreferencesUpdate = async () => {
     });
      const savedTheme = localStorage.getItem("theme") || userProfile?.themePreference || "system";
     setPreferences(prev => ({ ...prev, theme: savedTheme }));
-    applyTheme(savedTheme);
   }
 }, [userProfile]);
-
-useEffect(() => {
-  if (darkMode) {
-    document.body.classList.add("dark");
-    localStorage.setItem("theme", "dark");
-  } else {
-    document.body.classList.remove("dark");
-    localStorage.setItem("theme", "light");
-  }
-}, [darkMode]);
 
 const fullName =
   [profileData.first_name, profileData.last_name]
@@ -617,7 +584,7 @@ const fullName =
             <input
               type="checkbox"
               checked={darkMode}
-              onChange={() => setDarkMode(!darkMode)}
+              onChange={toggleDarkMode}
             />
             <span className="slider"></span>
           </label>

@@ -10,12 +10,13 @@ Check
 } from "lucide-react";
 
 import "../styles/PaymentPage.css";
-
+import { useTranslation } from "react-i18next";
+import toast from "react-hot-toast";
 export default function PaymentPage() {
 
 
 const navigate = useNavigate();
-
+const { t } = useTranslation();
 const location = useLocation();
 const { plan, price, billingCycle, currency } = location.state || {};
 const total = Number(price);
@@ -58,20 +59,23 @@ return value
 const applyCoupon = () => {
 
 if(coupon === "CAREER50"){
-setDiscount(total * 0.5);
-setCouponMessage("Coupon Applied 🎉 50% Discount");
-setCouponSuccess(true);
+  setDiscount(total * 0.5);
+  setCouponMessage(t("payment.coupon_50"));
+  setCouponSuccess(true);
+  toast.success(t("payment.coupon_50"));
 }
 
 else if(coupon === "CAREER20"){
-setDiscount(total * 0.2);
-setCouponMessage("Coupon Applied 🎉 20% Discount");
-setCouponSuccess(true);
+  setDiscount(total * 0.2);
+  setCouponMessage(t("payment.coupon_20"));
+  setCouponSuccess(true);
+  toast.success(t("payment.coupon_20"));
 }
 
 else{
-setCouponMessage("Invalid Coupon Code");
-setCouponSuccess(false);
+  setCouponMessage(t("payment.invalid_coupon"));
+  setCouponSuccess(false);
+  toast.error(t("payment.invalid_coupon"));
 }
 
 };
@@ -82,37 +86,35 @@ const transactionId = "CPAY" + Math.floor(Math.random()*1000000);
 /* PLAN DATA */
 
 const planData = {
+  basic:{
+    name: t("basic_plan"),
+    features:[
+      t("ai_career_chatbot"),
+      t("basic_career_assessment"),
+      t("college_database_access"),
+      t("email_support")
+    ]
+  },
 
-basic:{
-name:"Basic Plan",
-features:[
-"AI Career Chatbot",
-"Basic Career Assessment",
-"College Database Access",
-"Email Support"
-]
-},
+  premium:{
+    name: t("premium_plan"),
+    features:[
+      t("everything_in_basic"),
+      t("ai_roadmap_generator"),
+      t("unlimited_roadmaps"),
+      t("priority_support")
+    ]
+  },
 
-premium:{
-name:"Premium Plan",
-features:[
-"Everything in Basic",
-"AI Roadmap Generator",
-"Unlimited Roadmaps",
-"Priority Support"
-]
-},
-
-elite:{
-name:"Elite Plan",
-features:[
-"Everything in Premium",
-"ChatGPT + Gemini Pro",
-"Brock AI Assistant",
-"24/7 Support"
-]
-}
-
+  elite:{
+    name: t("elite_plan"),
+    features:[
+      t("everything_in_premium"),
+      t("chatgpt_gemini_pro"),
+      t("brock_ai_assistant"),
+      t("support_247")
+    ]
+  }
 };
 
 const selectedPlan = planData[plan] || planData.basic;
@@ -120,57 +122,56 @@ const selectedPlan = planData[plan] || planData.basic;
 const handlePayment = () => {
 
 if(method === "card"){
-if(!cardName || !cardNumber || !expiry || !cvv){
-alert("Please fill card details");
-return;
-}
+  if(!cardName || !cardNumber || !expiry || !cvv){
+    toast.error(t("payment.fill_card"));
+    return;
+  }
 }
 
 if(method === "upi"){
 
-const upiRegex = /^[a-zA-Z0-9.\-_]{2,}@[a-zA-Z]{2,}$/;
+  const upiRegex = /^[a-zA-Z0-9.\-_]{2,}@[a-zA-Z]{2,}$/;
 
-if(!upi){
-alert("Please enter UPI ID");
-return;
-}
+  if(!upi){
+    toast.error(t("payment.enter_upi"));
+    return;
+  }
 
-if(!upiRegex.test(upi)){
-alert("Enter valid UPI ID (example@upi)");
-return;
-}
-
+  if(!upiRegex.test(upi)){
+    toast.error(t("payment.invalid_upi"));
+    return;
+  }
 }
 
 if(method === "bank"){
-if(!bank || bank === "Select Bank"){
-alert("Please select a bank");
-return;
-}
+  if(!bank || bank === "Select Bank"){
+    toast.error(t("payment.select_bank_error"));
+    return;
+  }
 }
 
 setLoading(true);
 
 setTimeout(()=>{
 
-const transactionId = "CPAY" + Math.floor(Math.random()*1000000);
+  toast.success("Payment Successful 🎉"); // ✅ working
 
+  const transactionId = "CPAY" + Math.floor(Math.random()*1000000);
 
-
-navigate("/payment-success",{
-state:{
-transactionId,
-plan:selectedPlan.name,
-total:finalPrice.toFixed(2),
-originalPrice: total,
-discount,
-tax,
-currency,
-billingCycle,
-name:user?.name,
-email:user?.email
-}
-});
+  navigate("/payment-success",{
+    state:{
+      transactionId,
+      plan:selectedPlan.name,
+      total:finalPrice.toFixed(2),
+      originalPrice: total,
+      discount,
+      tax,
+      currency,
+      billingCycle,
+      name:user?.name,
+      email:user?.email
+    }
+  });
 
 },2000);
 
@@ -181,7 +182,7 @@ return (
 <div className="payment-page">
 
 <h1 className="payment-title">
-Complete Your Enrollment
+ {t("payment.title")}
 </h1>
 
 <div className="payment-grid">
@@ -190,7 +191,7 @@ Complete Your Enrollment
 
 <div className="payment-card">
 
-<h3>Payment Method</h3>
+<h3>{t("payment.method")}</h3>
 
 <div className="payment-tabs">
 
@@ -198,21 +199,21 @@ Complete Your Enrollment
 className={method==="card"?"active":""}
 onClick={()=>setMethod("card")}
 >
-<CreditCard size={18}/> Card
+<CreditCard size={18}/> {t("payment.card")}
 </button>
 
 <button
 className={method==="upi"?"active":""}
 onClick={()=>setMethod("upi")}
 >
-<Smartphone size={18}/> UPI
+<Smartphone size={18}/> {t("payment.upi")}
 </button>
 
 <button
 className={method==="bank"?"active":""}
 onClick={()=>setMethod("bank")}
 >
-<Landmark size={18}/> Net Banking
+<Landmark size={18}/> {t("payment.net_banking")}
 </button>
 
 </div>
@@ -227,7 +228,7 @@ onClick={()=>setMethod("bank")}
 <User size={16}/>
 <input
 type="text"
-placeholder="Cardholder Name"
+placeholder={t("payment.card_name")}
 value={cardName}
 onChange={(e)=>setCardName(e.target.value)}
 />
@@ -237,7 +238,7 @@ onChange={(e)=>setCardName(e.target.value)}
 <CreditCard size={16}/>
 <input
 type="text"
-placeholder="Card Number"
+placeholder={t("payment.card_number")}
 value={cardNumber}
 maxLength={19}
 onChange={(e)=>setCardNumber(formatCardNumber(e.target.value))}
@@ -249,7 +250,7 @@ onChange={(e)=>setCardNumber(formatCardNumber(e.target.value))}
 <div className="input-box">
 <input
 type="text"
-placeholder="MM/YY"
+placeholder={t("payment.expiry")}
 value={expiry}
 onChange={(e)=>setExpiry(formatExpiry(e.target.value))}
 />
@@ -259,7 +260,7 @@ onChange={(e)=>setExpiry(formatExpiry(e.target.value))}
 <ShieldCheck size={16}/>
 <input
 type="password"
-placeholder="CVV"
+placeholder={t("payment.cvv")}
 maxLength={3}
 value={cvv}
 onChange={(e)=>setCvv(e.target.value.replace(/\D/g,""))}
@@ -282,7 +283,7 @@ onChange={(e)=>setCvv(e.target.value.replace(/\D/g,""))}
 <Smartphone size={16}/>
 <input
 type="text"
-placeholder="Enter UPI ID (example@upi)"
+placeholder={t("payment.upi_placeholder")}
 value={upi}
 onChange={(e)=>setUpi(e.target.value)}
 />
@@ -301,7 +302,7 @@ onChange={(e)=>setUpi(e.target.value)}
 <div className="input-box">
 <Landmark size={16}/>
 <select value={bank} onChange={(e)=>setBank(e.target.value)}>
-<option value="">Select Bank</option>
+<option value="">{t("payment.select_bank")}</option>
 <option>State Bank of India</option>
 <option>HDFC Bank</option>
 <option>ICICI Bank</option>
@@ -317,14 +318,14 @@ onChange={(e)=>setUpi(e.target.value)}
 
 <input
 type="text"
-placeholder="Enter Coupon Code"
+placeholder={t("payment.coupon")}
 value={coupon}
 onChange={(e)=>setCoupon(e.target.value)}
 className="coupon-input"
 />
 
 <button onClick={applyCoupon} className="coupon-btn">
-Apply
+{t("payment.apply")}
 </button>
 
 </div>
@@ -341,7 +342,10 @@ Apply
   onClick={handlePayment}
   disabled={loading}
 >
-  {loading ? "Processing Payment..." : `Confirm & Pay ${symbol}${finalPrice.toFixed(2)}`}
+{loading
+  ? t("payment.processing")
+  : t("payment.pay_now", { amount: `${symbol}${finalPrice.toFixed(2)}` })
+}
 </button>
 
 </div>
@@ -351,11 +355,11 @@ Apply
 <div className="plan-box">
 
 <div className="badge">
-Monthly Billing
+{t("payment.billing_monthly")}
 </div>
 
 <h3>
-{selectedPlan.name} Details
+{selectedPlan.name} {t("payment.details")}
 </h3>
 
 <ul>
@@ -373,37 +377,37 @@ Monthly Billing
 <div className="price-breakdown">
 
 <div className="price-row">
-<span>Plan Price</span>
+<span>{t("payment.plan_price")}</span>
 <span>{symbol}{total.toFixed(2)}</span>
 </div>
 
 {discount > 0 && (
 <div className="price-row discount">
-<span>Coupon Discount</span>
+<span>{t("payment.coupon_discount")}</span>
 <span>- {symbol}{discount.toFixed(2)}</span>
 </div>
 )}
 
 {discount > 0 && (
 <p className="savings-text">
-You saved {symbol}{discount.toFixed(2)} with this coupon 🎉
+{t("payment.savings", { amount: `${symbol}${discount.toFixed(2)}` })}
 </p>
 )}
 
 <div className="price-row">
-<span>Tax (5%)</span>
+<span>{t("payment.tax")}</span>
 <span>{symbol}{tax.toFixed(2)}</span>
 </div>
 
 <div className="price-divider"></div>
 
 <div className="price-total">
-<span>Total</span>
+<span>{t("payment.total")}</span>
 <span>{symbol}{finalPrice.toFixed(2)}</span>
 </div>
 
 <span className="billing-text">
-/ {billingCycle === "quarterly" ? "3 months" : "month"}
+/ {billingCycle === "quarterly" ? t("payment.quarterly") : t("payment.monthly")}
 </span>
 
 </div>

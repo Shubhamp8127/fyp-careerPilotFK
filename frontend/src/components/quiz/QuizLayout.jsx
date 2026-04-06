@@ -5,14 +5,16 @@ import QuizCard from "./QuizCard";
 import QuizNavigation from "./QuizNavigation";
 import apiClient from "../../services/apiClient";
 import QuizLoader from "./QuizLoader";
-
-const LOADER_TEXTS = [
-  "Analyzing your answers...",
-  "Matching career paths...",
-  "Preparing your results...",
-];
+import { useTranslation } from "react-i18next";
 
 const QuizLayout = () => {
+  const { t } = useTranslation();
+
+  const LOADER_TEXTS = [
+    t("quiz.loader.analyzing"),
+    t("quiz.loader.matching"),
+    t("quiz.loader.preparing"),
+  ];
   const [topics, setTopics] = useState([]);
   const [topicsLoading, setTopicsLoading] = useState(true);
   const [topicError, setTopicError] = useState("");

@@ -8,14 +8,10 @@ const SavedColleges = () => {
   const [savedColleges, setSavedColleges] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const userId = localStorage.getItem("userId");
-
   useEffect(() => {
     const fetchSaved = async () => {
       try {
-        const res = await apiClient.get(
-          `/api/colleges/bookmark/${userId}`
-        );
+        const res = await apiClient.get("/api/colleges/bookmark");
         setSavedColleges(res.data.savedColleges || []);
       } catch (err) {
         console.error("Failed to fetch saved colleges", err);
@@ -25,7 +21,7 @@ const SavedColleges = () => {
     };
 
     fetchSaved();
-  }, [userId]);
+  }, []);
 
   if (loading) {
     return <p className="loading">Loading saved colleges...</p>;

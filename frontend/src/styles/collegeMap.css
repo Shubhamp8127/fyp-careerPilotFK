@@ -1,0 +1,238 @@
+/* ================= PAGE ================= */
+.map-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #F8FAFC 0%, #EEF2FF 100%);
+  color: #1E293B;
+  padding-top: 70px;
+}
+
+/* ================= MAIN LAYOUT ================= */
+.map-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  height: calc(100vh - 120px);
+  box-sizing: border-box;
+}
+
+/* ================= LEFT MAP ================= */
+.map-left {
+  flex: 3;
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: 400px;
+}
+
+.leaflet-map {
+  height: 100% !important;
+  width: 100%;
+}
+
+/* ================= RIGHT PANEL ================= */
+.map-right {
+  flex: 1;
+  display: flex;
+  overflow-y: auto;
+}
+
+/* ================= CARD ================= */
+.college-card-ui {
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.college-card-ui h2 {
+  font-size: 20px;
+  color: #0F172A;
+}
+
+/* ================= INFO ================= */
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #1E293B;
+}
+
+.info-row span:first-child {
+  color: #64748B;
+}
+
+/* ================= BUTTON ================= */
+.direction-btn {
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #3B82F6;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.direction-btn:hover {
+  background: #2563EB;
+}
+
+/* ================= EMPTY ================= */
+.empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border-radius: 16px;
+  background: #F1F5F9;
+  color: #64748B;
+  border: 1px dashed #CBD5E1;
+}
+
+/* ================= BACK BUTTON ================= */
+.back-btn {
+  position: absolute;
+  top: 80px;
+  left: 15px;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  color: #1E293B;
+  z-index: 1000;
+}
+
+.back-btn:hover {
+  color: #3B82F6;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .map-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .map-left {
+    height: 350px;
+  }
+
+  .map-right {
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .map-left {
+    height: 280px;
+    border-radius: 14px;
+  }
+
+  .college-card-ui {
+    padding: 15px;
+    border-radius: 12px;
+  }
+
+  .college-card-ui h2 {
+    font-size: 18px;
+  }
+
+  .info-row {
+    font-size: 13px;
+  }
+
+  .direction-btn {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .back-btn {
+    top: 75px;
+    left: 10px;
+    font-size: 14px;
+  }
+}
+
+.info-row span,
+.map-right p,
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (max-width: 480px) {
+  .map-left {
+    height: 250px;
+  }
+
+  .college-card-ui {
+    padding: 12px;
+  }
+
+  .direction-btn {
+    padding: 9px;
+    font-size: 13px;
+  }
+}
+
+/* ================= DARK MODE ================= */
+
+body.dark .map-page {
+  background: linear-gradient(180deg, #0F172A 0%, #020617 100%);
+  color: #E2E8F0;
+}
+
+body.dark .college-card-ui {
+  background: #1E293B;
+  border: 1px solid #334155;
+  box-shadow: none;
+}
+
+body.dark .college-card-ui h2 {
+  color: #F1F5F9;
+}
+
+body.dark .info-row {
+  color: #CBD5F5;
+}
+
+body.dark .info-row span:first-child {
+  color: #94A3B8;
+}
+
+body.dark .empty-state {
+  background: #1E293B;
+  border: 1px dashed #475569;
+  color: #94A3B8;
+}
+
+body.dark .back-btn {
+  color: #E2E8F0;
+}
+
+body.dark .back-btn:hover {
+  color: #3B82F6;
+}
+
+body.dark .direction-btn {
+  background: #2563EB;
+}
+
+body.dark .direction-btn:hover {
+  background: #1D4ED8;
+}

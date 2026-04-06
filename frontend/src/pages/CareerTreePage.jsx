@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Search,
@@ -13,6 +13,7 @@ import {
 import { Link } from "react-router-dom";
 import "../styles/careerTree.css";
 import Footer from "../components/Footer";
+import { markFeatureUsed } from "../services/dashboardApi";
 
 
 /* ================= REQUIRED SKILLS VISUAL ================= */
@@ -182,6 +183,12 @@ export default function CareerTreePage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [showInfo, setShowInfo] = useState(true);
 
+  useEffect(() => {
+    markFeatureUsed().catch((err) => {
+      console.error("Feature usage tracking failed:", err);
+    });
+  }, []);
+
   const filteredCareers = Object.values(careerDatabase).filter((career) => {
     const matchesCategory =
       selectedCategory === "All" ||
@@ -235,7 +242,7 @@ export default function CareerTreePage() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <h1>3D Career Tree</h1>
+          <h1>Graphical Career Overview</h1>
           <p>
             Explore career paths in an interactive environment.
           </p>

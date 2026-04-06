@@ -429,3 +429,85 @@ font-size:13px;
 }
 
 }
+
+/* ========================= */
+/* DARK MODE */
+/* ========================= */
+
+body.dark .payment-page {
+  background: linear-gradient(180deg, #0F172A 0%, #1E293B 100%);
+  color: #F8FAFC;
+}
+
+body.dark .payment-card,
+body.dark .plan-box {
+  background: #1E293B;
+  border: 1px solid #334155;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+body.dark .payment-tabs {
+  background: #111827;
+  border-color: #334155;
+}
+
+body.dark .payment-tabs button {
+  background: transparent;
+  color: #94A3B8;
+}
+
+body.dark .payment-tabs .active {
+  background: #1E293B;
+  color: #60A5FA;
+}
+
+body.dark .form input,
+body.dark .form select,
+body.dark .coupon-input {
+  background: #111827;
+  border: 1px solid #334155;
+  color: #F8FAFC;
+}
+
+body.dark .input-box {
+  background: #111827;
+  border-color: #334155;
+}
+
+body.dark .coupon-box {
+  background: #111827;
+}
+
+body.dark .price-breakdown {
+  background: #111827;
+  border-color: #334155;
+}
+
+body.dark .price-row {
+  color: #CBD5F5;
+}
+
+body.dark .price-total {
+  color: #F8FAFC;
+}
+
+body.dark .billing-text {
+  color: #94A3B8;
+}
+
+body.dark .plan-box li {
+  color: #CBD5F5;
+}
+
+body.dark .badge {
+  background: #1E3A8A;
+  color: #93C5FD;
+}
+
+body.dark .pay-btn {
+  background: #2563EB;
+}
+
+body.dark .pay-btn:hover {
+  background: #1D4ED8;
+}

@@ -112,7 +112,7 @@ const Footer = () => {
           <h4>FEATURES</h4>
           <a href="#">Features</a>
           <a href="/career-quiz">Career Quiz</a>
-          <a href="#">3D Career Tree</a>
+          <a href="/career-tree">Graphical Career Overview</a>
           <Link to="/colleges">College Finder</Link>
           <Link to="/resources">Learning Resource</Link>
         </div>

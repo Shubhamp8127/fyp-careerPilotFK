@@ -9,6 +9,7 @@ import {
   getProfile,
   updateProfile,
   changePassword,
+  updatePlan,
 } from "../controllers/authController.js";
 import { protect } from "../middleware/authMiddleware.js";
 
@@ -28,6 +29,7 @@ router.get("/me", protect, getProfile);
 
 router.put("/update-profile", protect, updateProfile);
 router.put("/change-password", protect, changePassword);
+router.post("/update-plan", protect, updatePlan);
 
 
 

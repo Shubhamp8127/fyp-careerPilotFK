@@ -39,3 +39,22 @@
   font-size: 15px;
   color: #64748B; /* text-muted */
 }
+
+/* Dark Mode */
+body.dark .stat-box {
+  background: #1E293B; /* dark-bg-card */
+  border: 1px solid #334155; /* dark-border */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+body.dark .stat-box:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .stat-box h2 {
+  color: #60A5FA; /* dark-primary-blue */
+}
+
+body.dark .stat-box p {
+  color: #CBD5E1; /* dark-text-muted */
+}

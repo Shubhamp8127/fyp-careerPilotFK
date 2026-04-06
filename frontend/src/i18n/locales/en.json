@@ -14,7 +14,26 @@
     "signIn": "Sign In",
     "signUp": "Sign Up",
     "profile": "Profile",
-    "logout": "Logout"
+    "logout": "Logout",
+    "email": "Email",
+    "password": "Password",
+    "loginSuccessful": "Login Successful!",
+    "signUpSuccessful": "Sign Up Successful!"
+  },
+  "stats": {
+    "studentsGuided": "Students Guided",
+    "careerPaths": "Career Paths",
+    "collegesListed": "Colleges Listed"
+  },
+  "weeklyProgress": {
+    "title": "Weekly Progress"
+  },
+  "quiz": {
+    "loader": {
+      "analyzing": "Analyzing your answers...",
+      "matching": "Matching career paths...",
+      "preparing": "Preparing your results..."
+    }
   },
     
   "featuresDropdown": {
@@ -68,15 +87,35 @@
     "resultRecommendedRoles": "Recommended Roles:",
     "resultTips": "Improvement Tips:",
     "resultRaw": "Raw AI Response:",
-"analyzingResume": "Analyzing your Resume...",
-"parsingResume": "Parsing Resume...",
-"checkingATS": "Checking ATS Compatibility...",
-"matchingSkills": "Matching Skills...",
-"generatingRecommendations": "Generating Recommendations...",
-"heroSubtitle": "AI-powered career assistance to help you land your dream job",
-"Resume": "Resume",
-"Analyzer": "Analyzer"
+    "analyzingResume": "Analyzing your Resume...",
+    "parsingResume": "Parsing Resume...",
+    "checkingATS": "Checking ATS Compatibility...",
+    "matchingSkills": "Matching Skills...",
+    "generatingRecommendations": "Generating Recommendations...",
+    "heroSubtitle": "AI-powered career assistance to help you land your dream job",
+    "Resume": "Resume",
+    "Analyzer": "Analyzer"
 
+  },
+  "pricing": {
+    "basic_plan": "Basic Plan",
+    "basic_plan_desc": "Perfect for getting started with career guidance",
+    "premium_plan": "Premium Plan", 
+    "premium_plan_desc": "Advanced features for serious career planning",
+    "elite_plan": "Elite Plan",
+    "elite_plan_desc": "Complete AI-powered career transformation",
+    "no_pdf_downloads": "No PDF downloads",
+    "limited_ai_tokens": "Limited AI tokens (50/month)",
+    "limited_roadmap": "Limited roadmap generations",
+    "resume_basic_score": "Basic resume scoring",
+    "unlimited_roadmaps": "Unlimited AI roadmaps",
+    "resume_skill_gap": "Resume skill gap analysis",
+    "pdf_reports": "PDF reports & downloads",
+    "resume_full_report": "Full resume optimization report",
+    "unlimited_ai_tokens": "Unlimited AI tokens",
+    "resume_optimization": "AI resume optimization",
+    "mock_interview": "AI mock interviews",
+    "career_reports": "Advanced career reports"
   },
 
   "hero": {
@@ -382,27 +421,132 @@
   "Settings": "Settings",
   "Personalized Domain Quiz": "Personalized Domain Quiz",
 
-
-
-
-      "load_error": "Failed to load dashboard. Make sure you are logged in.",
-      "loading": "Loading",
-      "view_profile": "View Profile",
-      "welcome_back": "Welcome back",
-      "continue_journey": "Continue your career discovery journey",
-      "quiz_completions": "Quiz Completions",
-      "saved_colleges": "Saved Colleges",
-      "skills_acquired": "Skills Acquired",
-      "achievements": "Achievements",
-      "roadmap_preview": "Your 3D Roadmap Preview",
-      "explore_full_roadmap": "Explore Full Roadmap",
-      "generate_first_roadmap": "Generate Your First Roadmap",
-      "roadmap_description": "Create an AI-powered career roadmap to visualize your learning path and track progress.",
-      "generate_button": "Generate Your First Roadmap"
+  "collegeMap": {
+    "back": "Back",
+    "fees": "Fees",
+    "courses": "Courses",
+    "getDirections": "Get Directions",
+    "selectCollege": "Select a college to view details"
+  },
+  "dashboard": {
+    "load_error": "Failed to load dashboard. Please make sure you are logged in.",
+    "loading": "Loading...",
+    "preparing": "Preparing your dashboard...",
+    "view_profile": "View Profile",
+    "welcome_back": "Welcome back",
+    "continue_journey": "Continue your career discovery journey",
+    "current_plan": "Current Plan",
+    "quiz_completions": "Quiz Completions",
+    "saved_colleges": "Saved Colleges",
+    "skills_acquired": "Skills Acquired",
+    "learning_resources_accessed": "Learning Resources Accessed",
+    "activities_logged": "Activities Logged",
+    "achievements": "Achievements",
+    "no_saved_colleges": "No saved colleges yet.",
+    "remove": "Remove",
+    "removing": "Removing...",
+    "view_full_saved_colleges": "View All Saved Colleges",
+    "roadmap_preview": "Your 3D Roadmap Preview",
+    "explore_full_roadmap": "Explore Full Roadmap",
+    "generate_first_roadmap": "Generate Your First Roadmap",
+    "roadmap_description": "Create an AI-powered career roadmap to visualize your learning path and track progress",
+    "generate_button": "Generate Your First Roadmap"
+  },
+  
+  "activity": {
+    "title": "Recent Activity",
+    "viewAll": "View All",
+    "types": {
+      "recommendation": "Recommendation",
+      "quiz": "Quiz",
+      "progress": "Progress",
+      "login": "Login",
+      "profile_update": "Profile Update"
     }
+  },
   
 
+  "payment": {
+    "title": "Complete Your Enrollment",
+    "method": "Payment Method",
 
+    "card": "Card",
+    "upi": "UPI",
+    "net_banking": "Net Banking",
+
+    "card_name": "Cardholder Name",
+    "card_number": "Card Number",
+    "expiry": "MM/YY",
+    "cvv": "CVV",
+
+    "upi_placeholder": "Enter UPI ID (example@upi)",
+    "select_bank": "Select Bank",
+
+    "coupon": "Enter Coupon Code",
+    "apply": "Apply",
+
+    "coupon_50": "Coupon Applied 🎉 50% Discount",
+    "coupon_20": "Coupon Applied 🎉 20% Discount",
+    "invalid_coupon": "Invalid Coupon Code",
+
+    "processing": "Processing Payment...",
+    "pay_now": "Confirm & Pay {{amount}}",
+
+    "fill_card": "Please fill card details",
+    "enter_upi": "Please enter UPI ID",
+    "invalid_upi": "Enter valid UPI ID (example@upi)",
+    "select_bank_error": "Please select a bank",
+
+    "billing_monthly": "Monthly Billing",
+    "details": "Details",
+
+    "plan_price": "Plan Price",
+    "coupon_discount": "Coupon Discount",
+    "tax": "Tax (5%)",
+    "total": "Total",
+
+    "monthly": "Monthly",
+    "quarterly": "Quarterly",
+
+    "savings": "You saved {{amount}} 🎉",
+
+  
+  "basic_plan_desc": "Basic Plan",
+  "ai_career_chatbot": "AI Career Chatbot",
+  "basic_career_assessment": "Basic Career Assessment",
+  "college_database_access": "College Database Access",
+  "email_support": "Email Support",
+
+  "premium_plan": "Premium Plan",
+  "everything_in_basic": "Everything in Basic",
+  "ai_roadmap_generator": "AI Roadmap Generator",
+  "unlimited_roadmaps": "Unlimited Roadmaps",
+  "priority_support": "Priority Support",
+
+  "elite_plan": "Elite Plan",
+  "everything_in_premium": "Everything in Premium",
+  "chatgpt_gemini_pro": "ChatGPT-5 & Gemini Pro",
+  "brock_ai_assistant": "Brock AI Assistant",
+  "support_247": "24/7 Support"
+},
+
+"paymentSuccess": {
+  "title": "Payment Successful 🎉",
+  "subtitle": "Your subscription is now active.",
+  "transaction": "Transaction ID",
+  "plan": "Plan",
+  "amount": "Amount Paid",
+  "download": "Download Invoice",
+  "generating": "Generating Invoice...",
+  "dashboard": "Go to Dashboard",
+  "invoice_error": "Invoice download failed. Try again.",
+  "paymentSuccess": {
+  "preparing": "Preparing invoice...",
+  "download_success": "Invoice downloaded successfully 🎉"
+}
+}
+
+}
 
 
  

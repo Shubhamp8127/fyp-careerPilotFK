@@ -14,7 +14,26 @@
     "signIn": "साइन इन",
     "signUp": "साइन अप",
     "profile": "प्रोफाइल",
-    "logout": "लॉगआउट"
+    "logout": "लॉगआउट",
+    "email": "ईमेल",
+    "password": "पासवर्ड",
+    "loginSuccessful": "लॉगिन सफल!",
+    "signUpSuccessful": "साइन अप सफल!"
+  },
+  "stats": {
+    "studentsGuided": "छात्रों का मार्गदर्शन",
+    "careerPaths": "करियर पथ",
+    "collegesListed": "कॉलेज सूचीबद्ध"
+  },
+  "weeklyProgress": {
+    "title": "साप्ताहिक प्रगति"
+  },
+  "quiz": {
+    "loader": {
+      "analyzing": "आपके उत्तरों का विश्लेषण...",
+      "matching": "करियर पथ मिलान...",
+      "preparing": "आपके परिणाम तैयार..."
+    }
   },
   
   "featuresDropdown": {
@@ -299,9 +318,26 @@
   "brock_ai_assistant": "Brock AI सहायक",
   "support_247": "24/7 सहायता",
 
-
-  
-  "Powerful Features": "शक्तिशाली सुविधाएँ",
+  "pricing": {
+    "basic_plan": "बेसिक प्लान",
+    "basic_plan_desc": "करियर मार्गदर्शन के साथ शुरुआत करने के लिए परफेक्ट",
+    "premium_plan": "प्रीमियम प्लान", 
+    "premium_plan_desc": "गंभीर करियर प्लानिंग के लिए उन्नत फीचर्स",
+    "elite_plan": "एलीट प्लान",
+    "elite_plan_desc": "पूर्ण AI-संचालित करियर परिवर्तन",
+    "no_pdf_downloads": "कोई PDF डाउनलोड नहीं",
+    "limited_ai_tokens": "सीमित AI टोकन (50/महीना)",
+    "limited_roadmap": "सीमित रोडमैप जनरेशन",
+    "resume_basic_score": "बेसिक रिज्यूम स्कोरिंग",
+    "unlimited_roadmaps": "असीमित AI रोडमैप्स",
+    "resume_skill_gap": "रिज्यूम स्किल गैप विश्लेषण",
+    "pdf_reports": "PDF रिपोर्ट्स और डाउनलोड्स",
+    "resume_full_report": "पूर्ण रिज्यूम ऑप्टिमाइजेशन रिपोर्ट",
+    "unlimited_ai_tokens": "असीमित AI टोकन",
+    "resume_optimization": "AI रिज्यूम ऑप्टिमाइजेशन",
+    "mock_interview": "AI मॉक इंटरव्यू",
+    "career_reports": "उन्नत करियर रिपोर्ट्स"
+  },
   "for Your Future": "आपके भविष्य के लिए",
   "Discover the tools and insights you need to make informed decisions about your career and education path.": "अपनी करियर और शिक्षा के रास्तों के बारे में सूचित निर्णय लेने के लिए आवश्यक उपकरण और जानकारी खोजें।",
   "3D Career Visualization": "3डी करियर विज़ुअलाइज़ेशन",
@@ -378,20 +414,101 @@
     "generate_first_roadmap": "अपना पहला रोडमैप बनाएं",
     "roadmap_description": "अपने लर्निंग पथ को विज़ुअलाइज़ करने और प्रगति को ट्रैक करने के लिए एआई-संचालित करियर रोडमैप बनाएं।",
     "generate_button": "अपना पहला रोडमैप बनाएं"
-  
+  },
+  "collegeMap": {
+    "back": "वापस",
+    "fees": "फीस",
+    "courses": "कोर्स",
+    "getDirections": "दिशा देखें",
+    "selectCollege": "विवरण देखने के लिए कॉलेज चुनें"
+  },
+  "activity": {
+    "title": "हाल की गतिविधि",
+    "viewAll": "सभी देखें",
+    "types": {
+      "recommendation": "सिफारिश",
+      "quiz": "क्विज़",
+      "progress": "प्रगति",
+      "login": "लॉगिन",
+      "profile_update": "प्रोफाइल अपडेट"
+    }
+  },
 
+ 
+  "payment": {
+    "title": "अपना नामांकन पूरा करें",
+    "method": "भुगतान का तरीका",
 
+    "card": "कार्ड",
+    "upi": "यूपीआई",
+    "net_banking": "नेट बैंकिंग",
 
-  }
+    "card_name": "कार्ड धारक का नाम",
+    "card_number": "कार्ड नंबर",
+    "expiry": "MM/YY",
+    "cvv": "सीवीवी",
+
+    "upi_placeholder": "UPI ID दर्ज करें (example@upi)",
+    "select_bank": "बैंक चुनें",
+
+    "coupon": "कूपन कोड दर्ज करें",
+    "apply": "लागू करें",
+
+    "coupon_50": "कूपन लागू 🎉 50% छूट",
+    "coupon_20": "कूपन लागू 🎉 20% छूट",
+    "invalid_coupon": "अमान्य कूपन कोड",
+
+    "processing": "भुगतान प्रोसेस हो रहा है...",
+    "pay_now": "भुगतान करें {{amount}}",
+
+    "fill_card": "कृपया कार्ड विवरण भरें",
+    "enter_upi": "कृपया UPI ID दर्ज करें",
+    "invalid_upi": "मान्य UPI ID दर्ज करें",
+    "select_bank_error": "कृपया बैंक चुनें",
+
+    "billing_monthly": "मासिक बिलिंग",
+    "details": "विवरण",
+
+    "plan_price": "प्लान मूल्य",
+    "coupon_discount": "कूपन छूट",
+    "tax": "कर (5%)",
+    "total": "कुल",
+
+    "monthly": "मासिक",
+    "quarterly": "त्रैमासिक",
+
+    "savings": "आपने {{amount}} बचाए 🎉",
+    
+  "basic_plan": "बेसिक प्लान",
+  "ai_career_chatbot": "एआई करियर चैटबॉट",
+  "basic_career_assessment": "बेसिक करियर मूल्यांकन",
+  "college_database_access": "कॉलेज डेटाबेस एक्सेस",
+  "email_support": "ईमेल सपोर्ट",
+
+  "premium_plan": "प्रीमियम प्लान",
+  "everything_in_basic": "बेसिक में सब कुछ",
+  "ai_roadmap_generator": "एआई रोडमैप जनरेटर",
+  "unlimited_roadmaps": "अनलिमिटेड रोडमैप्स",
+  "priority_support": "प्राथमिकता सपोर्ट",
+
+  "elite_plan": "एलीट प्लान",
+  "everything_in_premium": "प्रीमियम में सब कुछ",
+  "chatgpt_gemini_pro": "ChatGPT-5 और Gemini Pro",
+  "brock_ai_assistant": "ब्रॉक एआई असिस्टेंट",
+  "support_247": "24/7 सपोर्ट"
+},
+
+"paymentSuccess": {
+  "title": "भुगतान सफल 🎉",
+  "subtitle": "आपकी सदस्यता अब सक्रिय है।",
+  "transaction": "लेनदेन आईडी",
+  "plan": "प्लान",
+  "amount": "भुगतान की गई राशि",
+  "download": "इनवॉइस डाउनलोड करें",
+  "generating": "इनवॉइस बनाया जा रहा है...",
+  "dashboard": "डैशबोर्ड पर जाएं",
+  "invoice_error": "इनवॉइस डाउनलोड विफल हुआ। फिर से प्रयास करें।",
+  "preparing": "इनवॉइस तैयार हो रहा है...",
+"download_success": "इनवॉइस सफलतापूर्वक डाउनलोड हुआ 🎉"
 }
-
-
-
-
-
-
-
-
-
-
-
+  }

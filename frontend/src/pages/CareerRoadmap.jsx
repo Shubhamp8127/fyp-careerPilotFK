@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Code2,
@@ -18,6 +18,7 @@ import "../styles/CareerRoadmap.css";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
 import apiClient from "../services/apiClient";
+import { markFeatureUsed } from "../services/dashboardApi";
 
 const CareerRoadmap = () => {
   const [selected, setSelected] = useState("");
@@ -31,6 +32,12 @@ const CareerRoadmap = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    markFeatureUsed().catch((err) => {
+      console.error("Feature usage tracking failed:", err);
+    });
+  }, []);
 
   const careers = [
     { name: "Full-Stack Web Developer", icon: <Code2 size={20} /> },

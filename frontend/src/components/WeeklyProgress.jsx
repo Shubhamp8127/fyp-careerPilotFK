@@ -8,18 +8,21 @@ import {
   LineElement,
   Tooltip,
 } from "chart.js";
+import { useTranslation } from "react-i18next";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip);
 
 const WeeklyProgress = ({ data = [] }) => {
-  // Agar data empty hai, chart na dikhe ya "No data" dikhe
-  if (!data.length) return <div className="weekly-progress-card"><h3 className="card-title">Weekly Progress</h3><p style={{ color: "#94a3b8" }}>No data yet</p></div>;
+  const { t } = useTranslation();
+  const chartLabels = data.length ? data.map((d) => d.day) : ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const chartValues = data.length ? data.map((d) => d.value) : Array(7).fill(0);
+  const maxValue = Math.max(...chartValues, 3);
 
   const chartData = {
-    labels: data.map((d) => d.day),
+    labels: chartLabels,
     datasets: [
       {
-        data: data.map((d) => d.value),
+        data: chartValues,
         tension: 0.4,
         borderWidth: 3,
         borderColor: "#0ef",
@@ -44,13 +47,18 @@ const WeeklyProgress = ({ data = [] }) => {
     },
     scales: {
       x: { ticks: { color: "#94a3b8" }, grid: { display: false } },
-      y: { min: 0, max: 200, ticks: { stepSize: 50, color: "#94a3b8" }, grid: { color: "rgba(148,163,184,0.1)" } },
+      y: {
+        min: 0,
+        max: Math.ceil(maxValue / 5) * 5,
+        ticks: { stepSize: Math.ceil(Math.max(maxValue / 4, 1)), color: "#94a3b8" },
+        grid: { color: "rgba(148,163,184,0.1)" },
+      },
     },
   };
 
   return (
     <div className="weekly-progress-card">
-      <h3 className="card-title">Weekly Progress</h3>
+      <h3 className="card-title">{t("weeklyProgress.title")}</h3>
       <div className="chart-container">
         <Line data={chartData} options={options} />
       </div>

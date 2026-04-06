@@ -3,10 +3,17 @@ import { useNavigate } from "react-router-dom";
 import "../styles/careerQuizHub.css";
 import { Play, RefreshCw } from "lucide-react";
 import apiClient from "../services/apiClient";
+import { markFeatureUsed } from "../services/dashboardApi";
 
 const CareerQuizHub = () => {
   const navigate = useNavigate();
   const [quizHistory, setQuizHistory] = useState([]);
+
+  useEffect(() => {
+    markFeatureUsed().catch((err) => {
+      console.error("Feature usage tracking failed:", err);
+    });
+  }, []);
 
   useEffect(() => {
     let active = true;

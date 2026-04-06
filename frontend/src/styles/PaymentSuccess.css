@@ -199,3 +199,63 @@ padding:10px 16px;
 }
 
 }
+
+
+/* ======================
+DARK MODE
+====================== */
+
+body.dark .success-page{
+  background: linear-gradient(
+    180deg,
+    #020617 0%,
+    #0f172a 100%
+  );
+}
+
+body.dark .success-card{
+  background:#0F172A;
+  border:1px solid #1E293B;
+  box-shadow:0 8px 24px rgba(0,0,0,0.6);
+}
+
+/* TITLE */
+body.dark .success-card h1{
+  color:#F1F5F9;
+}
+
+/* SUBTEXT */
+body.dark .success-card p{
+  color:#94A3B8;
+}
+
+/* DETAILS BOX */
+body.dark .success-details{
+  background:#020617;
+  border:1px solid #1E293B;
+}
+
+body.dark .success-details p{
+  color:#E2E8F0;
+}
+
+/* DASHBOARD BUTTON */
+body.dark .dashboard-btn{
+  background:#020617;
+  border:1px solid #1E293B;
+  color:#E2E8F0;
+}
+
+body.dark .dashboard-btn:hover{
+  background:#1E293B;
+}
+
+/* INVOICE BUTTON (thoda glow effect) */
+body.dark .invoice-btn{
+  background:#2563EB;
+  box-shadow:0 4px 16px rgba(37,99,235,0.4);
+}
+
+body.dark .invoice-btn:hover{
+  background:#1D4ED8;
+}

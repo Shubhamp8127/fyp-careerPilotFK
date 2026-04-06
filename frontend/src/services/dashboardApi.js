@@ -14,3 +14,8 @@ export async function logDashboardActivity(message, type = "info") {
   const response = await apiClient.post("/api/dashboard/activity", { message, type });
   return response.data;
 }
+
+export async function markFeatureUsed() {
+  const response = await apiClient.post("/api/dashboard/feature-used");
+  return response.data;
+}

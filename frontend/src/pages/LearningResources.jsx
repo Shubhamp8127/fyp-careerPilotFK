@@ -15,6 +15,8 @@ import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import "../styles/LearningResources.css";
 import Footer from "../components/Footer";
+import apiClient from "../services/apiClient";
+import { markFeatureUsed } from "../services/dashboardApi";
 
 /* ================= DATA ================= */
 /* ✅ KEEPING YOUR SAME DATA — NOT REPEATING HERE FOR LENGTH */
@@ -331,7 +333,15 @@ const learningResources = [
 
   /* ================= CLICK HANDLER ================= */
 
-  const handleAccess = (resource) => {
+  const handleAccess = async (resource) => {
+    try {
+      // Increment learning resources accessed count
+      await apiClient.post("/api/dashboard/increment-learning-resources");
+    } catch (error) {
+      console.error("Failed to increment learning resources count:", error);
+      // Continue with opening the resource even if API call fails
+    }
+
     if (resource.link.includes("youtu")) {
       const id = resource.link.split("youtu.be/")[1]?.split("?")[0];
       setActiveVideo(id);

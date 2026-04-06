@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { auth } from "../firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { useTranslation } from "react-i18next";
 
 const AuthForm = () => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLogin, setIsLogin] = useState(true);
@@ -12,10 +14,10 @@ const AuthForm = () => {
     try {
       if (isLogin) {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        alert("Login Successful! " + userCredential.user.email);
+        alert(t("auth.loginSuccessful") + " " + userCredential.user.email);
       } else {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        alert("Sign Up Successful! " + userCredential.user.email);
+        alert(t("auth.signUpSuccessful") + " " + userCredential.user.email);
       }
       setEmail("");
       setPassword("");
@@ -26,11 +28,11 @@ const AuthForm = () => {
 
   return (
     <div style={{ maxWidth: "400px", margin: "auto", padding: "20px" }}>
-      <h2>{isLogin ? "Sign In" : "Sign Up"}</h2>
+      <h2>{isLogin ? t("auth.signIn") : t("auth.signUp")}</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="email"
-          placeholder="Email"
+          placeholder={t("auth.email")}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -38,14 +40,14 @@ const AuthForm = () => {
         />
         <input
           type="password"
-          placeholder="Password"
+          placeholder={t("auth.password")}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
           style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
         />
         <button type="submit" style={{ width: "100%", padding: "10px" }}>
-          {isLogin ? "Sign In" : "Sign Up"}
+          {isLogin ? t("auth.signIn") : t("auth.signUp")}
         </button>
       </form>
       <p style={{ marginTop: "10px", textAlign: "center" }}>

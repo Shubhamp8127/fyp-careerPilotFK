@@ -3,18 +3,17 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { CheckCircle, Download,PartyPopper } from "lucide-react";
 import jsPDF from "jspdf";
 import "../styles/PaymentSuccess.css";
+import { useTranslation } from "react-i18next";
 
-
-
-import { logDashboardActivity } from "../services/dashboardApi";
 
 export default function PaymentSuccess() {
-
+const { t } = useTranslation(); // ✅ yaha hona chahiye
 const location = useLocation();
 const navigate = useNavigate();
 const [downloading,setDownloading] = useState(false);
 const formatCurrency = (amount) => {
   const value = Number(amount || 0).toFixed(2);
+
 
 
   if (currency === "INR") {
@@ -32,36 +31,25 @@ useEffect(()=>{
 
 const activatePlan = async () => {
 
-try {
-  const response = await fetch("http://localhost:5000/api/auth/update-plan", {
-    method:"POST",
-    headers:{
-      "Content-Type":"application/json",
-      "Authorization":`Bearer ${token}`
-    },
-    body: JSON.stringify({
-      userId: user?.id,
-      plan,
-      billingCycle
-    })
-  });
-} catch(err) {
-  console.log("Mock API update-plan failed (expected):", err);
-}
+try{
 
-// Unconditionally update localstorage since API is static
-if (user && plan) {
-  user.plan = plan;
-  localStorage.setItem("user", JSON.stringify(user));
-}
+await fetch("http://localhost:5000/api/auth/update-plan",{
+method:"POST",
+headers:{
+"Content-Type":"application/json",
+"Authorization":`Bearer ${token}`
+},
+body: JSON.stringify({
+userId:user?.id,
+plan,
+billingCycle
+})
+});
 
-try {
-  // Try to log this to the backend recent activities table
-  await logDashboardActivity(`${plan} Subscription plan Purchased successfully`, "Purchase");
-  console.log("Activity logged successfully via dashboardApi!");
-  window.dispatchEvent(new Event("activity-updated"));
-} catch(err) {
-  console.error("Failed to fetch activity endpoint:", err);
+
+
+}catch(err){
+console.log(err);
 }
 
 };
@@ -69,25 +57,6 @@ try {
 activatePlan();
 
 },[]);
-
-const sendInvoiceEmail = async (pdfPath, invoiceNumber) => {
-  try {
-    await fetch("http://localhost:5000/api/send-invoice", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        toEmail: email,       // from location.state
-        name,                 // from location.state
-        pdfPath,              // PDF file path
-        invoiceNumber,        // dynamic invoice number
-      }),
-    });
-    alert("Invoice emailed successfully!");
-  } catch (err) {
-    console.error(err);
-    alert("Failed to send invoice email.");
-  }
-};
 
 
 const downloadInvoice = () => {
@@ -195,7 +164,7 @@ doc.text(`${currencySymbol} ${basePrice.toFixed(2)}`,185,137,null,null,"right");
 doc.setTextColor(0,0,0);
 
 doc.rect(120,140,70,10);
-doc.text("Tax (GST 5%)",125,147);
+doc.text("Tax (GST 18%)",125,147);
 doc.text(`${currencySymbol} ${taxAmount.toFixed(2)}`,185,147,null,null,"right");
 
 doc.rect(120,150,70,10);
@@ -211,12 +180,11 @@ doc.text(`${currencySymbol} ${finalTotal.toFixed(2)}`,185,170,null,null,"right")
 doc.addImage(footerImg,"JPEG",0,270,210,30);
 
 doc.save(`CareerPilot-Invoice-${invoiceNumber}.pdf`);
-sendInvoiceEmail(`CareerPilot-Invoice-${invoiceNumber}.pdf`, invoiceNumber);
 
 } catch (err) {
 
 console.error(err);
-alert("Invoice download failed. Try again.");
+alert(t("paymentSuccess.invoice_error"));
 
 }
 
@@ -235,15 +203,15 @@ return (
 <CheckCircle size={40}/>
 </div>
 
-<h1>Payment Successful 🎉</h1>
+<h1>{t("paymentSuccess.title")}</h1>
 
-<p>Your subscription is now active.</p>
+<p>{t("paymentSuccess.subtitle")}</p>
 
 <div className="success-details">
 
-<p><strong>Transaction ID:</strong> {transactionId}</p>
-<p><strong>Plan:</strong> {plan}</p>
-<p><strong>Amount Paid:</strong> {formatCurrency(total)}</p>
+<p><strong>{t("paymentSuccess.transaction")}:</strong> {transactionId}</p>
+<p><strong>{t("paymentSuccess.plan")}:</strong> {plan}</p>
+<p><strong>{t("paymentSuccess.amount")}:</strong> {formatCurrency(total)}</p>
 
 </div>
 
@@ -255,11 +223,11 @@ onClick={downloadInvoice}
 disabled={downloading}
 >
 {downloading ? (
-  "Generating Invoice..."
+  t("paymentSuccess.generating")
 ) : (
   <>
     <Download size={16}/>
-    Download Invoice
+    {t("paymentSuccess.download")}
   </>
 )}
 </button>
@@ -268,7 +236,7 @@ disabled={downloading}
 className="dashboard-btn"
 onClick={()=>navigate("/dashboard")}
 >
-Go to Dashboard
+{t("paymentSuccess.dashboard")}
 </button>
 
 </div>

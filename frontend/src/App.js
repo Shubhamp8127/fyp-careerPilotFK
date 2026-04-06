@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 
 /* 🔥 TOAST */
 import { Toaster } from "react-hot-toast";
+import "leaflet/dist/leaflet.css";
 
 /* COMPONENTS */
 import Navbar from "./components/Navbar";
@@ -35,7 +36,7 @@ import CareerRoadmap from "./pages/CareerRoadmap";
 import CareerRoadmapResult from "./pages/CareerRoadmapResult";
 import PaymentPage from "./pages/PaymentPage";
 import PaymentSuccess from "./pages/PaymentSuccess";
-
+import CollegeMapPage from "./pages/CollegeMapPage";
 /* 🔐 FORGOT PASSWORD PAGES (ADDED ONLY) */
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
@@ -46,11 +47,10 @@ import CareerQuizPage from "./pages/CareerQuizPage";
 
 /* HOOKS */
 import useScrollToTop from "./hooks/useScrollToTop";
-import apiClient, {
-  getStoredUser,
-  storeSession,
-  getAccessToken,
-} from "./services/apiClient";
+import apiClient, { getAccessToken, storeSession, getStoredUser } from "./services/apiClient";
+
+/* THEME CONTEXT */
+import { ThemeProvider } from "./contexts/ThemeContext";
 
 function AppContent() {
   const location = useLocation();
@@ -176,7 +176,7 @@ function AppContent() {
         <Route path="/ai-roadmap/result" element={<CareerRoadmapResult />} />
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/payment-success" element={<PaymentSuccess />} />
-
+        <Route path="/college/:id" element={<CollegeMapPage />} />
       </Routes>
     </>
   );
@@ -185,7 +185,9 @@ function AppContent() {
 function App() {
   return (
     <Router>
-      <AppContent />
+      <ThemeProvider>
+        <AppContent />
+      </ThemeProvider>
     </Router>
   );
 }
